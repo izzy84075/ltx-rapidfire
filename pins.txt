@@ -1,0 +1,9 @@
+PIC		Zilog			Function/notes
+1		1				VDD(+)
+2		3				INHIBIT, PA1, output
+3		7				TXD, PA5, output
+4		6				RXD, PA4, input
+5		4				38kHz, PA2, !RESET, T1OUT, output
+6		5				LAZERMOD, PA3, input
+7		2				RELOAD, PA0, DBG, input, external 10k pullup
+8		8				VSS(-)

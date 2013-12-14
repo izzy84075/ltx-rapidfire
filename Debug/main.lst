@@ -1,0 +1,2246 @@
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:   1
+
+
+PC     Object              I  Line    Source 
+                           A     1    ; Zilog Z8 Encore! ANSI C Compiler Release 3.62
+                           A     2    ; -nolocalcse -optsize -fastcall -const=RAM -mo
+                           A     3    ; -nooptlink -regvar -reduceopt -debug -norevaa
+                           A     4    ; -alias 
+                           A     5    	DEFINE main_TEXT,SPACE=ROM
+                           A     6    	FILE	"..\..\LTX-RA~1\MAIN.C"
+                           A     7    .debug "C"
+                           A     8    	SEGMENT FAR_BSS
+000000                     A     9    _captureBuffer:
+000000                     A    10    	DS	19
+                           A    11    .define "captureBuffer"
+                           A    12    .alias "_captureBuffer"
+                           A    13    .class 83
+                           A    14    .value _captureBuffer
+                           A    15    .tag "ser_rx"
+                           A    16    .type 8
+                           A    17    .type 0
+                           A    18    .endef
+                           A    19    	SEGMENT main_TEXT
+                           A    20    .begrec "ser_rx",19
+                           A    21    .define "hasrxed"
+                           A    22    .value 0
+                           A    23    .class 8
+                           A    24    .type 12
+                           A    25    .type 0
+                           A    26    .endef
+                           A    27    .define "buffer"
+                           A    28    .value 1
+                           A    29    .class 8
+                           A    30    .dim 16
+                           A    31    .type 108
+                           A    32    .type 0
+                           A    33    .endef
+                           A    34    .define "size"
+                           A    35    .value 17
+                           A    36    .class 8
+                           A    37    .type 12
+                           A    38    .type 0
+                           A    39    .endef
+                           A    40    .define "checksum"
+                           A    41    .value 18
+                           A    42    .class 8
+                           A    43    .type 12
+                           A    44    .type 0
+                           A    45    .endef
+                           A    46    .endrec "ser_rx"
+                           A    47    	SEGMENT FAR_BSS
+000013                     A    48    _ser_rx_eob_counter:
+000013                     A    49    	DS	1
+                           A    50    .define "ser_rx_eob_counter"
+                           A    51    .alias "_ser_rx_eob_counter"
+                           A    52    .class 83
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:   2
+
+
+PC     Object              I  Line    Source main.src
+                           A    53    .value _ser_rx_eob_counter
+                           A    54    .type 12
+                           A    55    .type 0
+                           A    56    .endef
+000014                     A    57    _ser_tx_buffer:
+000014                     A    58    	DS	16
+                           A    59    .define "ser_tx_buffer"
+                           A    60    .alias "_ser_tx_buffer"
+                           A    61    .class 83
+                           A    62    .value _ser_tx_buffer
+                           A    63    .dim 16
+                           A    64    .type 108
+                           A    65    .type 0
+                           A    66    .endef
+000024                     A    67    _ser_tx_size:
+000024                     A    68    	DS	1
+                           A    69    .define "ser_tx_size"
+                           A    70    .alias "_ser_tx_size"
+                           A    71    .class 83
+                           A    72    .value _ser_tx_size
+                           A    73    .type 12
+                           A    74    .type 0
+                           A    75    .endef
+000025                     A    76    _ser_tx_cooldown:
+000025                     A    77    	DS	1
+                           A    78    .define "ser_tx_cooldown"
+                           A    79    .alias "_ser_tx_cooldown"
+                           A    80    .class 83
+                           A    81    .value _ser_tx_cooldown
+                           A    82    .type 12
+                           A    83    .type 0
+                           A    84    .endef
+000026                     A    85    _ser_tx_currentbyte:
+000026                     A    86    	DS	1
+                           A    87    .define "ser_tx_currentbyte"
+                           A    88    .alias "_ser_tx_currentbyte"
+                           A    89    .class 83
+                           A    90    .value _ser_tx_currentbyte
+                           A    91    .type 12
+                           A    92    .type 0
+                           A    93    .endef
+000027                     A    94    _ir_rx_counter:
+000027                     A    95    	DS	1
+                           A    96    .define "ir_rx_counter"
+                           A    97    .alias "_ir_rx_counter"
+                           A    98    .class 83
+                           A    99    .value _ir_rx_counter
+                           A   100    .type 12
+                           A   101    .type 0
+                           A   102    .endef
+000028                     A   103    _ir_rx_bits:
+000028                     A   104    	DS	1
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:   3
+
+
+PC     Object              I  Line    Source main.src
+                           A   105    .define "ir_rx_bits"
+                           A   106    .alias "_ir_rx_bits"
+                           A   107    .class 83
+                           A   108    .value _ir_rx_bits
+                           A   109    .type 12
+                           A   110    .type 0
+                           A   111    .endef
+000029                     A   112    _ir_loaded_tags:
+000029                     A   113    	DS	1
+                           A   114    .define "ir_loaded_tags"
+                           A   115    .alias "_ir_loaded_tags"
+                           A   116    .class 83
+                           A   117    .value _ir_loaded_tags
+                           A   118    .type 12
+                           A   119    .type 0
+                           A   120    .endef
+00002A                     A   121    _btn_counter:
+00002A                     A   122    	DS	1
+                           A   123    .define "btn_counter"
+                           A   124    .alias "_btn_counter"
+                           A   125    .class 83
+                           A   126    .value _btn_counter
+                           A   127    .type 12
+                           A   128    .type 0
+                           A   129    .endef
+00002B                     A   130    _btn_prelim:
+00002B                     A   131    	DS	1
+                           A   132    .define "btn_prelim"
+                           A   133    .alias "_btn_prelim"
+                           A   134    .class 83
+                           A   135    .value _btn_prelim
+                           A   136    .type 12
+                           A   137    .type 0
+                           A   138    .endef
+00002C                     A   139    _btn_pressed:
+00002C                     A   140    	DS	1
+                           A   141    .define "btn_pressed"
+                           A   142    .alias "_btn_pressed"
+                           A   143    .class 83
+                           A   144    .value _btn_pressed
+                           A   145    .type 12
+                           A   146    .type 0
+                           A   147    .endef
+00002D                     A   148    _tempIO:
+00002D                     A   149    	DS	1
+                           A   150    .define "tempIO"
+                           A   151    .alias "_tempIO"
+                           A   152    .class 83
+                           A   153    .value _tempIO
+                           A   154    .type 12
+                           A   155    .type 0
+                           A   156    .endef
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:   4
+
+
+PC     Object              I  Line    Source main.src
+00002E                     A   157    _lastIO:
+00002E                     A   158    	DS	1
+                           A   159    .define "lastIO"
+                           A   160    .alias "_lastIO"
+                           A   161    .class 83
+                           A   162    .value _lastIO
+                           A   163    .type 12
+                           A   164    .type 0
+                           A   165    .endef
+00002F                     A   166    _temp_tx_buffer:
+00002F                     A   167    	DS	16
+                           A   168    .define "temp_tx_buffer"
+                           A   169    .alias "_temp_tx_buffer"
+                           A   170    .class 83
+                           A   171    .value _temp_tx_buffer
+                           A   172    .dim 16
+                           A   173    .type 108
+                           A   174    .type 0
+                           A   175    .endef
+00003F                     A   176    _temp_tx_size:
+00003F                     A   177    	DS	1
+                           A   178    .define "temp_tx_size"
+                           A   179    .alias "_temp_tx_size"
+                           A   180    .class 83
+                           A   181    .value _temp_tx_size
+                           A   182    .type 12
+                           A   183    .type 0
+                           A   184    .endef
+000040                     A   185    _sendBarrelReply:
+000040                     A   186    	DS	1
+                           A   187    .define "sendBarrelReply"
+                           A   188    .alias "_sendBarrelReply"
+                           A   189    .class 83
+                           A   190    .value _sendBarrelReply
+                           A   191    .type 12
+                           A   192    .type 0
+                           A   193    .endef
+000041                     A   194    _sendLoadSpecial:
+000041                     A   195    	DS	1
+                           A   196    .define "sendLoadSpecial"
+                           A   197    .alias "_sendLoadSpecial"
+                           A   198    .class 83
+                           A   199    .value _sendLoadSpecial
+                           A   200    .type 12
+                           A   201    .type 0
+                           A   202    .endef
+000042                     A   203    _sendArmSpecial:
+000042                     A   204    	DS	1
+                           A   205    .define "sendArmSpecial"
+                           A   206    .alias "_sendArmSpecial"
+                           A   207    .class 83
+                           A   208    .value _sendArmSpecial
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:   5
+
+
+PC     Object              I  Line    Source main.src
+                           A   209    .type 12
+                           A   210    .type 0
+                           A   211    .endef
+000043                     A   212    _weAreRegistered:
+000043                     A   213    	DS	1
+                           A   214    .define "weAreRegistered"
+                           A   215    .alias "_weAreRegistered"
+                           A   216    .class 83
+                           A   217    .value _weAreRegistered
+                           A   218    .type 12
+                           A   219    .type 0
+                           A   220    .endef
+000044                     A   221    _weAreReloading:
+000044                     A   222    	DS	1
+                           A   223    .define "weAreReloading"
+                           A   224    .alias "_weAreReloading"
+                           A   225    .class 83
+                           A   226    .value _weAreReloading
+                           A   227    .type 12
+                           A   228    .type 0
+                           A   229    .endef
+000045                     A   230    _reloadCooldown:
+000045                     A   231    	DS	2*1
+                           A   232    .define "reloadCooldown"
+                           A   233    .alias "_reloadCooldown"
+                           A   234    .class 83
+                           A   235    .value _reloadCooldown
+                           A   236    .type 13
+                           A   237    .type 0
+                           A   238    .endef
+                           A   239    	SEGMENT ROM_DATA
+                           A   240    
+                           A   241    
+                           A   242    ;**************************** _isr_uartrx *****
+                           A   243    ;Name                         Addr/Register   S
+                           A   244    ;_ser_rx_eob_counter                 STATIC    
+                           A   245    ;_captureBuffer                      STATIC    
+                           A   246    ;temp                                    R0    
+                           A   247    
+                           A   248    
+                           A   249    ; Aggregate Stack Size: 0 (words)
+                           A   250    
+                           A   251    
+                           A   252    	.FRAME _n_isr_uartrx,?_n_isr_uartrx,RDATA
+                           A   253    	.FRAME _f_isr_uartrx,?_f_isr_uartrx,EDATA
+                           A   254    	SEGMENT main_TEXT
+000000                     A   255    _isr_uartrx:
+                           A   256    .define "_isr_uartrx"
+                           A   257    .value _isr_uartrx
+                           A   258    .class 2
+                           A   259    .type 65
+                           A   260    .type 0
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:   6
+
+
+PC     Object              I  Line    Source main.src
+                           A   261    .endef
+                           A   262    .begfunc "isr_uartrx",63,"_isr_uartrx"
+                           A   263    ;    1	#include <ez8.h>
+                           A   264    ;    2	
+                           A   265    ;    3	#define WEAPONTYPE 1		/* 	1: Mach
+                           A   266    ;    4									2: Snip
+                           A   267    ;    5								*/
+                           A   268    ;    6	
+                           A   269    ;    7	#if WEAPONTYPE==1
+                           A   270    ;    8		//Machinegun
+                           A   271    ;    9		#define DOUBLETAPS 0
+                           A   272    ;   10		#define AMMO 15
+                           A   273    ;   11		#define BURSTSIZE 15
+                           A   274    ;   12		#define REFIRERATE 16
+                           A   275    ;   13		#define LOADSFX 14
+                           A   276    ;   14		#define FIRESFX 11
+                           A   277    ;   15	#endif
+                           A   278    ;   16	
+                           A   279    ;   17	#if WEAPONTYPE==2
+                           A   280    ;   18		//Sniper
+                           A   281    ;   19		#define DOUBLETAPS 1
+                           A   282    ;   20		#define AMMO 15
+                           A   283    ;   21		#define BURSTSIZE 5
+                           A   284    ;   22		#define REFIRERATE 16
+                           A   285    ;   23		#define LOADSFX 14
+                           A   286    ;   24		#define FIRESFX 13
+                           A   287    ;   25	#endif
+                           A   288    ;   26	
+                           A   289    ;   27	struct ser_rx {
+                           A   290    ;   28		volatile unsigned char hasrxed;
+                           A   291    ;   29		volatile unsigned char buffer[16];
+                           A   292    ;   30		volatile unsigned char size;
+                           A   293    ;   31		volatile unsigned char checksum;
+                           A   294    ;   32	} captureBuffer;
+                           A   295    ;   33	
+                           A   296    ;   34	volatile unsigned char ser_rx_eob_count
+                           A   297    ;   35	
+                           A   298    ;   36	volatile unsigned char ser_tx_buffer[16
+                           A   299    ;   37	volatile unsigned char ser_tx_size;
+                           A   300    ;   38	volatile unsigned char ser_tx_cooldown;
+                           A   301    ;   39	volatile unsigned char ser_tx_currentby
+                           A   302    ;   40	
+                           A   303    ;   41	volatile unsigned char ir_rx_counter;
+                           A   304    ;   42	volatile unsigned char ir_rx_bits;
+                           A   305    ;   43	volatile unsigned char ir_loaded_tags;
+                           A   306    ;   44	
+                           A   307    ;   45	volatile unsigned char btn_counter;
+                           A   308    ;   46	volatile unsigned char btn_prelim;
+                           A   309    ;   47	volatile unsigned char btn_pressed;
+                           A   310    ;   48	
+                           A   311    ;   49	volatile unsigned char tempIO;
+                           A   312    ;   50	volatile unsigned char lastIO;
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:   7
+
+
+PC     Object              I  Line    Source main.src
+                           A   313    ;   51	
+                           A   314    ;   52	volatile unsigned char temp_tx_buffer[1
+                           A   315    ;   53	volatile unsigned char temp_tx_size;
+                           A   316    ;   54	
+                           A   317    ;   55	volatile unsigned char sendBarrelReply;
+                           A   318    ;   56	volatile unsigned char sendLoadSpecial;
+                           A   319    ;   57	volatile unsigned char sendArmSpecial;
+                           A   320    ;   58	volatile unsigned char weAreRegistered;
+                           A   321    ;   59	volatile unsigned char weAreReloading;
+                           A   322    ;   60	
+                           A   323    ;   61	volatile unsigned int reloadCooldown;
+                           A   324    ;   62	
+                           A   325    ;   63	void interrupt isr_uartrx(void) {
+                           A   326    .define "temp"
+                           A   327    .class 4
+                           A   328    .reg 1
+                           A   329    .type 12
+                           A   330    .type 0
+                           A   331    .endef
+000000 C8FFD0              A   332    	PUSHX	4093
+000003 D6 0000             A   333    	CALL	__b_iframeset00
+                           A   334    ;   64		unsigned char temp;
+                           A   335    ;   65		
+                           A   336    ;   66		temp = U0RXD;
+                           A   337    .line 66
+000006 840F40              A   338    	LDX	R0,3904
+                           A   339    ;   67		//Byte received
+                           A   340    ;   68		if((U0STAT0 & 0x78) == 0x78) {
+                           A   341    .line 68
+000009 841F41              A   342    	LDX	R1,3905
+00000C 56E178              A   343    	AND	R1,#120
+00000F E4E1E2              A   344    	LD	R2,R1
+000012 A6E178              A   345    	CP	R1,#120
+000015 6B 2C               A   346    	JR	Z,_1_L_5
+                           A   347    ;   69			//Error. Do nothing.
+                           A   348    ;   70			return;
+                           A   349    .line 70
+                           A   350    ;   71		} else {
+                           A   351    .line 71
+                           A   352    ;   72			//If the interrupt was because 
+                           A   353    ;   73			if(!(captureBuffer.size & 0x80)
+                           A   354    .line 73
+000017 79800011            A   355    	TMX	_captureBuffer+17,#128
+00001B EB 22               A   356    	JR	NE,_1_L_4
+                           A   357    ;   74				//If we're not waiting for 
+                           A   358    ;   75				captureBuffer.buffer[captur
+                           A   359    .line 75
+00001D 841011              A   360    	LDX	R1,_captureBuffer+17
+000020 E4E1E2              A   361    	LD	R2,R1
+000023 2C 00               A   362    	LD	R2,#high(_captureBuffer+1)
+000025 3C 01               A   363    	LD	R3,#low(_captureBuffer+1)
+000027 0231                A   364    	ADD	R3,R1
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:   8
+
+
+PC     Object              I  Line    Source main.src
+000029 16E200              A   365    	ADC	R2,#0
+00002C 96E0E2              A   366    	LDX	@RR2,R0
+00002F 09010011            A   367    	ADDX	_captureBuffer+17,#1
+                           A   368    ;   76				captureBuffer.checksum -= t
+                           A   369    .line 76
+000033 28EE0012            A   370    	SUBX	_captureBuffer+18,R0
+                           A   371    ;   77				//captureBuffer[captureBuff
+                           A   372    ;   78				ser_rx_eob_counter = 0;
+                           A   373    .line 78
+000037 E9000013            A   374    	LDX	_ser_rx_eob_counter,#-0
+                           A   375    ;   79				captureBuffer.hasrxed = 1;
+                           A   376    .line 79
+00003B E9010000            A   377    	LDX	_captureBuffer,#1
+                           A   378    ;   80			}
+                           A   379    ;   81		}
+00003F                     A   380    _1_L_4:
+                           A   381    .line 81
+                           A   382    ;   82		//Clear the interrupt bit
+                           A   383    ;   83		IRQ0 &= 0xEF;
+                           A   384    .line 83
+00003F 59EF0FC0            A   385    	ANDX	4032,#239
+                           A   386    ;   84	}
+000043                     A   387    _1_L_5:
+                           A   388    .line 84
+000043 D6 0000             A   389    	CALL	__b_iframereset
+000046 BF                  A   390    	IRET	
+                           A   391    .endfunc "isr_uartrx",84,"_isr_uartrx"
+                           A   392    	SEGMENT ROM_DATA
+                           A   393    
+                           A   394    
+                           A   395    ;**************************** _isr_uarttx *****
+                           A   396    ;Name                         Addr/Register   S
+                           A   397    ;_ser_tx_buffer                      STATIC    
+                           A   398    ;_ser_tx_currentbyte                 STATIC    
+                           A   399    ;_ser_tx_cooldown                    STATIC    
+                           A   400    ;_ser_tx_size                        STATIC    
+                           A   401    
+                           A   402    
+                           A   403    ; Aggregate Stack Size: 0 (words)
+                           A   404    
+                           A   405    
+                           A   406    	.FRAME _n_isr_uarttx,?_n_isr_uarttx,RDATA
+                           A   407    	.FRAME _f_isr_uarttx,?_f_isr_uarttx,EDATA
+                           A   408    	SEGMENT main_TEXT
+000047                     A   409    _isr_uarttx:
+                           A   410    .define "_isr_uarttx"
+                           A   411    .value _isr_uarttx
+                           A   412    .class 2
+                           A   413    .type 65
+                           A   414    .type 0
+                           A   415    .endef
+                           A   416    .begfunc "isr_uarttx",86,"_isr_uarttx"
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:   9
+
+
+PC     Object              I  Line    Source main.src
+000047 C8FFD0              A   417    	PUSHX	4093
+00004A D6 0000             A   418    	CALL	__b_iframeset00
+                           A   419    ;   85	
+                           A   420    ;   86	void interrupt isr_uarttx(void) {
+                           A   421    ;   87		//Ready to transmit a byte
+                           A   422    ;   88		if(ser_tx_size && !ser_tx_cooldown)
+                           A   423    .line 88
+00004D A9000024            A   424    	CPX	_ser_tx_size,#-0
+000051 6B 33               A   425    	JR	Z,_2_L_11
+000053 A9000025            A   426    	CPX	_ser_tx_cooldown,#-0
+000057 EB 2D               A   427    	JR	NE,_2_L_11
+                           A   428    ;   89	        //If there's something in the t
+                           A   429    ;   90			if(ser_tx_currentbyte == ser_tx
+                           A   430    .line 90
+000059 A8 024026           A   431    	CPX	_ser_tx_currentbyte,_ser_tx_size
+00005D EB 0E               A   432    	JR	NE,_2_L_9
+                           A   433    ;   91				//That was the last byte th
+                           A   434    ;   92				ser_tx_currentbyte = 0;
+                           A   435    .line 92
+00005F E9000026            A   436    	LDX	_ser_tx_currentbyte,#-0
+                           A   437    ;   93				ser_tx_size = 0;
+                           A   438    .line 93
+000063 E9000024            A   439    	LDX	_ser_tx_size,#-0
+                           A   440    ;   94				ser_tx_cooldown = 116; //Si
+                           A   441    .line 94
+000067 E9740025            A   442    	LDX	_ser_tx_cooldown,#116
+                           A   443    ;   95										//,
+                           A   444    ;   96										//,
+                           A   445    ;   97										//T
+                           A   446    ;   98										//T
+                           A   447    ;   99			} else {
+                           A   448    .line 99
+00006B 8B 19               A   449    	JR	_2_L_11
+00006D                     A   450    _2_L_9:
+                           A   451    ;  100				//There's still bytes to se
+                           A   452    ;  101				U0TXD = ser_tx_buffer[ser_t
+                           A   453    .line 101
+00006D 842026              A   454    	LDX	R2,_ser_tx_currentbyte
+000070 0C 00               A   455    	LD	R0,#high(_ser_tx_buffer)
+000072 1C 14               A   456    	LD	R1,#low(_ser_tx_buffer)
+000074 0212                A   457    	ADD	R1,R2
+000076 16E000              A   458    	ADC	R0,#0
+000079 86E0E2              A   459    	LDX	R2,@RR0
+00007C 942F40              A   460    	LDX	3904,R2
+                           A   461    ;  102				ser_tx_currentbyte++;
+                           A   462    .line 102
+00007F 840026              A   463    	LDX	R0,_ser_tx_currentbyte
+000082 09010026            A   464    	ADDX	_ser_tx_currentbyte,#1
+                           A   465    ;  103			}
+                           A   466    ;  104		}
+000086                     A   467    _2_L_11:
+                           A   468    .line 104
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  10
+
+
+PC     Object              I  Line    Source main.src
+                           A   469    ;  105		//Clear the interrupt bit.
+                           A   470    ;  106		IRQ0 &= 0xF7;
+                           A   471    .line 106
+000086 59F70FC0            A   472    	ANDX	4032,#247
+                           A   473    ;  107	}
+                           A   474    .line 107
+00008A D6 0000             A   475    	CALL	__b_iframereset
+00008D BF                  A   476    	IRET	
+                           A   477    .endfunc "isr_uarttx",107,"_isr_uarttx"
+                           A   478    	SEGMENT ROM_DATA
+                           A   479    
+                           A   480    
+                           A   481    ;**************************** _isr_timer0 *****
+                           A   482    ;Name                         Addr/Register   S
+                           A   483    ;_ir_loaded_tags                     STATIC    
+                           A   484    ;_ir_rx_counter                      STATIC    
+                           A   485    ;_ir_rx_bits                         STATIC    
+                           A   486    ;_btn_pressed                        STATIC    
+                           A   487    ;_btn_prelim                         STATIC    
+                           A   488    ;_btn_counter                        STATIC    
+                           A   489    ;_captureBuffer                      STATIC    
+                           A   490    ;_reloadCooldown                     STATIC    
+                           A   491    ;_ser_tx_cooldown                    STATIC    
+                           A   492    ;_ser_rx_eob_counter                 STATIC    
+                           A   493    ;_lastIO                             STATIC    
+                           A   494    ;_tempIO                             STATIC    
+                           A   495    
+                           A   496    
+                           A   497    ; Aggregate Stack Size: 0 (words)
+                           A   498    
+                           A   499    
+                           A   500    	.FRAME _n_isr_timer0,?_n_isr_timer0,RDATA
+                           A   501    	.FRAME _f_isr_timer0,?_f_isr_timer0,EDATA
+                           A   502    	SEGMENT main_TEXT
+00008E                     A   503    _isr_timer0:
+                           A   504    .define "_isr_timer0"
+                           A   505    .value _isr_timer0
+                           A   506    .class 2
+                           A   507    .type 65
+                           A   508    .type 0
+                           A   509    .endef
+                           A   510    .begfunc "isr_timer0",109,"_isr_timer0"
+00008E C8FFD0              A   511    	PUSHX	4093
+000091 D6 0000             A   512    	CALL	__b_iframeset00
+                           A   513    ;  108	
+                           A   514    ;  109	void interrupt isr_timer0(void) {
+                           A   515    ;  110		//4KHz interrupt.
+                           A   516    ;  111		
+                           A   517    ;  112		lastIO = tempIO;
+                           A   518    .line 112
+000094 E8 02D02E           A   519    	LDX	_lastIO,_tempIO
+                           A   520    ;  113		tempIO = PAIN;
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  11
+
+
+PC     Object              I  Line    Source main.src
+                           A   521    .line 113
+000098 E8FD202D            A   522    	LDX	_tempIO,4050
+                           A   523    ;  114		
+                           A   524    ;  115		//Various 1/8ms timers
+                           A   525    ;  116		ser_rx_eob_counter += 1;
+                           A   526    .line 116
+00009C 09010013            A   527    	ADDX	_ser_rx_eob_counter,#1
+                           A   528    ;  117		if(ser_tx_cooldown) {
+                           A   529    .line 117
+0000A0 A9000025            A   530    	CPX	_ser_tx_cooldown,#-0
+0000A4 6B 04               A   531    	JR	Z,_3_L_15
+                           A   532    ;  118			ser_tx_cooldown -= 1;
+                           A   533    .line 118
+0000A6 29010025            A   534    	SUBX	_ser_tx_cooldown,#1
+                           A   535    ;  119		}
+0000AA                     A   536    _3_L_15:
+                           A   537    .line 119
+                           A   538    ;  120		if(reloadCooldown) {
+                           A   539    .line 120
+0000AA 840045              A   540    	LDX	R0,_reloadCooldown
+0000AD 841046              A   541    	LDX	R1,_reloadCooldown+1
+0000B0 4201                A   542    	OR	R0,R1
+0000B2 6B 08               A   543    	JR	Z,_3_L_21
+                           A   544    ;  121			reloadCooldown -= 1;
+                           A   545    .line 121
+0000B4 29010046            A   546    	SUBX	_reloadCooldown+1,#1
+0000B8 39000045            A   547    	SBCX	_reloadCooldown,#-0
+                           A   548    ;  122		}
+0000BC                     A   549    _3_L_21:
+                           A   550    .line 122
+                           A   551    ;  123		
+                           A   552    ;  124		//Serial RX end-of-block stuff.
+                           A   553    ;  125		//if((ser_rx_eob_counter == 30) && 
+                           A   554    ;  126		if((ser_rx_eob_counter == 60) && ca
+                           A   555    .line 126
+0000BC A93C0013            A   556    	CPX	_ser_rx_eob_counter,#60
+0000C0 EB 1E               A   557    	JR	NE,_3_L_29
+0000C2 A9000000            A   558    	CPX	_captureBuffer,#-0
+0000C6 6B 18               A   559    	JR	Z,_3_L_29
+                           A   560    ;  127	        captureBuffer.hasrxed = 0;
+                           A   561    .line 127
+0000C8 E9000000            A   562    	LDX	_captureBuffer,#-0
+                           A   563    ;  128	        if(!captureBuffer.checksum) {
+                           A   564    .line 128
+0000CC A9000012            A   565    	CPX	_captureBuffer+18,#-0
+0000D0 EB 06               A   566    	JR	NE,_3_L_18
+                           A   567    ;  129	            captureBuffer.size |= 0x80;
+                           A   568    .line 129
+0000D2 49800011            A   569    	ORX	_captureBuffer+17,#128
+                           A   570    ;  130	        } else {
+                           A   571    .line 130
+0000D6 8B 04               A   572    	JR	_3_L_19
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  12
+
+
+PC     Object              I  Line    Source main.src
+0000D8                     A   573    _3_L_18:
+                           A   574    ;  131	            captureBuffer.size = 0;
+                           A   575    .line 131
+0000D8 E9000011            A   576    	LDX	_captureBuffer+17,#-0
+                           A   577    ;  132	        }
+0000DC                     A   578    _3_L_19:
+                           A   579    .line 132
+                           A   580    ;  133	        captureBuffer.checksum = 0xFF;
+                           A   581    .line 133
+0000DC E9FF0012            A   582    	LDX	_captureBuffer+18,#255
+                           A   583    ;  134	    }
+0000E0                     A   584    _3_L_29:
+                           A   585    .line 134
+                           A   586    ;  135		
+                           A   587    ;  136		//Button stuff
+                           A   588    ;  137		if((tempIO & 0x01) != (lastIO & 0x0
+                           A   589    .line 137
+0000E0 84002D              A   590    	LDX	R0,_tempIO
+0000E3 56E001              A   591    	AND	R0,#1
+0000E6 84102E              A   592    	LDX	R1,_lastIO
+0000E9 56E101              A   593    	AND	R1,#1
+0000EC A201                A   594    	CP	R0,R1
+0000EE 6B 16               A   595    	JR	Z,_3_L_28
+                           A   596    ;  138	        //Button state changed, clear t
+                           A   597    ;  139	        btn_counter = 0;
+                           A   598    .line 139
+0000F0 E900002A            A   599    	LDX	_btn_counter,#-0
+                           A   600    ;  140	        if(!(tempIO & 0x01)) {
+                           A   601    .line 140
+0000F4 7901002D            A   602    	TMX	_tempIO,#1
+0000F8 EB 06               A   603    	JR	NE,_3_L_23
+                           A   604    ;  141	            //Was just pressed
+                           A   605    ;  142	            //Set a flag.
+                           A   606    ;  143	            btn_prelim = 1;
+                           A   607    .line 143
+0000FA E901002B            A   608    	LDX	_btn_prelim,#1
+                           A   609    ;  144	        } else {
+                           A   610    .line 144
+0000FE 8B 21               A   611    	JR	_3_L_54
+000100                     A   612    _3_L_23:
+                           A   613    ;  145				btn_prelim = 0;
+                           A   614    .line 145
+000100 E900002B            A   615    	LDX	_btn_prelim,#-0
+                           A   616    ;  146			}
+                           A   617    ;  147	    } else {
+                           A   618    .line 147
+000104 8B 1B               A   619    	JR	_3_L_54
+000106                     A   620    _3_L_28:
+                           A   621    ;  148	        btn_counter++;
+                           A   622    .line 148
+000106 84002A              A   623    	LDX	R0,_btn_counter
+000109 0901002A            A   624    	ADDX	_btn_counter,#1
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  13
+
+
+PC     Object              I  Line    Source main.src
+                           A   625    ;  149	        if(btn_prelim && (btn_counter >
+                           A   626    .line 149
+00010D A900002B            A   627    	CPX	_btn_prelim,#-0
+000111 6B 0E               A   628    	JR	Z,_3_L_54
+000113 A903002A            A   629    	CPX	_btn_counter,#3
+000117 3B 08               A   630    	JR	ULE,_3_L_54
+                           A   631    ;  150	            btn_prelim = 0;
+                           A   632    .line 150
+000119 E900002B            A   633    	LDX	_btn_prelim,#-0
+                           A   634    ;  151	            btn_pressed = 1;
+                           A   635    .line 151
+00011D E901002C            A   636    	LDX	_btn_pressed,#1
+                           A   637    ;  152	        }
+                           A   638    ;  153	    }
+000121                     A   639    _3_L_54:
+                           A   640    .line 153
+                           A   641    ;  154		
+                           A   642    ;  155		//IR stuff
+                           A   643    ;  156		if((tempIO & 0x08) != (lastIO & 0x0
+                           A   644    .line 156
+000121 84002D              A   645    	LDX	R0,_tempIO
+000124 56E008              A   646    	AND	R0,#8
+000127 84102E              A   647    	LDX	R1,_lastIO
+00012A 56E108              A   648    	AND	R1,#8
+00012D A201                A   649    	CP	R0,R1
+00012F 6B 4F               A   650    	JR	Z,_3_L_53
+                           A   651    ;  157			//LAZERMOD's state has changed
+                           A   652    ;  158			 if(ir_rx_bits == 1) {
+                           A   653    .line 158
+000131 A9010028            A   654    	CPX	_ir_rx_bits,#1
+000135 EB 15               A   655    	JR	NE,_3_L_42
+                           A   656    ;  159				//if((ir_rx_counter > 22) &
+                           A   657    ;  160				 if((ir_rx_counter > 45) &&
+                           A   658    .line 160
+000137 A92D0027            A   659    	CPX	_ir_rx_counter,#45
+00013B 3B 3D               A   660    	JR	ULE,_3_L_43
+00013D A9330027            A   661    	CPX	_ir_rx_counter,#51
+000141 FB 37               A   662    	JR	NC,_3_L_43
+                           A   663    ;  161					//If it's between 5.75m
+                           A   664    ;  162					ir_rx_bits++;
+                           A   665    .line 162
+000143 840028              A   666    	LDX	R0,_ir_rx_bits
+000146 09010028            A   667    	ADDX	_ir_rx_bits,#1
+                           A   668    ;  163				}
+                           A   669    ;  164			 } else if(ir_rx_bits < 3) {
+                           A   670    .line 164
+00014A 8B 2E               A   671    	JR	_3_L_43
+00014C                     A   672    _3_L_42:
+00014C A9030028            A   673    	CPX	_ir_rx_bits,#3
+000150 FB 15               A   674    	JR	NC,_3_L_40
+                           A   675    ;  165				//if((ir_rx_counter > 10) &
+                           A   676    ;  166				 if((ir_rx_counter > 21) &&
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  14
+
+
+PC     Object              I  Line    Source main.src
+                           A   677    .line 166
+000152 A9150027            A   678    	CPX	_ir_rx_counter,#21
+000156 3B 22               A   679    	JR	ULE,_3_L_43
+000158 A91B0027            A   680    	CPX	_ir_rx_counter,#27
+00015C FB 1C               A   681    	JR	NC,_3_L_43
+                           A   682    ;  167					//If it's between 2.75m
+                           A   683    ;  168					ir_rx_bits++;
+                           A   684    .line 168
+00015E 840028              A   685    	LDX	R0,_ir_rx_bits
+000161 09010028            A   686    	ADDX	_ir_rx_bits,#1
+                           A   687    ;  169				}
+                           A   688    ;  170			} else {
+                           A   689    .line 170
+000165 8B 13               A   690    	JR	_3_L_43
+000167                     A   691    _3_L_40:
+                           A   692    ;  171				//if((ir_rx_counter > 2) &&
+                           A   693    ;  172				if((ir_rx_counter > 5) && (
+                           A   694    .line 172
+000167 A9050027            A   695    	CPX	_ir_rx_counter,#5
+00016B 3B 0D               A   696    	JR	ULE,_3_L_43
+00016D A9130027            A   697    	CPX	_ir_rx_counter,#19
+000171 FB 07               A   698    	JR	NC,_3_L_43
+                           A   699    ;  173					//If it's between 0.75m
+                           A   700    ;  174					ir_rx_bits++;
+                           A   701    .line 174
+000173 840028              A   702    	LDX	R0,_ir_rx_bits
+000176 09010028            A   703    	ADDX	_ir_rx_bits,#1
+                           A   704    ;  175				}
+                           A   705    ;  176			}
+00017A                     A   706    _3_L_43:
+                           A   707    .line 176
+                           A   708    ;  177			ir_rx_counter = 0;
+                           A   709    .line 177
+00017A E9000027            A   710    	LDX	_ir_rx_counter,#-0
+                           A   711    ;  178		} else {
+                           A   712    .line 178
+00017E 8B 32               A   713    	JR	_3_L_55
+000180                     A   714    _3_L_53:
+                           A   715    ;  179			ir_rx_counter++;
+                           A   716    .line 179
+000180 840027              A   717    	LDX	R0,_ir_rx_counter
+000183 09010027            A   718    	ADDX	_ir_rx_counter,#1
+                           A   719    ;  180			//if(ir_rx_counter > 40) {
+                           A   720    ;  181			if(ir_rx_counter > 64) {
+                           A   721    .line 181
+000187 A9400027            A   722    	CPX	_ir_rx_counter,#64
+00018B 3B 25               A   723    	JR	ULE,_3_L_55
+                           A   724    ;  182				//End of IR packet
+                           A   725    ;  183				if(ir_rx_bits == 17) {
+                           A   726    .line 183
+00018D A9110028            A   727    	CPX	_ir_rx_bits,#17
+000191 EB 17               A   728    	JR	NE,_3_L_50
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  15
+
+
+PC     Object              I  Line    Source main.src
+                           A   729    ;  184					//Tag of some sort.
+                           A   730    ;  185					if(ir_loaded_tags) {
+                           A   731    .line 185
+000193 A9000029            A   732    	CPX	_ir_loaded_tags,#-0
+000197 6B 07               A   733    	JR	Z,_3_L_48
+                           A   734    ;  186						ir_loaded_tags--;
+                           A   735    .line 186
+000199 840029              A   736    	LDX	R0,_ir_loaded_tags
+00019C 29010029            A   737    	SUBX	_ir_loaded_tags,#1
+                           A   738    ;  187					}
+0001A0                     A   739    _3_L_48:
+                           A   740    .line 187
+                           A   741    ;  188					if(!ir_loaded_tags) {
+                           A   742    .line 188
+0001A0 A9000029            A   743    	CPX	_ir_loaded_tags,#-0
+0001A4 EB 04               A   744    	JR	NE,_3_L_50
+                           A   745    ;  189						//Turn off the INHI
+                           A   746    ;  190						PAOUT &= 0xFD;
+                           A   747    .line 190
+0001A6 59FD0FD3            A   748    	ANDX	4051,#253
+                           A   749    ;  191					}
+                           A   750    ;  192				}
+0001AA                     A   751    _3_L_50:
+                           A   752    .line 192
+                           A   753    ;  193				ir_rx_bits = 0;
+                           A   754    .line 193
+0001AA E9000028            A   755    	LDX	_ir_rx_bits,#-0
+                           A   756    ;  194				ir_rx_counter = 0;
+                           A   757    .line 194
+0001AE E9000027            A   758    	LDX	_ir_rx_counter,#-0
+                           A   759    ;  195			}
+                           A   760    ;  196		}
+                           A   761    ;  197	}
+0001B2                     A   762    _3_L_55:
+                           A   763    .line 197
+0001B2 D6 0000             A   764    	CALL	__b_iframereset
+0001B5 BF                  A   765    	IRET	
+                           A   766    .endfunc "isr_timer0",197,"_isr_timer0"
+                           A   767    	SEGMENT ROM_DATA
+                           A   768    
+                           A   769    
+                           A   770    ;**************************** _init_cpu *******
+                           A   771    ;Name                         Addr/Register   S
+                           A   772    ;_EI                                 IMPORT  --
+                           A   773    ;_SET_VECTOR                         IMPORT  --
+                           A   774    ;_DI                                 IMPORT  --
+                           A   775    
+                           A   776    
+                           A   777    ; Aggregate Stack Size: 0 (words)
+                           A   778    
+                           A   779    
+                           A   780    	.FRAME _n_init_cpu,?_n_init_cpu,RDATA
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  16
+
+
+PC     Object              I  Line    Source main.src
+                           A   781    	.FRAME _f_init_cpu,?_f_init_cpu,EDATA
+                           A   782    	SEGMENT main_TEXT
+0001B6                     A   783    _init_cpu:
+                           A   784    .define "_init_cpu"
+                           A   785    .value _init_cpu
+                           A   786    .class 2
+                           A   787    .type 65
+                           A   788    .type 0
+                           A   789    .endef
+                           A   790    .begfunc "init_cpu",199,"_init_cpu"
+0001B6 D6 0000             A   791    	CALL	__b_frameset00
+                           A   792    ;  198	
+                           A   793    ;  199	void init_cpu(void) {
+                           A   794    ;  200		DI();
+                           A   795    .line 200
+0001B9 8F                  A   796    	DI
+                           A   797    ;  201		
+                           A   798    ;  202		//PA0: RELOAD/DBG. Input, external 
+                           A   799    ;  203		//PA1: INHIBIT. Output.
+                           A   800    ;  204		//PA2: 38KHz. T1OUT, output.
+                           A   801    ;  205		//PA3: LAZERMOD. Input.
+                           A   802    ;  206		//PA4: RXD. UART, input.
+                           A   803    ;  207		//PA5: TXD. UART, output.
+                           A   804    ;  208		
+                           A   805    ;  209		//Set up Port A.
+                           A   806    ;  210		PADD = 0x19;	//00011001
+                           A   807    .line 210
+0001BA E9010FD0            A   808    	LDX	4048,#1
+0001BE E9190FD1            A   809    	LDX	4049,#25
+                           A   810    ;  211		PAAF = 0x34;	//00110100
+                           A   811    .line 211
+0001C2 E9020FD0            A   812    	LDX	4048,#2
+0001C6 E9340FD1            A   813    	LDX	4049,#52
+                           A   814    ;  212		PAAFS1 = 0x04;	//00000100
+                           A   815    .line 212
+0001CA E9070FD0            A   816    	LDX	4048,#7
+0001CE E9040FD1            A   817    	LDX	4049,#4
+                           A   818    ;  213		PAAFS2 = 0x00;	//00000000
+                           A   819    .line 213
+0001D2 E9080FD0            A   820    	LDX	4048,#8
+0001D6 E9000FD1            A   821    	LDX	4049,#-0
+                           A   822    ;  214		//PAPUE = 0x10;	//00010000
+                           A   823    ;  215		
+                           A   824    ;  216		//Set up UART for 2000 baud, 8 data
+                           A   825    ;  217		//Set baud rate
+                           A   826    ;  218		U0BRH = 0x00;
+                           A   827    .line 218
+0001DA E9000F46            A   828    	LDX	3910,#-0
+                           A   829    ;  219		U0BRL = 0xAD;
+                           A   830    .line 219
+0001DE E9AD0F47            A   831    	LDX	3911,#173
+                           A   832    ;  220		//Set up interrupt
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  17
+
+
+PC     Object              I  Line    Source main.src
+                           A   833    ;  221		SET_VECTOR(UART0_RX_IVECT, isr_uart
+                           A   834    ;  222		SET_VECTOR(UART0_TX_IVECT, isr_uart
+                           A   835    ;  223		IRQ0ENH |= 0x18;
+                           A   836    .line 223
+0001E2 49180FC1            A   837    	ORX	4033,#24
+                           A   838    ;  224		IRQ0ENL |= 0x18;
+                           A   839    .line 224
+0001E6 49180FC2            A   840    	ORX	4034,#24
+                           A   841    ;  225		IRQ0 &= ~0x18;
+                           A   842    .line 225
+0001EA 59E70FC0            A   843    	ANDX	4032,#-25
+                           A   844    ;  226		//Enable transmitter and receiver, 
+                           A   845    ;  227		U0CTL0 = 0xC2; 	//11000010
+                           A   846    .line 227
+0001EE E9C20F42            A   847    	LDX	3906,#194
+                           A   848    ;  228		//Enable interrupts on received dat
+                           A   849    ;  229		U0CTL1 = 0x00;	//00000000
+                           A   850    .line 229
+0001F2 E9000F43            A   851    	LDX	3907,#-0
+                           A   852    ;  230		
+                           A   853    ;  231		//Set up Timer0 to be an 4KHz heart
+                           A   854    ;  232		//8KHz now.
+                           A   855    ;  233		//Disable timer, set mode to Contin
+                           A   856    ;  234		T0CTL1 = 0x01;	//00000001
+                           A   857    .line 234
+0001F6 E9010F07            A   858    	LDX	3847,#1
+                           A   859    ;  235		T0CTL0 = 0x00;	//00000000
+                           A   860    .line 235
+0001FA E9000F06            A   861    	LDX	3846,#-0
+                           A   862    ;  236		//Reset count
+                           A   863    ;  237		T0H = 0x00; T0L = 0x01;
+                           A   864    .line 237
+0001FE E9000F00            A   865    	LDX	3840,#-0
+000202 E9010F01            A   866    	LDX	3841,#1
+                           A   867    ;  238		//Set the reload value
+                           A   868    ;  239		//T0RH = 0x05; T0RL = 0x5F;
+                           A   869    ;  240		T0RH = 0x02; T0RL = 0xB3;
+                           A   870    .line 240
+000206 E9020F02            A   871    	LDX	3842,#2
+00020A E9B30F03            A   872    	LDX	3843,#179
+                           A   873    ;  241		//Set the interrupt vector and prio
+                           A   874    ;  242		SET_VECTOR(TIMER0, isr_timer0);
+                           A   875    ;  243		IRQ0ENH |= 0x20;
+                           A   876    .line 243
+00020E 49200FC1            A   877    	ORX	4033,#32
+                           A   878    ;  244		IRQ0ENL |= 0x20;
+                           A   879    .line 244
+000212 49200FC2            A   880    	ORX	4034,#32
+                           A   881    ;  245		//Enable timer
+                           A   882    ;  246		T0CTL1 |= 0x80;
+                           A   883    .line 246
+000216 49800F07            A   884    	ORX	3847,#128
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  18
+
+
+PC     Object              I  Line    Source main.src
+                           A   885    ;  247		
+                           A   886    ;  248		//Set up Timer1 to be 38KHz, 50% du
+                           A   887    ;  249		//Turn off timer, set mode to singl
+                           A   888    ;  250		T1CTL1 = 0x43;	//01000011
+                           A   889    .line 250
+00021A E9430F0F            A   890    	LDX	3855,#67
+                           A   891    ;  251		T1CTL0 = 0x00;	//00000000
+                           A   892    .line 251
+00021E E9000F0E            A   893    	LDX	3854,#-0
+                           A   894    ;  252		//Reset count
+                           A   895    ;  253		T1H = 0x00; T1L = 0x01;
+                           A   896    .line 253
+000222 E9000F08            A   897    	LDX	3848,#-0
+000226 E9010F09            A   898    	LDX	3849,#1
+                           A   899    ;  254		//Set PWM value(Duty cycle)
+                           A   900    ;  255		T1PWMH = 0x00; T1PWML = 0x48;
+                           A   901    .line 255
+00022A E9000F0C            A   902    	LDX	3852,#-0
+00022E E9480F0D            A   903    	LDX	3853,#72
+                           A   904    ;  256		//Set the reload value(Period)
+                           A   905    ;  257		T1RH = 0x00; T1RL = 0x90;
+                           A   906    .line 257
+000232 E9000F0A            A   907    	LDX	3850,#-0
+000236 E9900F0B            A   908    	LDX	3851,#144
+                           A   909    ;  258		//Enable timer
+                           A   910    ;  259		T1CTL1 |= 0x80;
+                           A   911    .line 259
+00023A 49800F0F            A   912    	ORX	3855,#128
+                           A   913    ;  260		
+                           A   914    ;  261		//Turn off the inhibit line
+                           A   915    ;  262		PAOUT &= 0xFD;
+                           A   916    .line 262
+00023E 59FD0FD3            A   917    	ANDX	4051,#253
+                           A   918    ;  263		
+                           A   919    ;  264		//lastIO = PAIN;
+                           A   920    ;  265		//tempIO = PAIN;
+                           A   921    ;  266		
+                           A   922    ;  267		EI();
+                           A   923    .line 267
+000242 9F                  A   924    	EI
+                           A   925    ;  268	}
+                           A   926    .line 268
+000243 D6 0000             A   927    	CALL	__b_framereset
+000246 AF                  A   928    	RET	
+                           A   929    .endfunc "init_cpu",268,"_init_cpu"
+                           A   930    	SEGMENT ROM_DATA
+                           A   931    
+                           A   932    
+                           A   933    ;**************************** _sendQueue ******
+                           A   934    ;Name                         Addr/Register   S
+                           A   935    ;_ser_tx_size                        STATIC    
+                           A   936    ;_ser_tx_buffer                      STATIC    
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  19
+
+
+PC     Object              I  Line    Source main.src
+                           A   937    ;_temp_tx_buffer                     STATIC    
+                           A   938    ;_temp_tx_size                       STATIC    
+                           A   939    ;i                                      RR0    
+                           A   940    
+                           A   941    
+                           A   942    ; Aggregate Stack Size: 0 (words)
+                           A   943    
+                           A   944    
+                           A   945    	.FRAME _n_sendQueue,?_n_sendQueue,RDATA
+                           A   946    	.FRAME _f_sendQueue,?_f_sendQueue,EDATA
+                           A   947    	SEGMENT main_TEXT
+000247                     A   948    _sendQueue:
+                           A   949    .define "_sendQueue"
+                           A   950    .value _sendQueue
+                           A   951    .class 2
+                           A   952    .type 65
+                           A   953    .type 0
+                           A   954    .endef
+                           A   955    .begfunc "sendQueue",270,"_sendQueue"
+                           A   956    ;  269	
+                           A   957    ;  270	void sendQueue(void) {
+                           A   958    .define "i"
+                           A   959    .class 4
+                           A   960    .reg 17
+                           A   961    .type 3
+                           A   962    .type 0
+                           A   963    .endef
+000247 D6 0000             A   964    	CALL	__b_frameset00
+00024A 8B 0D               A   965    	JR	_5_L_58
+                           A   966    ;  271		int i;
+                           A   967    ;  272		
+                           A   968    ;  273		//Copy the data from the temporary 
+                           A   969    ;  274		for(i = 0;i < temp_tx_size;i++) {
+00024C                     A   970    _5_L_59:
+                           A   971    .line 274
+00024C 84203F              A   972    	LDX	R2,_temp_tx_size
+00024F A212                A   973    	CP	R1,R2
+000251 1FA6E000            A   974    	CPC	R0,#-0
+000255 1B 08               A   975    	JR	LT,_5_L_61
+000257 8B 20               A   976    	JR	_5_L_62
+000259                     A   977    _5_L_58:
+000259 B0E0                A   978    	CLR	R0
+00025B B0E1                A   979    	CLR	R1
+00025D 8B ED               A   980    	JR	_5_L_59
+00025F                     A   981    _5_L_61:
+                           A   982    ;  275			ser_tx_buffer[i] = temp_tx_buff
+                           A   983    .line 275
+00025F 2C 00               A   984    	LD	R2,#high(_temp_tx_buffer)
+000261 3C 2F               A   985    	LD	R3,#low(_temp_tx_buffer)
+000263 0231                A   986    	ADD	R3,R1
+000265 1220                A   987    	ADC	R2,R0
+000267 4C 00               A   988    	LD	R4,#high(_ser_tx_buffer)
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  20
+
+
+PC     Object              I  Line    Source main.src
+000269 5C 14               A   989    	LD	R5,#low(_ser_tx_buffer)
+00026B 0251                A   990    	ADD	R5,R1
+00026D 1240                A   991    	ADC	R4,R0
+00026F 86E2E6              A   992    	LDX	R6,@RR2
+000272 96E6E4              A   993    	LDX	@RR4,R6
+                           A   994    .line 274
+000275 A0E0                A   995    	INCW	RR0
+                           A   996    ;  276		}
+                           A   997    .line 276
+000277 8B D3               A   998    	JR	_5_L_59
+000279                     A   999    _5_L_62:
+                           A  1000    ;  277		ser_tx_size = temp_tx_size;
+                           A  1001    .line 277
+000279 E8 03F024           A  1002    	LDX	_ser_tx_size,_temp_tx_size
+                           A  1003    ;  278		
+                           A  1004    ;  279		//Clear the temporary queue.
+                           A  1005    ;  280		temp_tx_size = 0;
+                           A  1006    .line 280
+00027D E900003F            A  1007    	LDX	_temp_tx_size,#-0
+                           A  1008    ;  281		
+                           A  1009    ;  282		//Kickstart the UART.
+                           A  1010    ;  283		IRQ0 |= 0x08;
+                           A  1011    .line 283
+000281 49080FC0            A  1012    	ORX	4032,#8
+                           A  1013    ;  284	}
+                           A  1014    .line 284
+000285 D6 0000             A  1015    	CALL	__b_framereset
+000288 AF                  A  1016    	RET	
+                           A  1017    .endfunc "sendQueue",284,"_sendQueue"
+                           A  1018    	SEGMENT ROM_DATA
+                           A  1019    
+                           A  1020    
+                           A  1021    ;**************************** _queueByte ******
+                           A  1022    ;Name                         Addr/Register   S
+                           A  1023    ;_temp_tx_size                       STATIC    
+                           A  1024    ;_temp_tx_buffer                     STATIC    
+                           A  1025    ;input                                   R8    
+                           A  1026    
+                           A  1027    
+                           A  1028    ; Aggregate Stack Size: 0 (words)
+                           A  1029    
+                           A  1030    
+                           A  1031    	.FRAME _n_queueByte,?_n_queueByte,RDATA
+                           A  1032    	.FRAME _f_queueByte,?_f_queueByte,EDATA
+                           A  1033    	SEGMENT main_TEXT
+000289                     A  1034    _queueByte:
+                           A  1035    .define "_queueByte"
+                           A  1036    .value _queueByte
+                           A  1037    .class 2
+                           A  1038    .type 65
+                           A  1039    .type 0
+                           A  1040    .endef
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  21
+
+
+PC     Object              I  Line    Source main.src
+                           A  1041    .begfunc "queueByte",286,"_queueByte"
+                           A  1042    .define "input"
+                           A  1043    .class 17
+                           A  1044    .reg 9
+                           A  1045    .type 12
+                           A  1046    .type 0
+                           A  1047    .endef
+000289 D6 0000             A  1048    	CALL	__b_frameset00
+                           A  1049    ;  285	
+                           A  1050    ;  286	void queueByte(unsigned char input) {
+                           A  1051    ;  287		//Add a byte to the temporary queue
+                           A  1052    ;  288		temp_tx_buffer[temp_tx_size] = inpu
+                           A  1053    .line 288
+00028C 84203F              A  1054    	LDX	R2,_temp_tx_size
+00028F 0C 00               A  1055    	LD	R0,#high(_temp_tx_buffer)
+000291 1C 2F               A  1056    	LD	R1,#low(_temp_tx_buffer)
+000293 0212                A  1057    	ADD	R1,R2
+000295 16E000              A  1058    	ADC	R0,#0
+000298 96E8E0              A  1059    	LDX	@RR0,R8
+                           A  1060    ;  289		temp_tx_size += 1;
+                           A  1061    .line 289
+00029B 0901003F            A  1062    	ADDX	_temp_tx_size,#1
+                           A  1063    ;  290	}
+                           A  1064    .line 290
+00029F D6 0000             A  1065    	CALL	__b_framereset
+0002A2 AF                  A  1066    	RET	
+                           A  1067    .endfunc "queueByte",290,"_queueByte"
+                           A  1068    	SEGMENT ROM_DATA
+                           A  1069    
+                           A  1070    
+                           A  1071    ;**************************** _queueChecksum **
+                           A  1072    ;Name                         Addr/Register   S
+                           A  1073    ;_temp_tx_buffer                     STATIC    
+                           A  1074    ;_temp_tx_size                       STATIC    
+                           A  1075    ;checksum                                R2    
+                           A  1076    ;i                                      RR0    
+                           A  1077    
+                           A  1078    
+                           A  1079    ; Aggregate Stack Size: 0 (words)
+                           A  1080    
+                           A  1081    
+                           A  1082    	.FRAME _n_queueChecksum,?_n_queueChecksum,R
+                           A  1083    	.FCALL _n_queueByte
+                           A  1084    	.FRAME _f_queueChecksum,?_f_queueChecksum,E
+                           A  1085    	.FCALL _f_queueByte
+                           A  1086    	SEGMENT main_TEXT
+0002A3                     A  1087    _queueChecksum:
+                           A  1088    .define "_queueChecksum"
+                           A  1089    .value _queueChecksum
+                           A  1090    .class 2
+                           A  1091    .type 65
+                           A  1092    .type 0
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  22
+
+
+PC     Object              I  Line    Source main.src
+                           A  1093    .endef
+                           A  1094    .begfunc "queueChecksum",292,"_queueChecksum"
+                           A  1095    ;  291	
+                           A  1096    ;  292	void queueChecksum(void) {
+                           A  1097    .define "i"
+                           A  1098    .class 4
+                           A  1099    .reg 17
+                           A  1100    .type 3
+                           A  1101    .type 0
+                           A  1102    .endef
+                           A  1103    .define "checksum"
+                           A  1104    .class 4
+                           A  1105    .reg 3
+                           A  1106    .type 12
+                           A  1107    .type 0
+                           A  1108    .endef
+0002A3 D6 0000             A  1109    	CALL	__b_frameset00
+                           A  1110    ;  293		int i;
+                           A  1111    ;  294		unsigned char checksum = 0xFF;
+                           A  1112    .line 294
+0002A6 2CFF                A  1113    	LD	R2,#255
+0002A8 8B 0D               A  1114    	JR	_7_L_66
+                           A  1115    ;  295		
+                           A  1116    ;  296		//Calculate a checksum for all the 
+                           A  1117    ;  297		for(i = 0; i < temp_tx_size;i++) {
+0002AA                     A  1118    _7_L_67:
+                           A  1119    .line 297
+0002AA 84303F              A  1120    	LDX	R3,_temp_tx_size
+0002AD A213                A  1121    	CP	R1,R3
+0002AF 1FA6E000            A  1122    	CPC	R0,#-0
+0002B3 1B 08               A  1123    	JR	LT,_7_L_69
+0002B5 8B 17               A  1124    	JR	_7_L_70
+0002B7                     A  1125    _7_L_66:
+0002B7 B0E0                A  1126    	CLR	R0
+0002B9 B0E1                A  1127    	CLR	R1
+0002BB 8B ED               A  1128    	JR	_7_L_67
+0002BD                     A  1129    _7_L_69:
+                           A  1130    ;  298			checksum -= temp_tx_buffer[i];
+                           A  1131    .line 298
+0002BD 4C 00               A  1132    	LD	R4,#high(_temp_tx_buffer)
+0002BF 5C 2F               A  1133    	LD	R5,#low(_temp_tx_buffer)
+0002C1 0251                A  1134    	ADD	R5,R1
+0002C3 1240                A  1135    	ADC	R4,R0
+0002C5 86E4E3              A  1136    	LDX	R3,@RR4
+0002C8 2223                A  1137    	SUB	R2,R3
+                           A  1138    .line 297
+0002CA A0E0                A  1139    	INCW	RR0
+                           A  1140    ;  299		}
+                           A  1141    .line 299
+0002CC 8B DC               A  1142    	JR	_7_L_67
+0002CE                     A  1143    _7_L_70:
+                           A  1144    ;  300		
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  23
+
+
+PC     Object              I  Line    Source main.src
+                           A  1145    ;  301		//Add the checksum to the queue.
+                           A  1146    ;  302		queueByte(checksum);
+                           A  1147    .line 302
+0002CE E4E2E8              A  1148    	LD	R8,R2
+0002D1 D6 0289             A  1149    	CALL	_queueByte
+                           A  1150    ;  303	}
+                           A  1151    .line 303
+0002D4 D6 0000             A  1152    	CALL	__b_framereset
+0002D7 AF                  A  1153    	RET	
+                           A  1154    .endfunc "queueChecksum",303,"_queueChecksum"
+                           A  1155    	SEGMENT ROM_DATA
+                           A  1156    
+                           A  1157    
+                           A  1158    ;**************************** _loadAmmo *******
+                           A  1159    ;Name                         Addr/Register   S
+                           A  1160    ;_ir_loaded_tags                     STATIC    
+                           A  1161    ;howMuch                                 R8    
+                           A  1162    
+                           A  1163    
+                           A  1164    ; Aggregate Stack Size: 0 (words)
+                           A  1165    
+                           A  1166    
+                           A  1167    	.FRAME _n_loadAmmo,?_n_loadAmmo,RDATA
+                           A  1168    	.FRAME _f_loadAmmo,?_f_loadAmmo,EDATA
+                           A  1169    	SEGMENT main_TEXT
+0002D8                     A  1170    _loadAmmo:
+                           A  1171    .define "_loadAmmo"
+                           A  1172    .value _loadAmmo
+                           A  1173    .class 2
+                           A  1174    .type 65
+                           A  1175    .type 0
+                           A  1176    .endef
+                           A  1177    .begfunc "loadAmmo",305,"_loadAmmo"
+                           A  1178    .define "howMuch"
+                           A  1179    .class 17
+                           A  1180    .reg 9
+                           A  1181    .type 12
+                           A  1182    .type 0
+                           A  1183    .endef
+0002D8 D6 0000             A  1184    	CALL	__b_frameset00
+                           A  1185    ;  304	
+                           A  1186    ;  305	void loadAmmo(unsigned char howMuch) {
+                           A  1187    ;  306		ir_loaded_tags = howMuch;
+                           A  1188    .line 306
+0002DB 948029              A  1189    	LDX	_ir_loaded_tags,R8
+                           A  1190    ;  307		//INHIBIT should be high to generat
+                           A  1191    ;  308		PAOUT |= 0x02;
+                           A  1192    .line 308
+0002DE 49020FD3            A  1193    	ORX	4051,#2
+                           A  1194    ;  309	}
+                           A  1195    .line 309
+0002E2 D6 0000             A  1196    	CALL	__b_framereset
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  24
+
+
+PC     Object              I  Line    Source main.src
+0002E5 AF                  A  1197    	RET	
+                           A  1198    .endfunc "loadAmmo",309,"_loadAmmo"
+                           A  1199    	SEGMENT ROM_DATA
+                           A  1200    
+                           A  1201    
+                           A  1202    ;**************************** _rxedResetBarrel 
+                           A  1203    ;Name                         Addr/Register   S
+                           A  1204    ;_reloadCooldown                     STATIC    
+                           A  1205    ;_weAreReloading                     STATIC    
+                           A  1206    ;_weAreRegistered                    STATIC    
+                           A  1207    ;_sendBarrelReply                    STATIC    
+                           A  1208    ;_sendLoadSpecial                    STATIC    
+                           A  1209    ;_sendArmSpecial                     STATIC    
+                           A  1210    ;_ir_loaded_tags                     STATIC    
+                           A  1211    
+                           A  1212    
+                           A  1213    ; Aggregate Stack Size: 0 (words)
+                           A  1214    
+                           A  1215    
+                           A  1216    	.FRAME _n_rxedResetBarrel,?_n_rxedResetBarr
+                           A  1217    	.FRAME _f_rxedResetBarrel,?_f_rxedResetBarr
+                           A  1218    	SEGMENT main_TEXT
+0002E6                     A  1219    _rxedResetBarrel:
+                           A  1220    .define "_rxedResetBarrel"
+                           A  1221    .value _rxedResetBarrel
+                           A  1222    .class 2
+                           A  1223    .type 65
+                           A  1224    .type 0
+                           A  1225    .endef
+                           A  1226    .begfunc "rxedResetBarrel",311,"_rxedResetBarre
+0002E6 D6 0000             A  1227    	CALL	__b_frameset00
+                           A  1228    ;  310	
+                           A  1229    ;  311	void rxedResetBarrel(void) {
+                           A  1230    ;  312		//This will reset any variables use
+                           A  1231    ;  313		
+                           A  1232    ;  314		ir_loaded_tags = 0;
+                           A  1233    .line 314
+0002E9 E9000029            A  1234    	LDX	_ir_loaded_tags,#-0
+                           A  1235    ;  315		
+                           A  1236    ;  316		sendArmSpecial = 0;
+                           A  1237    .line 316
+0002ED E9000042            A  1238    	LDX	_sendArmSpecial,#-0
+                           A  1239    ;  317		sendLoadSpecial = 0;
+                           A  1240    .line 317
+0002F1 E9000041            A  1241    	LDX	_sendLoadSpecial,#-0
+                           A  1242    ;  318		sendBarrelReply = 0;
+                           A  1243    .line 318
+0002F5 E9000040            A  1244    	LDX	_sendBarrelReply,#-0
+                           A  1245    ;  319		
+                           A  1246    ;  320		weAreRegistered = 0;
+                           A  1247    .line 320
+0002F9 E9000043            A  1248    	LDX	_weAreRegistered,#-0
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  25
+
+
+PC     Object              I  Line    Source main.src
+                           A  1249    ;  321		weAreReloading = 0;
+                           A  1250    .line 321
+0002FD E9000044            A  1251    	LDX	_weAreReloading,#-0
+                           A  1252    ;  322		
+                           A  1253    ;  323		reloadCooldown = 800;
+                           A  1254    .line 323
+000301 E9030045            A  1255    	LDX	_reloadCooldown,#3
+000305 E9200046            A  1256    	LDX	_reloadCooldown+1,#32
+                           A  1257    ;  324		
+                           A  1258    ;  325		PAOUT &= 0xFD;
+                           A  1259    .line 325
+000309 59FD0FD3            A  1260    	ANDX	4051,#253
+                           A  1261    ;  326	}
+                           A  1262    .line 326
+00030D D6 0000             A  1263    	CALL	__b_framereset
+000310 AF                  A  1264    	RET	
+                           A  1265    .endfunc "rxedResetBarrel",326,"_rxedResetBarre
+                           A  1266    	SEGMENT ROM_DATA
+                           A  1267    
+                           A  1268    
+                           A  1269    ;**************************** _rxedRollCall ***
+                           A  1270    ;Name                         Addr/Register   S
+                           A  1271    ;_sendBarrelReply                    STATIC    
+                           A  1272    
+                           A  1273    
+                           A  1274    ; Aggregate Stack Size: 0 (words)
+                           A  1275    
+                           A  1276    
+                           A  1277    	.FRAME _n_rxedRollCall,?_n_rxedRollCall,RDA
+                           A  1278    	.FRAME _f_rxedRollCall,?_f_rxedRollCall,EDA
+                           A  1279    	SEGMENT main_TEXT
+000311                     A  1280    _rxedRollCall:
+                           A  1281    .define "_rxedRollCall"
+                           A  1282    .value _rxedRollCall
+                           A  1283    .class 2
+                           A  1284    .type 65
+                           A  1285    .type 0
+                           A  1286    .endef
+                           A  1287    .begfunc "rxedRollCall",328,"_rxedRollCall"
+000311 D6 0000             A  1288    	CALL	__b_frameset00
+                           A  1289    ;  327	
+                           A  1290    ;  328	void rxedRollCall(void) {
+                           A  1291    ;  329		/*	Format:		BType		$00
+                           A  1292    ;  330						BData0		Blaster
+                           A  1293    ;  331						BSum		$cs
+                           A  1294    ;  332		*/
+                           A  1295    ;  333		//We don't actually care about anyt
+                           A  1296    ;  334		//Set a flag that will be seen by s
+                           A  1297    ;  335		sendBarrelReply = 1;
+                           A  1298    .line 335
+000314 E9010040            A  1299    	LDX	_sendBarrelReply,#1
+                           A  1300    ;  336	}
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  26
+
+
+PC     Object              I  Line    Source main.src
+                           A  1301    .line 336
+000318 D6 0000             A  1302    	CALL	__b_framereset
+00031B AF                  A  1303    	RET	
+                           A  1304    .endfunc "rxedRollCall",336,"_rxedRollCall"
+                           A  1305    	SEGMENT ROM_DATA
+                           A  1306    
+                           A  1307    
+                           A  1308    ;**************************** _rxedBarrelSeen *
+                           A  1309    ;Name                         Addr/Register   S
+                           A  1310    ;_weAreRegistered                    STATIC    
+                           A  1311    
+                           A  1312    
+                           A  1313    ; Aggregate Stack Size: 0 (words)
+                           A  1314    
+                           A  1315    
+                           A  1316    	.FRAME _n_rxedBarrelSeen,?_n_rxedBarrelSeen
+                           A  1317    	.FCALL _n_rxedResetBarrel
+                           A  1318    	.FRAME _f_rxedBarrelSeen,?_f_rxedBarrelSeen
+                           A  1319    	.FCALL _f_rxedResetBarrel
+                           A  1320    	SEGMENT main_TEXT
+00031C                     A  1321    _rxedBarrelSeen:
+                           A  1322    .define "_rxedBarrelSeen"
+                           A  1323    .value _rxedBarrelSeen
+                           A  1324    .class 2
+                           A  1325    .type 65
+                           A  1326    .type 0
+                           A  1327    .endef
+                           A  1328    .begfunc "rxedBarrelSeen",338,"_rxedBarrelSeen"
+00031C D6 0000             A  1329    	CALL	__b_frameset00
+                           A  1330    ;  337	
+                           A  1331    ;  338	void rxedBarrelSeen(void) {
+                           A  1332    ;  339		/*	Format:		BType		$40
+                           A  1333    ;  340						BSum		$cs
+                           A  1334    ;  341		*/
+                           A  1335    ;  342		//No data, no cares! This does mean
+                           A  1336    ;  343		rxedResetBarrel();
+                           A  1337    .line 343
+00031F D6 02E6             A  1338    	CALL	_rxedResetBarrel
+                           A  1339    ;  344		weAreRegistered = 1;
+                           A  1340    .line 344
+000322 E9010043            A  1341    	LDX	_weAreRegistered,#1
+                           A  1342    ;  345	}
+                           A  1343    .line 345
+000326 D6 0000             A  1344    	CALL	__b_framereset
+000329 AF                  A  1345    	RET	
+                           A  1346    .endfunc "rxedBarrelSeen",345,"_rxedBarrelSeen"
+                           A  1347    	SEGMENT ROM_DATA
+                           A  1348    
+                           A  1349    
+                           A  1350    ;**************************** _rxedBarrelAck **
+                           A  1351    ;Name                         Addr/Register   S
+                           A  1352    ;_reloadCooldown                     STATIC    
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  27
+
+
+PC     Object              I  Line    Source main.src
+                           A  1353    ;_sendArmSpecial                     STATIC    
+                           A  1354    ;_weAreReloading                     STATIC    
+                           A  1355    
+                           A  1356    
+                           A  1357    ; Aggregate Stack Size: 0 (words)
+                           A  1358    
+                           A  1359    
+                           A  1360    	.FRAME _n_rxedBarrelAck,?_n_rxedBarrelAck,R
+                           A  1361    	.FCALL _n_loadAmmo
+                           A  1362    	.FRAME _f_rxedBarrelAck,?_f_rxedBarrelAck,E
+                           A  1363    	.FCALL _f_loadAmmo
+                           A  1364    	SEGMENT main_TEXT
+00032A                     A  1365    _rxedBarrelAck:
+                           A  1366    .define "_rxedBarrelAck"
+                           A  1367    .value _rxedBarrelAck
+                           A  1368    .class 2
+                           A  1369    .type 65
+                           A  1370    .type 0
+                           A  1371    .endef
+                           A  1372    .begfunc "rxedBarrelAck",347,"_rxedBarrelAck"
+00032A D6 0000             A  1373    	CALL	__b_frameset00
+                           A  1374    ;  346	
+                           A  1375    ;  347	void rxedBarrelAck(void) {
+                           A  1376    ;  348		/*	Format:		BType		$41
+                           A  1377    ;  349						BSum		$cs
+                           A  1378    ;  350		*/
+                           A  1379    ;  351		//This one we actually care about, 
+                           A  1380    ;  352		if(weAreReloading == 1) {
+                           A  1381    .line 352
+00032D A9010044            A  1382    	CPX	_weAreReloading,#1
+000331 EB 06               A  1383    	JR	NE,_12_L_78
+                           A  1384    ;  353			//Because we still need to actu
+                           A  1385    ;  354			//Flag that we need to send thi
+                           A  1386    ;  355			sendArmSpecial = 1;
+                           A  1387    .line 355
+000333 E9010042            A  1388    	LDX	_sendArmSpecial,#1
+                           A  1389    ;  356		} else if(weAreReloading == 2) {
+                           A  1390    .line 356
+000337 8B 17               A  1391    	JR	_12_L_79
+000339                     A  1392    _12_L_78:
+000339 A9020044            A  1393    	CPX	_weAreReloading,#2
+00033D EB 11               A  1394    	JR	NE,_12_L_79
+                           A  1395    ;  357			weAreReloading = 0;
+                           A  1396    .line 357
+00033F E9000044            A  1397    	LDX	_weAreReloading,#-0
+                           A  1398    ;  358			//We're now in control of sendi
+                           A  1399    ;  359			loadAmmo(AMMO);
+                           A  1400    .line 359
+000343 8C0F                A  1401    	LD	R8,#15
+000345 D6 02D8             A  1402    	CALL	_loadAmmo
+                           A  1403    ;  360			//Slow down reloading a bit...
+                           A  1404    ;  361			reloadCooldown = 800;
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  28
+
+
+PC     Object              I  Line    Source main.src
+                           A  1405    .line 361
+000348 E9030045            A  1406    	LDX	_reloadCooldown,#3
+00034C E9200046            A  1407    	LDX	_reloadCooldown+1,#32
+                           A  1408    ;  362		}
+                           A  1409    ;  363	}
+000350                     A  1410    _12_L_79:
+                           A  1411    .line 363
+000350 D6 0000             A  1412    	CALL	__b_framereset
+000353 AF                  A  1413    	RET	
+                           A  1414    .endfunc "rxedBarrelAck",363,"_rxedBarrelAck"
+                           A  1415    	SEGMENT ROM_DATA
+                           A  1416    
+                           A  1417    
+                           A  1418    ;**************************** _BarrelReply ****
+                           A  1419    ;Name                         Addr/Register   S
+                           A  1420    
+                           A  1421    
+                           A  1422    ; Aggregate Stack Size: 0 (words)
+                           A  1423    
+                           A  1424    
+                           A  1425    	.FRAME _n_BarrelReply,?_n_BarrelReply,RDATA
+                           A  1426    	.FCALL _n_queueByte
+                           A  1427    	.FCALL _n_queueChecksum
+                           A  1428    	.FCALL _n_sendQueue
+                           A  1429    	.FRAME _f_BarrelReply,?_f_BarrelReply,EDATA
+                           A  1430    	.FCALL _f_queueByte
+                           A  1431    	.FCALL _f_queueChecksum
+                           A  1432    	.FCALL _f_sendQueue
+                           A  1433    	SEGMENT main_TEXT
+000354                     A  1434    _BarrelReply:
+                           A  1435    .define "_BarrelReply"
+                           A  1436    .value _BarrelReply
+                           A  1437    .class 2
+                           A  1438    .type 65
+                           A  1439    .type 0
+                           A  1440    .endef
+                           A  1441    .begfunc "BarrelReply",365,"_BarrelReply"
+000354 D6 0000             A  1442    	CALL	__b_frameset00
+                           A  1443    ;  364	
+                           A  1444    ;  365	void BarrelReply(void) {
+                           A  1445    ;  366		/*	BARREL-REPLY
+                           A  1446    ;  367			Format:		BType		$40
+                           A  1447    ;  368						BData0		Barrel 
+                           A  1448    ;  369						BSum		$cs
+                           A  1449    ;  370			Barrels send this block in resp
+                           A  1450    ;  371			BData0 should be 0x01 for a sho
+                           A  1451    ;  372			Other values are undefined, but
+                           A  1452    ;  373		*/
+                           A  1453    ;  374		
+                           A  1454    ;  375		//BType
+                           A  1455    ;  376		queueByte(0x40);
+                           A  1456    .line 376
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  29
+
+
+PC     Object              I  Line    Source main.src
+000357 8C40                A  1457    	LD	R8,#64
+000359 D6 0289             A  1458    	CALL	_queueByte
+                           A  1459    ;  377		//BData0
+                           A  1460    ;  378		queueByte(0x02);
+                           A  1461    .line 378
+00035C 8C02                A  1462    	LD	R8,#2
+00035E D6 0289             A  1463    	CALL	_queueByte
+                           A  1464    ;  379		//BSum
+                           A  1465    ;  380		queueChecksum();
+                           A  1466    .line 380
+000361 D6 02A3             A  1467    	CALL	_queueChecksum
+                           A  1468    ;  381		
+                           A  1469    ;  382		//Send it!
+                           A  1470    ;  383		sendQueue();
+                           A  1471    .line 383
+000364 D6 0247             A  1472    	CALL	_sendQueue
+                           A  1473    ;  384	}
+                           A  1474    .line 384
+000367 D6 0000             A  1475    	CALL	__b_framereset
+00036A AF                  A  1476    	RET	
+                           A  1477    .endfunc "BarrelReply",384,"_BarrelReply"
+                           A  1478    	SEGMENT ROM_DATA
+                           A  1479    
+                           A  1480    
+                           A  1481    ;**************************** _LoadSpecial ****
+                           A  1482    ;Name                         Addr/Register   S
+                           A  1483    ;_weAreReloading                     STATIC    
+                           A  1484    
+                           A  1485    
+                           A  1486    ; Aggregate Stack Size: 0 (words)
+                           A  1487    
+                           A  1488    
+                           A  1489    	.FRAME _n_LoadSpecial,?_n_LoadSpecial,RDATA
+                           A  1490    	.FCALL _n_queueByte
+                           A  1491    	.FCALL _n_queueChecksum
+                           A  1492    	.FCALL _n_sendQueue
+                           A  1493    	.FRAME _f_LoadSpecial,?_f_LoadSpecial,EDATA
+                           A  1494    	.FCALL _f_queueByte
+                           A  1495    	.FCALL _f_queueChecksum
+                           A  1496    	.FCALL _f_sendQueue
+                           A  1497    	SEGMENT main_TEXT
+00036B                     A  1498    _LoadSpecial:
+                           A  1499    .define "_LoadSpecial"
+                           A  1500    .value _LoadSpecial
+                           A  1501    .class 2
+                           A  1502    .type 65
+                           A  1503    .type 0
+                           A  1504    .endef
+                           A  1505    .begfunc "LoadSpecial",386,"_LoadSpecial"
+00036B D6 0000             A  1506    	CALL	__b_frameset00
+                           A  1507    ;  385	
+                           A  1508    ;  386	void LoadSpecial(void) {
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  30
+
+
+PC     Object              I  Line    Source main.src
+                           A  1509    ;  387		/*	LOAD-SPECIAL
+                           A  1510    ;  388			Format:		BType		$41
+                           A  1511    ;  389						BData0		Ammo Ne
+                           A  1512    ;  390						BData1		DoubleT
+                           A  1513    ;  391						BData2		LoadSFX
+                           A  1514    ;  392						BData3		FireSFX
+                           A  1515    ;  393						BData4		Display
+                           A  1516    ;  394						BSum		$cs
+                           A  1517    ;  395			Unloads any ready ammo and load
+                           A  1518    ;  396		*/
+                           A  1519    ;  397		
+                           A  1520    ;  398		//BType
+                           A  1521    ;  399		queueByte(0x41);
+                           A  1522    .line 399
+00036E 8C41                A  1523    	LD	R8,#65
+000370 D6 0289             A  1524    	CALL	_queueByte
+                           A  1525    ;  400		//BData0
+                           A  1526    ;  401		queueByte(AMMO);
+                           A  1527    .line 401
+000373 8C0F                A  1528    	LD	R8,#15
+000375 D6 0289             A  1529    	CALL	_queueByte
+                           A  1530    ;  402		//BData1
+                           A  1531    ;  403		queueByte(DOUBLETAPS);
+                           A  1532    .line 403
+000378 B0E8                A  1533    	CLR	R8
+00037A D6 0289             A  1534    	CALL	_queueByte
+                           A  1535    ;  404		//BData2
+                           A  1536    ;  405		queueByte(LOADSFX);
+                           A  1537    .line 405
+00037D 8C0E                A  1538    	LD	R8,#14
+00037F D6 0289             A  1539    	CALL	_queueByte
+                           A  1540    ;  406		//BData3
+                           A  1541    ;  407		queueByte(FIRESFX);
+                           A  1542    .line 407
+000382 8C0B                A  1543    	LD	R8,#11
+000384 D6 0289             A  1544    	CALL	_queueByte
+                           A  1545    ;  408		//BData4
+                           A  1546    ;  409		queueByte(0);
+                           A  1547    .line 409
+000387 B0E8                A  1548    	CLR	R8
+000389 D6 0289             A  1549    	CALL	_queueByte
+                           A  1550    ;  410		//BSum
+                           A  1551    ;  411		queueChecksum();
+                           A  1552    .line 411
+00038C D6 02A3             A  1553    	CALL	_queueChecksum
+                           A  1554    ;  412		
+                           A  1555    ;  413		//We also need to mark that we're t
+                           A  1556    ;  414		weAreReloading = 1;
+                           A  1557    .line 414
+00038F E9010044            A  1558    	LDX	_weAreReloading,#1
+                           A  1559    ;  415		
+                           A  1560    ;  416		//Send it!
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  31
+
+
+PC     Object              I  Line    Source main.src
+                           A  1561    ;  417		sendQueue();
+                           A  1562    .line 417
+000393 D6 0247             A  1563    	CALL	_sendQueue
+                           A  1564    ;  418	}
+                           A  1565    .line 418
+000396 D6 0000             A  1566    	CALL	__b_framereset
+000399 AF                  A  1567    	RET	
+                           A  1568    .endfunc "LoadSpecial",418,"_LoadSpecial"
+                           A  1569    	SEGMENT ROM_DATA
+                           A  1570    
+                           A  1571    
+                           A  1572    ;**************************** _ArmSpecial *****
+                           A  1573    ;Name                         Addr/Register   S
+                           A  1574    ;_weAreReloading                     STATIC    
+                           A  1575    
+                           A  1576    
+                           A  1577    ; Aggregate Stack Size: 0 (words)
+                           A  1578    
+                           A  1579    
+                           A  1580    	.FRAME _n_ArmSpecial,?_n_ArmSpecial,RDATA
+                           A  1581    	.FCALL _n_queueByte
+                           A  1582    	.FCALL _n_queueChecksum
+                           A  1583    	.FCALL _n_sendQueue
+                           A  1584    	.FRAME _f_ArmSpecial,?_f_ArmSpecial,EDATA
+                           A  1585    	.FCALL _f_queueByte
+                           A  1586    	.FCALL _f_queueChecksum
+                           A  1587    	.FCALL _f_sendQueue
+                           A  1588    	SEGMENT main_TEXT
+00039A                     A  1589    _ArmSpecial:
+                           A  1590    .define "_ArmSpecial"
+                           A  1591    .value _ArmSpecial
+                           A  1592    .class 2
+                           A  1593    .type 65
+                           A  1594    .type 0
+                           A  1595    .endef
+                           A  1596    .begfunc "ArmSpecial",420,"_ArmSpecial"
+00039A D6 0000             A  1597    	CALL	__b_frameset00
+                           A  1598    ;  419	
+                           A  1599    ;  420	void ArmSpecial(void) {
+                           A  1600    ;  421		/*	ARM-SPECIAL
+                           A  1601    ;  422			Format:		BType		$42
+                           A  1602    ;  423						BData0	BurstSize (
+                           A  1603    ;  424						BData1	Ammo (1-15)
+                           A  1604    ;  425						BData2	TrigRate (1
+                           A  1605    ;  426						BSum		$cs
+                           A  1606    ;  427			BurstSize is in the range 1 to 
+                           A  1607    ;  428			Ammo is the amount of ready amm
+                           A  1608    ;  429			TrigRate is the number of milli
+                           A  1609    ;  430		*/
+                           A  1610    ;  431		
+                           A  1611    ;  432		//BType
+                           A  1612    ;  433		queueByte(0x42);
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  32
+
+
+PC     Object              I  Line    Source main.src
+                           A  1613    .line 433
+00039D 8C42                A  1614    	LD	R8,#66
+00039F D6 0289             A  1615    	CALL	_queueByte
+                           A  1616    ;  434		//BData0
+                           A  1617    ;  435		queueByte(BURSTSIZE);
+                           A  1618    .line 435
+0003A2 8C0F                A  1619    	LD	R8,#15
+0003A4 D6 0289             A  1620    	CALL	_queueByte
+                           A  1621    ;  436		//BData1
+                           A  1622    ;  437		queueByte(AMMO);
+                           A  1623    .line 437
+0003A7 8C0F                A  1624    	LD	R8,#15
+0003A9 D6 0289             A  1625    	CALL	_queueByte
+                           A  1626    ;  438		//BData2
+                           A  1627    ;  439		queueByte(REFIRERATE);
+                           A  1628    .line 439
+0003AC 8C10                A  1629    	LD	R8,#16
+0003AE D6 0289             A  1630    	CALL	_queueByte
+                           A  1631    ;  440		//BSum
+                           A  1632    ;  441		queueChecksum();
+                           A  1633    .line 441
+0003B1 D6 02A3             A  1634    	CALL	_queueChecksum
+                           A  1635    ;  442		
+                           A  1636    ;  443		//Send it!
+                           A  1637    ;  444		sendQueue();
+                           A  1638    .line 444
+0003B4 D6 0247             A  1639    	CALL	_sendQueue
+                           A  1640    ;  445		
+                           A  1641    ;  446		//We're expecting another ACK from 
+                           A  1642    ;  447		weAreReloading = 2;
+                           A  1643    .line 447
+0003B7 E9020044            A  1644    	LDX	_weAreReloading,#2
+                           A  1645    ;  448	}
+                           A  1646    .line 448
+0003BB D6 0000             A  1647    	CALL	__b_framereset
+0003BE AF                  A  1648    	RET	
+                           A  1649    .endfunc "ArmSpecial",448,"_ArmSpecial"
+                           A  1650    	SEGMENT ROM_DATA
+                           A  1651    
+                           A  1652    
+                           A  1653    ;**************************** _sendSomething **
+                           A  1654    ;Name                         Addr/Register   S
+                           A  1655    ;_reloadCooldown                     STATIC    
+                           A  1656    ;_weAreReloading                     STATIC    
+                           A  1657    ;_sendLoadSpecial                    STATIC    
+                           A  1658    ;_sendArmSpecial                     STATIC    
+                           A  1659    ;_sendBarrelReply                    STATIC    
+                           A  1660    ;_ser_tx_cooldown                    STATIC    
+                           A  1661    ;_ser_tx_size                        STATIC    
+                           A  1662    
+                           A  1663    
+                           A  1664    ; Aggregate Stack Size: 0 (words)
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  33
+
+
+PC     Object              I  Line    Source main.src
+                           A  1665    
+                           A  1666    
+                           A  1667    	.FRAME _n_sendSomething,?_n_sendSomething,R
+                           A  1668    	.FCALL _n_BarrelReply
+                           A  1669    	.FCALL _n_ArmSpecial
+                           A  1670    	.FCALL _n_LoadSpecial
+                           A  1671    	.FRAME _f_sendSomething,?_f_sendSomething,E
+                           A  1672    	.FCALL _f_BarrelReply
+                           A  1673    	.FCALL _f_ArmSpecial
+                           A  1674    	.FCALL _f_LoadSpecial
+                           A  1675    	SEGMENT main_TEXT
+0003BF                     A  1676    _sendSomething:
+                           A  1677    .define "_sendSomething"
+                           A  1678    .value _sendSomething
+                           A  1679    .class 2
+                           A  1680    .type 65
+                           A  1681    .type 0
+                           A  1682    .endef
+                           A  1683    .begfunc "sendSomething",450,"_sendSomething"
+0003BF D6 0000             A  1684    	CALL	__b_frameset00
+                           A  1685    ;  449	
+                           A  1686    ;  450	void sendSomething(void) {
+                           A  1687    ;  451		if(!ser_tx_size && !ser_tx_cooldown
+                           A  1688    .line 451
+0003C2 A9000024            A  1689    	CPX	_ser_tx_size,#-0
+0003C6 EB 41               A  1690    	JR	NE,_16_L_93
+0003C8 A9000025            A  1691    	CPX	_ser_tx_cooldown,#-0
+0003CC EB 3B               A  1692    	JR	NE,_16_L_93
+                           A  1693    ;  452			if(sendBarrelReply) {
+                           A  1694    .line 452
+0003CE A9000040            A  1695    	CPX	_sendBarrelReply,#-0
+0003D2 6B 09               A  1696    	JR	Z,_16_L_86
+                           A  1697    ;  453				sendBarrelReply = 0;
+                           A  1698    .line 453
+0003D4 E9000040            A  1699    	LDX	_sendBarrelReply,#-0
+                           A  1700    ;  454				BarrelReply();
+                           A  1701    .line 454
+0003D8 D6 0354             A  1702    	CALL	_BarrelReply
+                           A  1703    ;  455				return;
+                           A  1704    .line 455
+0003DB 8B 2C               A  1705    	JR	_16_L_93
+                           A  1706    ;  456			}
+0003DD                     A  1707    _16_L_86:
+                           A  1708    .line 456
+                           A  1709    ;  457			if(sendArmSpecial) {
+                           A  1710    .line 457
+0003DD A9000042            A  1711    	CPX	_sendArmSpecial,#-0
+0003E1 6B 09               A  1712    	JR	Z,_16_L_91
+                           A  1713    ;  458				sendArmSpecial = 0;
+                           A  1714    .line 458
+0003E3 E9000042            A  1715    	LDX	_sendArmSpecial,#-0
+                           A  1716    ;  459				ArmSpecial();
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  34
+
+
+PC     Object              I  Line    Source main.src
+                           A  1717    .line 459
+0003E7 D6 039A             A  1718    	CALL	_ArmSpecial
+                           A  1719    ;  460				return;
+                           A  1720    .line 460
+0003EA 8B 1D               A  1721    	JR	_16_L_93
+                           A  1722    ;  461			}
+0003EC                     A  1723    _16_L_91:
+                           A  1724    .line 461
+                           A  1725    ;  462			if(sendLoadSpecial) {
+                           A  1726    .line 462
+0003EC A9000041            A  1727    	CPX	_sendLoadSpecial,#-0
+0003F0 6B 17               A  1728    	JR	Z,_16_L_93
+                           A  1729    ;  463				sendLoadSpecial = 0;
+                           A  1730    .line 463
+0003F2 E9000041            A  1731    	LDX	_sendLoadSpecial,#-0
+                           A  1732    ;  464				if(!weAreReloading && !relo
+                           A  1733    .line 464
+0003F6 A9000044            A  1734    	CPX	_weAreReloading,#-0
+0003FA EB 0D               A  1735    	JR	NE,_16_L_89
+0003FC 840045              A  1736    	LDX	R0,_reloadCooldown
+0003FF 841046              A  1737    	LDX	R1,_reloadCooldown+1
+000402 4201                A  1738    	OR	R0,R1
+000404 EB 03               A  1739    	JR	NE,_16_L_89
+                           A  1740    ;  465					LoadSpecial();
+                           A  1741    .line 465
+000406 D6 036B             A  1742    	CALL	_LoadSpecial
+                           A  1743    ;  466				}
+000409                     A  1744    _16_L_89:
+                           A  1745    .line 466
+                           A  1746    ;  467				return;
+                           A  1747    ;  468			}
+                           A  1748    ;  469		}
+                           A  1749    ;  470	}
+000409                     A  1750    _16_L_93:
+                           A  1751    .line 470
+000409 D6 0000             A  1752    	CALL	__b_framereset
+00040C AF                  A  1753    	RET	
+                           A  1754    .endfunc "sendSomething",470,"_sendSomething"
+                           A  1755    	SEGMENT ROM_DATA
+                           A  1756    ;	Jump Table for Switch Statement at line 477
+000000                     A  1757    L__71:
+000000 000B                A  1758    	DW	11
+000002 0000                A  1759    	DW	0
+000004 0424                A  1760    	DW	_17_L_94
+000006 001E                A  1761    	DW	30
+000008 0429                A  1762    	DW	_17_L_95
+00000A 001F                A  1763    	DW	31
+00000C 0429                A  1764    	DW	_17_L_96
+00000E 0020                A  1765    	DW	32
+000010 0429                A  1766    	DW	_17_L_97
+000012 0040                A  1767    	DW	64
+000014 042E                A  1768    	DW	_17_L_103
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  35
+
+
+PC     Object              I  Line    Source main.src
+000016 0041                A  1769    	DW	65
+000018 0433                A  1770    	DW	_17_L_104
+00001A 005F                A  1771    	DW	95
+00001C 0429                A  1772    	DW	_17_L_98
+00001E 0060                A  1773    	DW	96
+000020 0429                A  1774    	DW	_17_L_99
+000022 0080                A  1775    	DW	128
+000024 0429                A  1776    	DW	_17_L_100
+000026 00A0                A  1777    	DW	160
+000028 0429                A  1778    	DW	_17_L_101
+00002A 00C0                A  1779    	DW	192
+00002C 0429                A  1780    	DW	_17_L_102
+00002E 0436                A  1781    	DW	_17_L_106
+                           A  1782    
+                           A  1783    
+                           A  1784    ;**************************** _receiveSomething
+                           A  1785    ;Name                         Addr/Register   S
+                           A  1786    ;_captureBuffer                      STATIC    
+                           A  1787    
+                           A  1788    
+                           A  1789    ; Aggregate Stack Size: 0 (words)
+                           A  1790    
+                           A  1791    
+                           A  1792    	.FRAME _n_receiveSomething,?_n_receiveSomet
+                           A  1793    	.FCALL _n_rxedRollCall
+                           A  1794    	.FCALL _n_rxedResetBarrel
+                           A  1795    	.FCALL _n_rxedBarrelSeen
+                           A  1796    	.FCALL _n_rxedBarrelAck
+                           A  1797    	.FRAME _f_receiveSomething,?_f_receiveSomet
+                           A  1798    	.FCALL _f_rxedRollCall
+                           A  1799    	.FCALL _f_rxedResetBarrel
+                           A  1800    	.FCALL _f_rxedBarrelSeen
+                           A  1801    	.FCALL _f_rxedBarrelAck
+                           A  1802    	SEGMENT main_TEXT
+00040D                     A  1803    _receiveSomething:
+                           A  1804    .define "_receiveSomething"
+                           A  1805    .value _receiveSomething
+                           A  1806    .class 2
+                           A  1807    .type 65
+                           A  1808    .type 0
+                           A  1809    .endef
+                           A  1810    .begfunc "receiveSomething",472,"_receiveSometh
+00040D D6 0000             A  1811    	CALL	__b_frameset00
+                           A  1812    ;  471	
+                           A  1813    ;  472	void receiveSomething(void) {
+                           A  1814    ;  473		if(captureBuffer.size & 0x80) {
+                           A  1815    .line 473
+000410 79800011            A  1816    	TMX	_captureBuffer+17,#128
+000414 6B 24               A  1817    	JR	Z,_17_L_108
+                           A  1818    ;  474			//There's a block in the buffer
+                           A  1819    ;  475			
+                           A  1820    ;  476			//Figure out what type it is an
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  36
+
+
+PC     Object              I  Line    Source main.src
+                           A  1821    ;  477			switch(captureBuffer.buffer[0])
+                           A  1822    .line 477
+000416 841001              A  1823    	LDX	R1,_captureBuffer+1
+000419 B0E0                A  1824    	CLR	R0
+00041B 2C 00               A  1825    	LD	R2,#high(L__71)
+00041D 3C 00               A  1826    	LD	R3,#low(L__71)
+00041F D6 0000             A  1827    	CALL	__b_ucase
+000422 C4E0                A  1828    	JP	@RR0
+                           A  1829    ;  478				case 0x00:
+000424                     A  1830    _17_L_94:
+                           A  1831    .line 478
+                           A  1832    ;  479					//ROLL-CALL
+                           A  1833    ;  480					rxedRollCall();
+                           A  1834    .line 480
+000424 D6 0311             A  1835    	CALL	_rxedRollCall
+                           A  1836    ;  481					break;
+                           A  1837    .line 481
+000427 8B 0D               A  1838    	JR	_17_L_106
+                           A  1839    ;  482				case 0x1E: //NO-ACCY
+000429                     A  1840    _17_L_95:
+                           A  1841    .line 482
+                           A  1842    ;  483				case 0x1F: //RESET-ALL
+000429                     A  1843    _17_L_96:
+                           A  1844    .line 483
+                           A  1845    ;  484				case 0x20: //ROLL-REPLY		000429                     A  1846    _17_L_97:
+                           A  1847    .line 484
+                           A  1848    ;  485				case 0x5F: //RESET-BARREL
+000429                     A  1849    _17_L_98:
+                           A  1850    .line 485
+                           A  1851    ;  486				case 0x60: //POWERUP-REPLY
+000429                     A  1852    _17_L_99:
+                           A  1853    .line 486
+                           A  1854    ;  487				case 0x80: //RADAR-REPLY
+000429                     A  1855    _17_L_100:
+                           A  1856    .line 487
+                           A  1857    ;  488				case 0xA0: //MASTER-REPLY
+000429                     A  1858    _17_L_101:
+                           A  1859    .line 488
+                           A  1860    ;  489				case 0xC0: //RHOST-REPLY
+000429                     A  1861    _17_L_102:
+                           A  1862    .line 489
+                           A  1863    ;  490					//Any of these results 
+                           A  1864    ;  491					rxedResetBarrel();
+                           A  1865    .line 491
+000429 D6 02E6             A  1866    	CALL	_rxedResetBarrel
+                           A  1867    ;  492					break;
+                           A  1868    .line 492
+00042C 8B 08               A  1869    	JR	_17_L_106
+                           A  1870    ;  493				case 0x40:
+00042E                     A  1871    _17_L_103:
+                           A  1872    .line 493
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  37
+
+
+PC     Object              I  Line    Source main.src
+                           A  1873    ;  494					//BARREL-SEEN
+                           A  1874    ;  495					rxedBarrelSeen();
+                           A  1875    .line 495
+00042E D6 031C             A  1876    	CALL	_rxedBarrelSeen
+                           A  1877    ;  496					break;
+                           A  1878    .line 496
+000431 8B 03               A  1879    	JR	_17_L_106
+                           A  1880    ;  497				case 0x41:
+000433                     A  1881    _17_L_104:
+                           A  1882    .line 497
+                           A  1883    ;  498					//BARREL-ACK
+                           A  1884    ;  499					rxedBarrelAck();
+                           A  1885    .line 499
+000433 D6 032A             A  1886    	CALL	_rxedBarrelAck
+                           A  1887    ;  500					break;
+                           A  1888    ;  501				default:
+                           A  1889    ;  502					//Nothing we know how t
+                           A  1890    ;  503					break;
+                           A  1891    ;  504			}
+000436                     A  1892    _17_L_106:
+                           A  1893    .line 504
+                           A  1894    ;  505			captureBuffer.size = 0;
+                           A  1895    .line 505
+000436 E9000011            A  1896    	LDX	_captureBuffer+17,#-0
+                           A  1897    ;  506		}
+                           A  1898    ;  507	}
+00043A                     A  1899    _17_L_108:
+                           A  1900    .line 507
+00043A D6 0000             A  1901    	CALL	__b_framereset
+00043D AF                  A  1902    	RET	
+                           A  1903    .endfunc "receiveSomething",507,"_receiveSometh
+                           A  1904    	SEGMENT ROM_DATA
+                           A  1905    
+                           A  1906    
+                           A  1907    ;**************************** _main ***********
+                           A  1908    ;Name                         Addr/Register   S
+                           A  1909    ;_sendLoadSpecial                    STATIC    
+                           A  1910    ;_ir_loaded_tags                     STATIC    
+                           A  1911    ;_reloadCooldown                     STATIC    
+                           A  1912    ;_weAreReloading                     STATIC    
+                           A  1913    ;_weAreRegistered                    STATIC    
+                           A  1914    ;_btn_pressed                        STATIC    
+                           A  1915    ;_captureBuffer                      STATIC    
+                           A  1916    
+                           A  1917    
+                           A  1918    ; Aggregate Stack Size: 0 (words)
+                           A  1919    
+                           A  1920    
+                           A  1921    	.FRAME _n_main,?_n_main,RDATA
+                           A  1922    	.FCALL _n_init_cpu
+                           A  1923    	.FCALL _n_receiveSomething
+                           A  1924    	.FCALL _n_sendSomething
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  38
+
+
+PC     Object              I  Line    Source main.src
+                           A  1925    	.FRAME _f_main,?_f_main,EDATA
+                           A  1926    	.FCALL _f_init_cpu
+                           A  1927    	.FCALL _f_receiveSomething
+                           A  1928    	.FCALL _f_sendSomething
+                           A  1929    	SEGMENT main_TEXT
+00043E                     A  1930    _main:
+                           A  1931    .define "_main"
+                           A  1932    .value _main
+                           A  1933    .class 2
+                           A  1934    .type 65
+                           A  1935    .type 0
+                           A  1936    .endef
+                           A  1937    .begfunc "main",509,"_main"
+00043E D6 0000             A  1938    	CALL	__b_frameset00
+                           A  1939    ;  508	
+                           A  1940    ;  509	void main(void) {
+                           A  1941    ;  510		unsigned char i;
+                           A  1942    ;  511		init_cpu();
+                           A  1943    .line 511
+000441 D6 01B6             A  1944    	CALL	_init_cpu
+                           A  1945    ;  512		
+                           A  1946    ;  513		//Initialize the checksum.
+                           A  1947    ;  514		captureBuffer.checksum = 0xFF;
+                           A  1948    .line 514
+000444 E9FF0012            A  1949    	LDX	_captureBuffer+18,#255
+                           A  1950    ;  515		
+                           A  1951    ;  516		while(1) {
+000448                     A  1952    _18_L_114:
+                           A  1953    .line 516
+                           A  1954    ;  517			//Do stuff here. Not sure what 
+                           A  1955    ;  518			
+                           A  1956    ;  519			//Debugging thingy.
+                           A  1957    ;  520			/*if(!ser_tx_size) {
+                           A  1958    ;  521	            //No block ready to TX. Stu
+                           A  1959    ;  522	            ser_tx_buffer[0] = 0xAA;
+                           A  1960    ;  523				ser_tx_buffer[1] = 0x55;
+                           A  1961    ;  524				ser_tx_buffer[2] = 0xAA;
+                           A  1962    ;  525				ser_tx_buffer[3] = 0x55;
+                           A  1963    ;  526	            ser_tx_size = 4;
+                           A  1964    ;  527				IRQ0 |= 0x08;
+                           A  1965    ;  528	        } else {
+                           A  1966    ;  529				if(!(U0STAT0 ^ 0x06)) {
+                           A  1967    ;  530					IRQ0 |= 0x08;
+                           A  1968    ;  531				}
+                           A  1969    ;  532			}*/
+                           A  1970    ;  533			
+                           A  1971    ;  534			//More debugging stuff.
+                           A  1972    ;  535			//Echo everything back to the t
+                           A  1973    ;  536			//Should put it in factory test
+                           A  1974    ;  537			/*if((ser_rx_size & 0x80) && !s
+                           A  1975    ;  538	            //Block received.
+                           A  1976    ;  539	            //Echo it back for testing.
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  39
+
+
+PC     Object              I  Line    Source main.src
+                           A  1977    ;  540	            unsigned char rx_size = (se
+                           A  1978    ;  541				int i;
+                           A  1979    ;  542				
+                           A  1980    ;  543	            for(i = 0; i < rx_size;i++)
+                           A  1981    ;  544	                ser_tx_buffer[i] = ser_
+                           A  1982    ;  545	            }
+                           A  1983    ;  546				
+                           A  1984    ;  547	            ser_tx_size = rx_size;
+                           A  1985    ;  548	            ser_rx_size = 0;
+                           A  1986    ;  549				IRQ0 |= 0x08;
+                           A  1987    ;  550	        } else {
+                           A  1988    ;  551				if(!(U0STAT0 ^ 0x06)) {
+                           A  1989    ;  552					IRQ0 |= 0x08;
+                           A  1990    ;  553				}
+                           A  1991    ;  554			}*/
+                           A  1992    ;  555			
+                           A  1993    ;  556			receiveSomething();
+                           A  1994    .line 556
+000448 D6 040D             A  1995    	CALL	_receiveSomething
+                           A  1996    ;  557			sendSomething();
+                           A  1997    .line 557
+00044B D6 03BF             A  1998    	CALL	_sendSomething
+                           A  1999    ;  558			if(btn_pressed && weAreRegister
+                           A  2000    .line 558
+00044E A900002C            A  2001    	CPX	_btn_pressed,#-0
+000452 6B F4               A  2002    	JR	Z,_18_L_114
+000454 A9000043            A  2003    	CPX	_weAreRegistered,#-0
+000458 6B EE               A  2004    	JR	Z,_18_L_114
+                           A  2005    ;  559				btn_pressed = 0;
+                           A  2006    .line 559
+00045A E900002C            A  2007    	LDX	_btn_pressed,#-0
+                           A  2008    ;  560				if(!weAreReloading && !relo
+                           A  2009    .line 560
+00045E A9000044            A  2010    	CPX	_weAreReloading,#-0
+000462 EB E4               A  2011    	JR	NE,_18_L_114
+000464 840045              A  2012    	LDX	R0,_reloadCooldown
+000467 841046              A  2013    	LDX	R1,_reloadCooldown+1
+00046A 4201                A  2014    	OR	R0,R1
+00046C EB DA               A  2015    	JR	NE,_18_L_114
+00046E A9000029            A  2016    	CPX	_ir_loaded_tags,#-0
+000472 EB D4               A  2017    	JR	NE,_18_L_114
+                           A  2018    ;  561					sendLoadSpecial = 1;
+                           A  2019    .line 561
+000474 E9010041            A  2020    	LDX	_sendLoadSpecial,#1
+                           A  2021    ;  562				}
+                           A  2022    ;  563			}
+                           A  2023    ;  564		}
+                           A  2024    .line 564
+000478 8B CE               A  2025    	JR	_18_L_114
+                           A  2026    .line 565
+00047A D6 0000             A  2027    	CALL	__b_framereset
+00047D AF                  A  2028    	RET	
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  40
+
+
+PC     Object              I  Line    Source main.src
+                           A  2029    .endfunc "main",565,"_main"
+00000C 008E                A  2030    	VECTOR	TIMER0=_isr_timer0
+000010 0047                A  2031    	VECTOR	UART0_TX=_isr_uarttx
+00000E 0000                A  2032    	VECTOR	UART0_RX=_isr_uartrx
+                           A  2033    	XREF __b_ucase:ROM
+                           A  2034    	XREF __b_framereset:ROM
+                           A  2035    	XREF __b_iframereset:ROM
+                           A  2036    	XREF __b_frameset00:ROM
+                           A  2037    	XREF __b_iframeset00:ROM
+                           A  2038    	XDEF _main
+                           A  2039    	XDEF _receiveSomething
+                           A  2040    	XDEF _sendSomething
+                           A  2041    	XDEF _ArmSpecial
+                           A  2042    	XDEF _LoadSpecial
+                           A  2043    	XDEF _BarrelReply
+                           A  2044    	XDEF _rxedBarrelAck
+                           A  2045    	XDEF _rxedBarrelSeen
+                           A  2046    	XDEF _rxedRollCall
+                           A  2047    	XDEF _rxedResetBarrel
+                           A  2048    	XDEF _loadAmmo
+                           A  2049    	XDEF _queueChecksum
+                           A  2050    	XDEF _queueByte
+                           A  2051    	XDEF _sendQueue
+                           A  2052    	XDEF _init_cpu
+                           A  2053    	XDEF _isr_timer0
+                           A  2054    	XDEF _isr_uarttx
+                           A  2055    	XDEF _isr_uartrx
+                           A  2056    	XDEF _reloadCooldown
+                           A  2057    	XDEF _weAreReloading
+                           A  2058    	XDEF _weAreRegistered
+                           A  2059    	XDEF _sendArmSpecial
+                           A  2060    	XDEF _sendLoadSpecial
+                           A  2061    	XDEF _sendBarrelReply
+                           A  2062    	XDEF _temp_tx_size
+                           A  2063    	XDEF _temp_tx_buffer
+                           A  2064    	XDEF _lastIO
+                           A  2065    	XDEF _tempIO
+                           A  2066    	XDEF _btn_pressed
+                           A  2067    	XDEF _btn_prelim
+                           A  2068    	XDEF _btn_counter
+                           A  2069    	XDEF _ir_loaded_tags
+                           A  2070    	XDEF _ir_rx_bits
+                           A  2071    	XDEF _ir_rx_counter
+                           A  2072    	XDEF _ser_tx_currentbyte
+                           A  2073    	XDEF _ser_tx_cooldown
+                           A  2074    	XDEF _ser_tx_size
+                           A  2075    	XDEF _ser_tx_buffer
+                           A  2076    	XDEF _ser_rx_eob_counter
+                           A  2077    	XDEF _captureBuffer
+                           A  2078    	END
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 14-Dec-13     09:16:12     page:  41
+
+
+PC     Object              I  Line    Source 
+
+
+Errors: 0
+Warnings: 0
+Lines Assembled: 2079

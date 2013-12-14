@@ -12,6 +12,7 @@
 	#define REFIRERATE 16
 	#define LOADSFX 14
 	#define FIRESFX 11
+	#define RELOADMIDCLIP 1
 #endif
 
 #if WEAPONTYPE==2
@@ -22,6 +23,7 @@
 	#define REFIRERATE 16
 	#define LOADSFX 14
 	#define FIRESFX 13
+	#define RELOADMIDCLIP 0
 #endif
 
 struct ser_rx {
@@ -461,8 +463,16 @@ void sendSomething(void) {
 		}
 		if(sendLoadSpecial) {
 			sendLoadSpecial = 0;
-			if(!weAreReloading && !reloadCooldown /*&& !ir_loaded_tags*/) {
-				LoadSpecial();
+			if(RELOADMIDCLIP) {
+				if(!weAreReloading && !reloadCooldown /*&& !ir_loaded_tags*/) {
+					if(ir_loaded_tags != AMMO) {
+						LoadSpecial();
+					}
+				}
+			} else {
+				if(!weAreReloading && !reloadCooldown && !ir_loaded_tags) {
+					LoadSpecial();
+				}
 			}
 			return;
 		}
@@ -557,7 +567,7 @@ void main(void) {
 		sendSomething();
 		if(btn_pressed && weAreRegistered) {
 			btn_pressed = 0;
-			if(!weAreReloading && !reloadCooldown && !ir_loaded_tags) {
+			if(!weAreReloading && !reloadCooldown) {
 				sendLoadSpecial = 1;
 			}
 		}

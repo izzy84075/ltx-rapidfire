@@ -4,7 +4,7 @@ Copyright (C) 1999-2008 Zilog, Inc. All Rights Reserved
 
 LINK MAP:
 
-DATE:      Sat Dec 14 09:16:13 2013
+DATE:      Sat Dec 14 09:44:59 2013
 PROCESSOR: assembler
 FILES:     C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\zilog\startupf04al.obj
            .\main.obj             
@@ -155,7 +155,7 @@ startup            normal data              C:00FD      C:015E       62h
 SEGMENTS WITHIN MODULES:
 ========================
 
-Module: ..\..\LTX-RA~1\MAIN.C (File: main.obj) Version: 1:0 12/14/2013 09:16:12
+Module: ..\..\LTX-RA~1\MAIN.C (File: main.obj) Version: 1:0 12/14/2013 09:44:58
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
@@ -504,7 +504,7 @@ _low_fardata                        00000000 (User Defined)
 _low_near_romdata                   000005DD (User Defined)
 _low_nearbss                        00000000 (User Defined)
 _low_neardata                       00000020 (User Defined)
-_main                                 C:059D MAIN            main_TEXT                       
+_main                                 C:05A3 MAIN            main_TEXT                       
 _near_heapbot                       000000EF (User Defined)
 _near_heaptop                       000000FF (User Defined)
 _near_stack                         000000FF (User Defined)
@@ -513,7 +513,7 @@ _queueByte                            C:03E8 MAIN            main_TEXT
 _queueChecksum                        C:0402 MAIN            main_TEXT                       
 _READ_NVDS                          00001000 (User Defined)
 _READ_NVDS_GET_STATUS               00001000 (User Defined)
-_receiveSomething                     C:056C MAIN            main_TEXT                       
+_receiveSomething                     C:0572 MAIN            main_TEXT                       
 _reloadCooldown                       E:0145 MAIN            FAR_BSS                         
 _rxedBarrelAck                        C:0489 MAIN            main_TEXT                       
 _rxedBarrelSeen                       C:047B MAIN            main_TEXT                       
@@ -790,8 +790,8 @@ Depth Address    CF Function                       Calls Function
 
 OUTPUT CHECKSUM
 ===============
-ltx-rapidfire.hex    6573
-ltx-rapidfire.lod    6573
+ltx-rapidfire.hex    64B5
+ltx-rapidfire.lod    64B5
 
 
 

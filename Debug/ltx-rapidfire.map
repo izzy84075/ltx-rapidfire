@@ -4,7 +4,7 @@ Copyright (C) 1999-2008 Zilog, Inc. All Rights Reserved
 
 LINK MAP:
 
-DATE:      Mon Dec 16 14:14:46 2013
+DATE:      Mon Dec 16 15:58:47 2013
 PROCESSOR: assembler
 FILES:     C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\zilog\startupf04al.obj
            .\main.obj             
@@ -95,7 +95,7 @@ Space                     Base         Top      Size      Used    Unused
 ------------------ ----------- ----------- --------- --------- ---------
 EDATA                   E:0100      E:0146       768        71       697
 RDATA                     R:20        R:EF       224        17       207
-ROM                     C:0000      C:05DD      4096      1502      2594
+ROM                     C:0000      C:05CD      4096      1486      2610
 
 
 SEGMENTS WITHIN SPACE:
@@ -147,15 +147,15 @@ __VECTORS_038      absolute data            C:0038      C:0039        2h
 __VECTORS_03A      absolute data            C:003A      C:003B        2h
 __VECTORS_03C      absolute data            C:003C      C:003D        2h
 CODE               normal data              C:006E      C:00FC       8fh
-main_TEXT          normal data              C:015F      C:05DC      47eh
-NEAR_DATA          * segment copy *         C:05DD      C:05DD        1h
+main_TEXT          normal data              C:015F      C:05CC      46eh
+NEAR_DATA          * segment copy *         C:05CD      C:05CD        1h
 ROM_DATA           normal data              C:003E      C:006D       30h
 startup            normal data              C:00FD      C:015E       62h
 
 SEGMENTS WITHIN MODULES:
 ========================
 
-Module: ..\..\LTX-RA~1\MAIN.C (File: main.obj) Version: 1:0 12/16/2013 14:14:45
+Module: ..\..\LTX-RA~1\MAIN.C (File: main.obj) Version: 1:0 12/16/2013 15:58:47
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
@@ -163,7 +163,7 @@ Module: ..\..\LTX-RA~1\MAIN.C (File: main.obj) Version: 1:0 12/16/2013 14:14:45
     Segment: __VECTORS_00E                       C:000E      C:000F        2h
     Segment: __VECTORS_010                       C:0010      C:0011        2h
     Segment: FAR_BSS                             E:0100      E:0146       47h
-    Segment: main_TEXT                           C:015F      C:05DC      47eh
+    Segment: main_TEXT                           C:015F      C:05CC      46eh
     Segment: ROM_DATA                            C:003E      C:006D       30h
 
 
@@ -486,8 +486,8 @@ _flash_option1                        C:0000 FLASH1          ___flash_option1_se
 _flash_option2                        C:0001 FLASH2          ___flash_option2_segment        
 _init_cpu                             C:0315 MAIN            main_TEXT                       
 _ir_loaded_tags                       E:0129 MAIN            FAR_BSS                         
-_ir_rx_bits                           E:0128 MAIN            FAR_BSS                         
 _ir_rx_counter                        E:0127 MAIN            FAR_BSS                         
+_ir_rx_halfbits                       E:0128 MAIN            FAR_BSS                         
 _isr_timer0                           C:01ED MAIN            main_TEXT                       
 _isr_uartrx                           C:015F MAIN            main_TEXT                       
 _isr_uarttx                           C:01A6 MAIN            main_TEXT                       
@@ -501,7 +501,7 @@ _LoadSpecial                          C:04CA MAIN            main_TEXT
 _low_far_romdata                    00000000 (User Defined)
 _low_farbss                         00000100 (User Defined)
 _low_fardata                        00000000 (User Defined)
-_low_near_romdata                   000005DD (User Defined)
+_low_near_romdata                   000005CD (User Defined)
 _low_nearbss                        00000000 (User Defined)
 _low_neardata                       00000020 (User Defined)
 _main                                 C:05A3 MAIN            main_TEXT                       
@@ -652,8 +652,8 @@ _flash_option2                    Defined     COMMON\FLASH2.C
                                   Referenced  ..\..\src\boot\common\startupl.asm
 _init_cpu                         Defined     ..\..\LTX-RA~1\MAIN.C
 _ir_loaded_tags                   Defined     ..\..\LTX-RA~1\MAIN.C
-_ir_rx_bits                       Defined     ..\..\LTX-RA~1\MAIN.C
 _ir_rx_counter                    Defined     ..\..\LTX-RA~1\MAIN.C
+_ir_rx_halfbits                   Defined     ..\..\LTX-RA~1\MAIN.C
 _isr_timer0                       Defined     ..\..\LTX-RA~1\MAIN.C
 _isr_uartrx                       Defined     ..\..\LTX-RA~1\MAIN.C
 _isr_uarttx                       Defined     ..\..\LTX-RA~1\MAIN.C
@@ -790,8 +790,8 @@ Depth Address    CF Function                       Calls Function
 
 OUTPUT CHECKSUM
 ===============
-ltx-rapidfire.hex    64B5
-ltx-rapidfire.lod    64B5
+ltx-rapidfire.hex    5E47
+ltx-rapidfire.lod    5E47
 
 
 

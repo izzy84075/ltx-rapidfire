@@ -25,23 +25,61 @@
 
 #if WEAPONTYPE==1
 	//Machinegun
-	#define DOUBLETAPS 0
-	#define AMMO 15
-	#define BURSTSIZE 15
-	#define REFIRERATE 16
-	#define LOADSFX 14
-	#define FIRESFX 11
-	#define RELOADMIDCLIP 1
+	#define BARRELTYPE 2		//BarrelType should be 0x01 for a shotgun, 0x02 for a machinegun, 0x03 for a sniper, 0x04 for a grenade launcher.
+								// Other types are undefined, but can be used.
+	#define AMMONEEDED 15		//Ammo Needed is how much ammo will be deducted from the available total when loaded.
+								// Ranges from 1-10 officially, but other values seem to work, as seen here.
+	#define AMMO 15				//Ammo is the amount of ready ammo to indicate in the Ammo Power Bar.
+								// Should normally be in the range 1-10, but accepted values range from 1-15.
+	#define DOUBLETAPS 0		//DoubleTaps is (UNKNOWN).
+	#define BURSTSIZE 15		//BurstSize is how many shots will be fired if the trigger is held down.
+								// Ranges from 1 to 15, with 15 meaning "until we run out of ammo".
+	#define TRIGRATE 16			//TrigRate is the number of milliseconds between shots in increments of 10msec.
+								// Ranges from 13 to 255.
+	#define LOADSFX 14			//LoadSFX is what sound effect will be played when this block is RX'd by the tagger.
+	#define FIRESFX 11			//FireSFX is what sound effect will be played when the trigger is pulled after this
+								// special ammo is loaded/armed.
+								//SFX for both of the above are as follows:
+								// 0: No sound(Silence)
+								// 1: Standard clip-eject
+								// 2: Empty chamber
+								// 3: Tag Taken (hit) (Will override other playing sounds.)
+								// 4: Accessory detected
+								// 5: Accessory removed
+								// 6: Standard reload
+								// 7: Standard fire
+								// 8: Shotgun reload
+								// 9: Shotgun fire
+								// 10: Machinegun load
+								// 11: Machinegun fire (single shot)
+								// 12: Sniper load
+								// 13: Sniper fire
+								// 14: Grenade charge
+	#define DISPLAYMODE	0		//DisplayMode is what will be shown on the ammo display of the tagger.
+								//Known modes are as follows:
+								// 0x00: Normal (Shows how much ammo remains. Anything above 10 will just show as 10.)
+								// 0x20: All flash (If any ammo is left, all ammo display segments will flash.)
+								// 0x40: All solid (If any ammo is left, all ammo display segments will be lit solid.)
+								// 0x80: Show nothing (Ammo display will be blank.)
+								// Using other values is not recommended.
+	#define RELOADMIDCLIP 1		//Whether or not you can reload the attachment while it still has ammo loaded.
 #endif
+		
+		
+		
+		
 
 #if WEAPONTYPE==2
 	//Sniper
-	#define DOUBLETAPS 1
+	#define BARRELTYPE 3
+	#define AMMONEEDED 15
 	#define AMMO 15
+	#define DOUBLETAPS 1
 	#define BURSTSIZE 5
-	#define REFIRERATE 16
+	#define TRIGRATE 16
 	#define LOADSFX 14
 	#define FIRESFX 13
+	#define DISPLAYMODE 0
 	#define RELOADMIDCLIP 0
 #endif
 
@@ -60,7 +98,7 @@ volatile unsigned char ser_tx_cooldown;
 volatile unsigned char ser_tx_currentbyte;
 
 volatile unsigned char ir_rx_counter;
-volatile unsigned char ir_rx_bits;
+volatile unsigned char ir_rx_halfbits;
 volatile unsigned char ir_loaded_tags;
 
 volatile unsigned char btn_counter;
@@ -87,17 +125,15 @@ void interrupt isr_uartrx(void) {
 	temp = U0RXD;
 	//Byte received
 	if((U0STAT0 & 0x78) == 0x78) {
-		//Error. Do nothing.
+		//Error during reception. Do nothing.
 		return;
 	} else {
 		//If the interrupt was because we received data and there were no errors...
-		if(!(captureBuffer.size & 0x80)) {
-			//If we're not waiting for a block to be processed already...
-			captureBuffer.buffer[captureBuffer.size++] = temp;
-			captureBuffer.checksum -= temp;
-			//captureBuffer[captureBufferHead].size++;
-			ser_rx_eob_counter = 0;
-			captureBuffer.hasrxed = 1;
+		if(!(captureBuffer.size & 0x80)) { //If we're not waiting for a block to be processed already...
+			captureBuffer.buffer[captureBuffer.size++] = temp; //Store the byte into the buffer
+			captureBuffer.checksum -= temp; //Subtract it from the running checksum
+			ser_rx_eob_counter = 0; //Clear the End-Of-Block counter
+			captureBuffer.hasrxed = 1; //Mark that we've received at least one byte.
 		}
 	}
 	//Clear the interrupt bit
@@ -106,21 +142,18 @@ void interrupt isr_uartrx(void) {
 
 void interrupt isr_uarttx(void) {
 	//Ready to transmit a byte
-	if(ser_tx_size && !ser_tx_cooldown) {
-        //If there's something in the transmit buffer
-		if(ser_tx_currentbyte == ser_tx_size) {
-			//That was the last byte that we just sent
-			ser_tx_currentbyte = 0;
-			ser_tx_size = 0;
-			ser_tx_cooldown = 116; //Since this interrupt occurs after the first bit has been shifted
+	if(ser_tx_size && !ser_tx_cooldown) { //If there's something in the transmit buffer
+		if(ser_tx_currentbyte == ser_tx_size) { //If there are no more bytes to send
+			ser_tx_currentbyte = 0; //Reset our position in the buffer
+			ser_tx_size = 0; 		//Clear the old message out of the buffer
+			ser_tx_cooldown = 116; 	//Add the End-Of-Block delay.
+									//Since this interrupt occurs after the first bit has been shifted
 									//, and protocol requires we wait 10ms after the end of the block
 									//, we need to wait for 7 data bits, 2 stop bits, and then 10ms.
-									//This works out to 58 1/4ms counts, or 14.5ms.
-									//This works out to 116 1/8ms counts.
-		} else {
-			//There's still bytes to send
-			U0TXD = ser_tx_buffer[ser_tx_currentbyte];
-			ser_tx_currentbyte++;
+									//This works out to 116 1/8ms counts, or 14.5ms.
+		} else { //There's still bytes to send
+			U0TXD = ser_tx_buffer[ser_tx_currentbyte]; //Put a byte in the UART
+			ser_tx_currentbyte++; //Advance our position in the buffer
 		}
 	}
 	//Clear the interrupt bit.
@@ -128,7 +161,7 @@ void interrupt isr_uarttx(void) {
 }
 
 void interrupt isr_timer0(void) {
-	//4KHz interrupt.
+	//8KHz interrupt.
 	
 	lastIO = tempIO;
 	tempIO = PAIN;
@@ -143,56 +176,70 @@ void interrupt isr_timer0(void) {
 	}
 	
 	//Serial RX end-of-block stuff.
-	//if((ser_rx_eob_counter == 30) && ser_rx_hasrxed) {
+	//When the RX line has been idle for 7.5ms(60 1/8ms counts) after we have received at least one byte, it is safe to assume that
+	// The block has finished transmitting
 	if((ser_rx_eob_counter == 60) && captureBuffer.hasrxed) {
         captureBuffer.hasrxed = 0;
         if(!captureBuffer.checksum) {
-            captureBuffer.size |= 0x80;
+			//The easiest way to check the checksum is to initialize it to 0xFF, then subtract every received byte from that 0xFF,
+			// including the checksum byte we receive, allowing it to roll over to 0xFF if possible. If we end up with 0x00,
+			// the block was received correctly.
+            captureBuffer.size |= 0x80; //Flag that the block is valid for processing.
         } else {
-            captureBuffer.size = 0;
+            captureBuffer.size = 0; //Clear the buffer.
         }
-        captureBuffer.checksum = 0xFF;
+        captureBuffer.checksum = 0xFF; //Reinitialize the checksum.
     }
 	
 	//Button stuff
+	//If the button is not in the state it was last time we went through the ISR, we either just let go of the button, or
+	// just pressed the button.
 	if((tempIO & 0x01) != (lastIO & 0x01)) {
         //Button state changed, clear the counter.
         btn_counter = 0;
         if(!(tempIO & 0x01)) {
             //Was just pressed
-            //Set a flag.
+            //Set a flag that it's been pressed, but might be noise and needs debounced.
             btn_prelim = 1;
         } else {
+			//Was just released
 			btn_prelim = 0;
 		}
     } else {
-        btn_counter++;
-        if(btn_prelim && (btn_counter > 3)) {
+		//Button is still in whatever state it was last time
+        btn_counter++; //Count how long it's been in that state
+        if(btn_prelim && (btn_counter > 3)) { //Button has been held for at least 1ms, call it good.
             btn_prelim = 0;
-            btn_pressed = 1;
+            btn_pressed = 1; //Mark that the button was pressed and debounced
         }
     }
 	
 	//IR stuff
+	//If we have ammo loaded in the attachment, we need to count how many shots have been fired so that we know when to
+	// switch back to pistol mode. This code doesn't care what team/player the shot signal is, just that it has the
+	// right header and length.
 	if((tempIO & 0x08) != (lastIO & 0x08)){
 		//LAZERMOD's state has changed
-		 if(ir_rx_bits == 1) {
+		 if(ir_rx_halfbits == 1) {
 			//if((ir_rx_counter > 22) && (ir_rx_counter < 26)) {
 			 if((ir_rx_counter > 45) && (ir_rx_counter < 51)) {
-				//If it's between 5.75ms and 6.25ms...
-				ir_rx_bits++;
+				//If it's between 5.75ms and 6.25ms, we probably have the second part of a shot signal.
+				//This is actually the second step of the shot signal, but needs to be at the beginning for the if/else if/else
+				// to work.
+				ir_rx_halfbits++;
 			}
-		 } else if(ir_rx_bits < 3) {
+		 } else if(ir_rx_halfbits < 3) {
 			//if((ir_rx_counter > 10) && (ir_rx_counter < 14)) {
 			 if((ir_rx_counter > 21) && (ir_rx_counter < 27)) {
-				//If it's between 2.75ms and 3.25ms, move on to the next stage
-				ir_rx_bits++;
+				//If it's between 2.75ms and 3.25ms, move on to the next stage. We should reach this point twice for a shot signal.
+				ir_rx_halfbits++;
 			}
 		} else {
 			//if((ir_rx_counter > 2) && (ir_rx_counter < 10)) {
 			if((ir_rx_counter > 5) && (ir_rx_counter < 19)) {
-				//If it's between 0.75ms and 2.25ms...
-				ir_rx_bits++;
+				//If it's between 0.75ms and 2.25ms, this is part of a data bit.
+				//If we reached this point, we have a shot header, so we should get 14 half-bits.
+				ir_rx_halfbits++;
 			}
 		}
 		ir_rx_counter = 0;
@@ -201,17 +248,18 @@ void interrupt isr_timer0(void) {
 		//if(ir_rx_counter > 40) {
 		if(ir_rx_counter > 64) {
 			//End of IR packet
-			if(ir_rx_bits == 17) {
+			if(ir_rx_halfbits == 17) {
 				//Tag of some sort.
-				if(ir_loaded_tags) {
-					ir_loaded_tags--;
+				if(ir_loaded_tags) { //If we have ammo loaded in the attachment
+					ir_loaded_tags--; //Take one away!
 				}
-				if(!ir_loaded_tags) {
+				if(!ir_loaded_tags) { //If we are now out of ammo
 					//Turn off the INHIBIT line
-					PAOUT &= 0xFD;
+					PAOUT &= 0xFD; //Disable the attachment barrel and go back to the main tagger barrel.
 				}
 			}
-			ir_rx_bits = 0;
+			//Reset for the next tag.
+			ir_rx_halfbits = 0;
 			ir_rx_counter = 0;
 		}
 	}
@@ -249,8 +297,7 @@ void init_cpu(void) {
 	//Enable interrupts on received data
 	U0CTL1 = 0x00;	//00000000
 	
-	//Set up Timer0 to be an 4KHz heartbeat interrupt.
-	//8KHz now.
+	//Set up Timer0 to be an 8KHz heartbeat interrupt.
 	//Disable timer, set mode to Continuous, set prescale to 1:1
 	T0CTL1 = 0x01;	//00000001
 	T0CTL0 = 0x00;	//00000000
@@ -396,7 +443,7 @@ void BarrelReply(void) {
 	//BType
 	queueByte(0x40);
 	//BData0
-	queueByte(0x02);
+	queueByte(BARRELTYPE);
 	//BSum
 	queueChecksum();
 	
@@ -414,12 +461,18 @@ void LoadSpecial(void) {
 					BData4		DisplayMode
 					BSum		$cs
 		Unloads any ready ammo and loads special shot.
+		Ammo Needed is how much ammo will be deducted from the available total.
+		DoubleTaps is (UNKNOWN).
+		LoadSFX is what sound effect will be played when this block is RX'd by the tagger.
+		FireSFX is what sound effect will be played when the trigger is pulled after this
+			special ammo is loaded/armed.
+		DisplayMode is what will be shown on the ammo display of the tagger.
 	*/
 	
 	//BType
 	queueByte(0x41);
 	//BData0
-	queueByte(AMMO);
+	queueByte(AMMONEEDED);
 	//BData1
 	queueByte(DOUBLETAPS);
 	//BData2
@@ -427,7 +480,7 @@ void LoadSpecial(void) {
 	//BData3
 	queueByte(FIRESFX);
 	//BData4
-	queueByte(0);
+	queueByte(DISPLAYMODE);
 	//BSum
 	queueChecksum();
 	
@@ -457,7 +510,7 @@ void ArmSpecial(void) {
 	//BData1
 	queueByte(AMMO);
 	//BData2
-	queueByte(REFIRERATE);
+	queueByte(TRIGRATE);
 	//BSum
 	queueChecksum();
 	
@@ -469,28 +522,28 @@ void ArmSpecial(void) {
 }
 
 void sendSomething(void) {
-	if(!ser_tx_size && !ser_tx_cooldown) {		
-		if(sendBarrelReply) {
-			sendBarrelReply = 0;
-			BarrelReply();
+	if(!ser_tx_size && !ser_tx_cooldown) { //If there's nothing in the queue currently
+		if(sendBarrelReply) { //If we need to send a BarrelReply
+			sendBarrelReply = 0; //Clear the flag
+			BarrelReply(); //Send a BarrelReply.
 			return;
 		}
-		if(sendArmSpecial) {
-			sendArmSpecial = 0;
-			ArmSpecial();
+		if(sendArmSpecial) { //If we're in the middle of reloading and have received the ACK from loading.
+			sendArmSpecial = 0; //Clear the flag
+			ArmSpecial(); //Send an ArmSpecial so we can start firing!
 			return;
 		}
-		if(sendLoadSpecial) {
-			sendLoadSpecial = 0;
-			if(RELOADMIDCLIP) {
-				if(!weAreReloading && !reloadCooldown /*&& !ir_loaded_tags*/) {
-					if(ir_loaded_tags != AMMO) {
-						LoadSpecial();
+		if(sendLoadSpecial) { //If the button has been pressed and debounced and we're registered with the tagger
+			sendLoadSpecial = 0; //Clear the flag
+			if(RELOADMIDCLIP) { //If we can reload mid-clip
+				if(!weAreReloading && !reloadCooldown) { //If we're not already reloading and are not delaying because we /just/ reloaded
+					if(ir_loaded_tags != AMMO) { //If we aren't already full
+						LoadSpecial(); //Start reloading.
 					}
 				}
-			} else {
-				if(!weAreReloading && !reloadCooldown && !ir_loaded_tags) {
-					LoadSpecial();
+			} else { //If we can't reload mid-clip
+				if(!weAreReloading && !reloadCooldown && !ir_loaded_tags) { //If we're not reloading, not delaying, and aren't loaded.
+					LoadSpecial(); //Start reloading.
 				}
 			}
 			return;
@@ -499,8 +552,7 @@ void sendSomething(void) {
 }
 
 void receiveSomething(void) {
-	if(captureBuffer.size & 0x80) {
-		//There's a block in the buffer
+	if(captureBuffer.size & 0x80) { //There's a block in the buffer!
 		
 		//Figure out what type it is and do stuff accordingly.
 		switch(captureBuffer.buffer[0]) { //Look at the Block Type byte.
@@ -543,24 +595,6 @@ void main(void) {
 	captureBuffer.checksum = 0xFF;
 	
 	while(1) {
-		//Do stuff here. Not sure what yet...
-		
-		//Debugging thingy.
-		/*if(!ser_tx_size) {
-            //No block ready to TX. Stuff it.
-            ser_tx_buffer[0] = 0xAA;
-			ser_tx_buffer[1] = 0x55;
-			ser_tx_buffer[2] = 0xAA;
-			ser_tx_buffer[3] = 0x55;
-            ser_tx_size = 4;
-			IRQ0 |= 0x08;
-        } else {
-			if(!(U0STAT0 ^ 0x06)) {
-				IRQ0 |= 0x08;
-			}
-		}*/
-		
-		//More debugging stuff.
 		//Echo everything back to the tagger.
 		//Should put it in factory test mode.
 		/*if((ser_rx_size & 0x80) && !ser_tx_size) {
@@ -584,10 +618,10 @@ void main(void) {
 		
 		receiveSomething();
 		sendSomething();
-		if(btn_pressed && weAreRegistered) {
-			btn_pressed = 0;
-			if(!weAreReloading && !reloadCooldown) {
-				sendLoadSpecial = 1;
+		if(btn_pressed) { //If the button has been pressed and debounced
+			btn_pressed = 0; //Clear the flag.
+			if(weAreRegistered) { //If the tagger has acknowledged our presence
+				sendLoadSpecial = 1; //Flag that we should start loading the attachment
 			}
 		}
 	}

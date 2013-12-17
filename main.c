@@ -31,7 +31,10 @@
 								// Ranges from 1-10 officially, but other values seem to work, as seen here.
 	#define AMMO 15				//Ammo is the amount of ready ammo to indicate in the Ammo Power Bar.
 								// Should normally be in the range 1-10, but accepted values range from 1-15.
-	#define DOUBLETAPS 0		//DoubleTaps is (UNKNOWN).
+	#define DOUBLETAPS 0		//DoubleTaps is complicated, and should most likely be left at 0.
+					// This /does/ do things, but I don't fully understand it myself.
+					// It's similar to MegaTags, but does things differently.
+					// This code does NOT fully support DoubleTaps.
 	#define BURSTSIZE 15		//BurstSize is how many shots will be fired if the trigger is held down.
 								// Ranges from 1 to 15, with 15 meaning "until we run out of ammo".
 	#define TRIGRATE 16			//TrigRate is the number of milliseconds between shots in increments of 10msec.
@@ -68,8 +71,8 @@
 #if WEAPONPROFILE==2
 	//Sniper
 	#define BARRELTYPE 3
-	#define AMMONEEDED 12
-	#define AMMO 4
+	#define AMMONEEDED 4
+	#define AMMO 1
 	#define DOUBLETAPS 3
 	#define BURSTSIZE 1
 	#define TRIGRATE 200

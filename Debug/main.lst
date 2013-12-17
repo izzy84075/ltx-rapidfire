@@ -1,4 +1,4 @@
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:   1
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:   1
 
 
 PC     Object              I  Line    Source 
@@ -54,7 +54,7 @@ PC     Object              I  Line    Source
                            A    50    .define "ser_rx_eob_counter"
                            A    51    .alias "_ser_rx_eob_counter"
                            A    52    .class 83
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:   2
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:   2
 
 
 PC     Object              I  Line    Source main.src
@@ -110,7 +110,7 @@ PC     Object              I  Line    Source main.src
                            A   102    .endef
 000028                     A   103    _ir_rx_halfbits:
 000028                     A   104    	DS	1
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:   3
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:   3
 
 
 PC     Object              I  Line    Source main.src
@@ -166,7 +166,7 @@ PC     Object              I  Line    Source main.src
                            A   154    .type 12
                            A   155    .type 0
                            A   156    .endef
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:   4
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:   4
 
 
 PC     Object              I  Line    Source main.src
@@ -222,7 +222,7 @@ PC     Object              I  Line    Source main.src
                            A   206    .alias "_sendArmSpecial"
                            A   207    .class 83
                            A   208    .value _sendArmSpecial
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:   5
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:   5
 
 
 PC     Object              I  Line    Source main.src
@@ -278,7 +278,7 @@ PC     Object              I  Line    Source main.src
                            A   258    .class 2
                            A   259    .type 65
                            A   260    .type 0
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:   6
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:   6
 
 
 PC     Object              I  Line    Source main.src
@@ -305,11 +305,11 @@ PC     Object              I  Line    Source main.src
                            A   281    ;   19	
                            A   282    ;   20	#include <ez8.h>
                            A   283    ;   21	
-                           A   284    ;   22	#define WEAPONTYPE 1		/* 	1: Mach
+                           A   284    ;   22	#define WEAPONPROFILE 1		/* 	1: Mach
                            A   285    ;   23									2: Snip
                            A   286    ;   24								*/
                            A   287    ;   25	
-                           A   288    ;   26	#if WEAPONTYPE==1
+                           A   288    ;   26	#if WEAPONPROFILE==1
                            A   289    ;   27		//Machinegun
                            A   290    ;   28		#define BARRELTYPE 2		//Barre
                            A   291    ;   29									// Othe
@@ -334,7 +334,7 @@ PC     Object              I  Line    Source main.src
                            A   310    ;   48									// 5: A
                            A   311    ;   49									// 6: S
                            A   312    ;   50									// 7: S
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:   7
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:   7
 
 
 PC     Object              I  Line    Source main.src
@@ -355,7 +355,7 @@ PC     Object              I  Line    Source main.src
                            A   327    ;   65		#define RELOADMIDCLIP 1		//Wheth
                            A   328    ;   66	#endif	
                            A   329    ;   67	
-                           A   330    ;   68	#if WEAPONTYPE==2
+                           A   330    ;   68	#if WEAPONPROFILE==2
                            A   331    ;   69		//Sniper
                            A   332    ;   70		#define BARRELTYPE 3
                            A   333    ;   71		#define AMMONEEDED 12
@@ -390,7 +390,7 @@ PC     Object              I  Line    Source main.src
                            A   362    ;  100	
                            A   363    ;  101	volatile unsigned char ser_tx_buffer[16
                            A   364    ;  102	volatile unsigned char ser_tx_size;
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:   8
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:   8
 
 
 PC     Object              I  Line    Source main.src
@@ -446,7 +446,7 @@ PC     Object              I  Line    Source main.src
                            A   414    .line 135
                            A   415    ;  136		} else {
                            A   416    .line 136
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:   9
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:   9
 
 
 PC     Object              I  Line    Source main.src
@@ -502,7 +502,7 @@ PC     Object              I  Line    Source main.src
                            A   466    ; Aggregate Stack Size: 0 (words)
                            A   467    
                            A   468    
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  10
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  10
 
 
 PC     Object              I  Line    Source main.src
@@ -558,7 +558,7 @@ PC     Object              I  Line    Source main.src
 000076 16E000              A   518    	ADC	R0,#0
 000079 86E0E2              A   519    	LDX	R2,@RR0
 00007C 942F40              A   520    	LDX	3904,R2
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  11
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  11
 
 
 PC     Object              I  Line    Source main.src
@@ -614,7 +614,7 @@ PC     Object              I  Line    Source main.src
                            A   570    .begfunc "isr_timer0",169,"_isr_timer0"
 00008E C8FFD0              A   571    	PUSHX	4093
 000091 D6 0000             A   572    	CALL	__b_iframeset00
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  12
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  12
 
 
 PC     Object              I  Line    Source main.src
@@ -670,7 +670,7 @@ PC     Object              I  Line    Source main.src
                            A   622    .line 188
 0000C8 E9000000            A   623    	LDX	_captureBuffer,#-0
                            A   624    ;  189	        if(!captureBuffer.checksum) {
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  13
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  13
 
 
 PC     Object              I  Line    Source main.src
@@ -726,7 +726,7 @@ PC     Object              I  Line    Source main.src
 0000FA E901002B            A   674    	LDX	_btn_prelim,#1
                            A   675    ;  210	        } else {
                            A   676    .line 210
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  14
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  14
 
 
 PC     Object              I  Line    Source main.src
@@ -782,7 +782,7 @@ PC     Object              I  Line    Source main.src
 000135 EB 15               A   726    	JR	NE,_3_L_42
                            A   727    ;  230				//if((ir_rx_counter > 22) &
                            A   728    ;  231				 if((ir_rx_counter > 45) &&
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  15
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  15
 
 
 PC     Object              I  Line    Source main.src
@@ -838,7 +838,7 @@ PC     Object              I  Line    Source main.src
                            A   778    ;  249				}
                            A   779    ;  250			}
 00017A                     A   780    _3_L_43:
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  16
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  16
 
 
 PC     Object              I  Line    Source main.src
@@ -894,7 +894,7 @@ PC     Object              I  Line    Source main.src
 0001AA E9000028            A   830    	LDX	_ir_rx_halfbits,#-0
                            A   831    ;  269				ir_rx_counter = 0;
                            A   832    .line 269
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  17
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  17
 
 
 PC     Object              I  Line    Source main.src
@@ -950,7 +950,7 @@ PC     Object              I  Line    Source main.src
                            A   882    .line 285
 0001BA E9010FD0            A   883    	LDX	4048,#1
 0001BE E9190FD1            A   884    	LDX	4049,#25
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  18
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  18
 
 
 PC     Object              I  Line    Source main.src
@@ -1006,7 +1006,7 @@ PC     Object              I  Line    Source main.src
                            A   934    .line 309
 0001FA E9000F06            A   935    	LDX	3846,#-0
                            A   936    ;  310		//Reset count
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  19
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  19
 
 
 PC     Object              I  Line    Source main.src
@@ -1062,7 +1062,7 @@ PC     Object              I  Line    Source main.src
 00023A 49800F0F            A   986    	ORX	3855,#128
                            A   987    ;  334		
                            A   988    ;  335		//Turn off the inhibit line
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  20
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  20
 
 
 PC     Object              I  Line    Source main.src
@@ -1118,7 +1118,7 @@ PC     Object              I  Line    Source main.src
 000247 D6 0000             A  1038    	CALL	__b_frameset00
 00024A 8B 0D               A  1039    	JR	_5_L_58
                            A  1040    ;  345		int i;
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  21
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  21
 
 
 PC     Object              I  Line    Source main.src
@@ -1174,7 +1174,7 @@ PC     Object              I  Line    Source main.src
 000288 AF                  A  1090    	RET	
                            A  1091    .endfunc "sendQueue",358,"_sendQueue"
                            A  1092    	SEGMENT ROM_DATA
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  22
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  22
 
 
 PC     Object              I  Line    Source main.src
@@ -1230,7 +1230,7 @@ PC     Object              I  Line    Source main.src
                            A  1142    	SEGMENT ROM_DATA
                            A  1143    
                            A  1144    
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  23
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  23
 
 
 PC     Object              I  Line    Source main.src
@@ -1286,7 +1286,7 @@ PC     Object              I  Line    Source main.src
 0002AA 84303F              A  1194    	LDX	R3,_temp_tx_size
 0002AD A213                A  1195    	CP	R1,R3
 0002AF 1FA6E000            A  1196    	CPC	R0,#-0
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  24
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  24
 
 
 PC     Object              I  Line    Source main.src
@@ -1342,7 +1342,7 @@ PC     Object              I  Line    Source main.src
                            A  1246    .value _loadAmmo
                            A  1247    .class 2
                            A  1248    .type 65
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  25
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  25
 
 
 PC     Object              I  Line    Source main.src
@@ -1398,7 +1398,7 @@ PC     Object              I  Line    Source main.src
                            A  1298    .type 0
                            A  1299    .endef
                            A  1300    .begfunc "rxedResetBarrel",385,"_rxedResetBarre
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  26
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  26
 
 
 PC     Object              I  Line    Source main.src
@@ -1454,7 +1454,7 @@ PC     Object              I  Line    Source main.src
                            A  1350    
                            A  1351    	.FRAME _n_rxedRollCall,?_n_rxedRollCall,RDA
                            A  1352    	.FRAME _f_rxedRollCall,?_f_rxedRollCall,EDA
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  27
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  27
 
 
 PC     Object              I  Line    Source main.src
@@ -1510,7 +1510,7 @@ PC     Object              I  Line    Source main.src
                            A  1402    .begfunc "rxedBarrelSeen",412,"_rxedBarrelSeen"
 00031C D6 0000             A  1403    	CALL	__b_frameset00
                            A  1404    ;  411	
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  28
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  28
 
 
 PC     Object              I  Line    Source main.src
@@ -1566,7 +1566,7 @@ PC     Object              I  Line    Source main.src
                            A  1454    ;  426		if(weAreReloading == 1) {
                            A  1455    .line 426
 00032D A9010044            A  1456    	CPX	_weAreReloading,#1
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  29
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  29
 
 
 PC     Object              I  Line    Source main.src
@@ -1622,7 +1622,7 @@ PC     Object              I  Line    Source main.src
                            A  1506    	.FCALL _f_sendQueue
                            A  1507    	SEGMENT main_TEXT
 000354                     A  1508    _BarrelReply:
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  30
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  30
 
 
 PC     Object              I  Line    Source main.src
@@ -1678,7 +1678,7 @@ PC     Object              I  Line    Source main.src
                            A  1558    
                            A  1559    
                            A  1560    ; Aggregate Stack Size: 0 (words)
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  31
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  31
 
 
 PC     Object              I  Line    Source main.src
@@ -1734,7 +1734,7 @@ PC     Object              I  Line    Source main.src
                            A  1610    ;  482		//BData1
                            A  1611    ;  483		queueByte(DOUBLETAPS);
                            A  1612    .line 483
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  32
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  32
 
 
 PC     Object              I  Line    Source main.src
@@ -1790,7 +1790,7 @@ PC     Object              I  Line    Source main.src
                            A  1662    	.FCALL _n_queueChecksum
                            A  1663    	.FCALL _n_sendQueue
                            A  1664    	.FRAME _f_ArmSpecial,?_f_ArmSpecial,EDATA
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  33
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  33
 
 
 PC     Object              I  Line    Source main.src
@@ -1846,7 +1846,7 @@ PC     Object              I  Line    Source main.src
 0003B1 D6 02A3             A  1714    	CALL	_queueChecksum
                            A  1715    ;  522		
                            A  1716    ;  523		//Send it!
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  34
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  34
 
 
 PC     Object              I  Line    Source main.src
@@ -1902,7 +1902,7 @@ PC     Object              I  Line    Source main.src
                            A  1766    ;  529	
                            A  1767    ;  530	void sendSomething(void) {
                            A  1768    ;  531		if(!ser_tx_size && !ser_tx_cooldown
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  35
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  35
 
 
 PC     Object              I  Line    Source main.src
@@ -1958,7 +1958,7 @@ PC     Object              I  Line    Source main.src
 0003FC 840045              A  1818    	LDX	R0,_reloadCooldown
 0003FF 841046              A  1819    	LDX	R1,_reloadCooldown+1
 000402 4201                A  1820    	OR	R0,R1
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  36
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  36
 
 
 PC     Object              I  Line    Source main.src
@@ -2014,7 +2014,7 @@ PC     Object              I  Line    Source main.src
 000028 042F                A  1870    	DW	_17_L_107
 00002A 00C0                A  1871    	DW	192
 00002C 042F                A  1872    	DW	_17_L_108
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  37
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  37
 
 
 PC     Object              I  Line    Source main.src
@@ -2070,7 +2070,7 @@ PC     Object              I  Line    Source main.src
                            A  1922    .line 565
                            A  1923    ;  566					//ROLL-CALL
                            A  1924    ;  567					rxedRollCall();
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  38
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  38
 
 
 PC     Object              I  Line    Source main.src
@@ -2125,7 +2125,7 @@ PC     Object              I  Line    Source main.src
                            A  1974    ;  585					//BARREL-ACK
                            A  1975    ;  586					rxedBarrelAck();
                            A  1976    .line 586
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  39
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  39
 
 
 PC     Object              I  Line    Source main.src
@@ -2181,7 +2181,7 @@ PC     Object              I  Line    Source main.src
 000444 D6 0000             A  2026    	CALL	__b_frameset00
                            A  2027    ;  595	
                            A  2028    ;  596	void main(void) {
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  40
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  40
 
 
 PC     Object              I  Line    Source main.src
@@ -2237,7 +2237,7 @@ PC     Object              I  Line    Source main.src
 00045E A9000043            A  2078    	CPX	_weAreRegistered,#-0
 000462 6B EA               A  2079    	JR	Z,_18_L_117
                            A  2080    ;  630					sendLoadSpecial = 1; //
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  41
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  41
 
 
 PC     Object              I  Line    Source main.src
@@ -2293,7 +2293,7 @@ PC     Object              I  Line    Source main.src
                            A  2130    	XDEF _btn_counter
                            A  2131    	XDEF _ir_loaded_tags
                            A  2132    	XDEF _ir_rx_halfbits
-Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:13:07     page:  42
+Zilog Z8 Encore! Macro Assembler Version 2.52 (11010702) 16-Dec-13     16:31:31     page:  42
 
 
 PC     Object              I  Line    Source main.src

@@ -19,11 +19,11 @@
 
 #include <ez8.h>
 
-#define WEAPONTYPE 1		/* 	1: Machinegun
+#define WEAPONPROFILE 1		/* 	1: Machinegun
 								2: Sniper
 							*/
 
-#if WEAPONTYPE==1
+#if WEAPONPROFILE==1
 	//Machinegun
 	#define BARRELTYPE 2		//BarrelType should be 0x01 for a shotgun, 0x02 for a machinegun, 0x03 for a sniper, 0x04 for a grenade launcher.
 								// Other types are undefined, but can be used.
@@ -65,7 +65,7 @@
 	#define RELOADMIDCLIP 1		//Whether or not you can reload the attachment while it still has ammo loaded.
 #endif	
 
-#if WEAPONTYPE==2
+#if WEAPONPROFILE==2
 	//Sniper
 	#define BARRELTYPE 3
 	#define AMMONEEDED 12

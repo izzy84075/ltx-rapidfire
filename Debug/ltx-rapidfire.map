@@ -4,7 +4,7 @@ Copyright (C) 1999-2008 Zilog, Inc. All Rights Reserved
 
 LINK MAP:
 
-DATE:      Mon Dec 16 15:58:47 2013
+DATE:      Mon Dec 16 16:13:43 2013
 PROCESSOR: assembler
 FILES:     C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\zilog\startupf04al.obj
            .\main.obj             
@@ -155,7 +155,7 @@ startup            normal data              C:00FD      C:015E       62h
 SEGMENTS WITHIN MODULES:
 ========================
 
-Module: ..\..\LTX-RA~1\MAIN.C (File: main.obj) Version: 1:0 12/16/2013 15:58:47
+Module: ..\..\LTX-RA~1\MAIN.C (File: main.obj) Version: 1:0 12/16/2013 16:13:07
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------

@@ -63,25 +63,31 @@
 								// 0x80: Show nothing (Ammo display will be blank.)
 								// Using other values is not recommended.
 	#define RELOADMIDCLIP 1		//Whether or not you can reload the attachment while it still has ammo loaded.
-#endif
-		
-		
-		
-		
+#endif	
 
 #if WEAPONTYPE==2
 	//Sniper
 	#define BARRELTYPE 3
-	#define AMMONEEDED 15
-	#define AMMO 15
-	#define DOUBLETAPS 1
-	#define BURSTSIZE 5
-	#define TRIGRATE 16
+	#define AMMONEEDED 12
+	#define AMMO 4
+	#define DOUBLETAPS 3
+	#define BURSTSIZE 1
+	#define TRIGRATE 200
 	#define LOADSFX 14
 	#define FIRESFX 13
 	#define DISPLAYMODE 0
 	#define RELOADMIDCLIP 0
 #endif
+
+//Beyond this is the actual code. Unless you're making something that's not a weapon-like attachment, you
+// probably don't need to go beyond here.
+/********************************************************************************************************
+*********************************************************************************************************
+*                                                                                                       *
+*        DANGER                              HIGH VOLTAGE                                 DANGER        *
+*                                                                                                       *
+*********************************************************************************************************
+********************************************************************************************************/
 
 struct ser_rx {
 	volatile unsigned char hasrxed;
@@ -616,8 +622,8 @@ void main(void) {
 			}
 		}*/
 		
-		receiveSomething();
-		sendSomething();
+		receiveSomething(); //Go check if there's anything to process in the receive buffer
+		sendSomething(); //Go check if there's anything we need to transmit
 		if(btn_pressed) { //If the button has been pressed and debounced
 			btn_pressed = 0; //Clear the flag.
 			if(weAreRegistered) { //If the tagger has acknowledged our presence

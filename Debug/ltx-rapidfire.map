@@ -4,7 +4,7 @@ Copyright (C) 1999-2008 Zilog, Inc. All Rights Reserved
 
 LINK MAP:
 
-DATE:      Mon Dec 16 16:31:32 2013
+DATE:      Thu Dec 19 03:20:02 2013
 PROCESSOR: assembler
 FILES:     C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\zilog\startupf04al.obj
            .\main.obj             
@@ -85,7 +85,7 @@ define _WRITE_NVDS_GET_STATUS=$10B3
 /* Set frequency to 5529600 Hz */
 define __user_frequency = 5529600
 
-"C:\Users\Izzy\Desktop\git\ltx-rapidfire\Debug\ltx-rapidfire"=  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\zilog\startupf04al.obj,  .\main.obj,  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\std\chelpd.lib,  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\std\crtf04aldfd.lib,  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\std\fpldfd.lib,  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\zilog\csiof8pinldfd.lib,  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\zilog\zsldevinitdummy.lib
+"C:\Users\Izzy\Documents\GitHub\ltx-rapidfire\Debug\ltx-rapidfire"=  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\zilog\startupf04al.obj,  .\main.obj,  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\std\chelpd.lib,  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\std\crtf04aldfd.lib,  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\std\fpldfd.lib,  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\zilog\csiof8pinldfd.lib,  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\zilog\zsldevinitdummy.lib
 
 
 SPACE ALLOCATION:
@@ -155,7 +155,7 @@ startup            normal data              C:00FD      C:015E       62h
 SEGMENTS WITHIN MODULES:
 ========================
 
-Module: ..\..\LTX-RA~1\MAIN.C (File: main.obj) Version: 1:0 12/16/2013 16:31:31
+Module: ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C (File: main.obj) Version: 1:0 12/19/2013 03:20:02
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
@@ -544,17 +544,17 @@ SYMBOL CROSS REFERENCE:
 Name                              Use         Module
 --------------------------------- ----------- -------------------------
 __b_framereset                    Defined     common\framer.asm
-                                  Referenced  ..\..\LTX-RA~1\MAIN.C
+                                  Referenced  ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
 __b_frameset                      Defined     common\frame.asm
 __b_frameset0                     Defined     common\frame.asm
 __b_frameset00                    Defined     common\frame.asm
-                                  Referenced  ..\..\LTX-RA~1\MAIN.C
+                                  Referenced  ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
 __b_iframereset                   Defined     common\iframer.asm
-                                  Referenced  ..\..\LTX-RA~1\MAIN.C
+                                  Referenced  ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
 __b_iframeset00                   Defined     common\frame.asm
-                                  Referenced  ..\..\LTX-RA~1\MAIN.C
+                                  Referenced  ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
 __b_ucase                         Defined     common\ucase.asm
-                                  Referenced  ..\..\LTX-RA~1\MAIN.C
+                                  Referenced  ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
 __close_periphdevice              Defined     zsldevinitdummy.asm
                                   Referenced  ..\..\src\boot\common\startupl.asm
 __framereset                      Defined     common\framer.asm
@@ -579,11 +579,11 @@ __VECTOR_008                      Defined     common\vect08.asm
                                   Referenced  ..\..\src\boot\common\startupl.asm
 __VECTOR_00A                      Defined     common\vect0a.asm
                                   Referenced  ..\..\src\boot\common\startupl.asm
-__VECTOR_00C                      Defined     ..\..\LTX-RA~1\MAIN.C
+__VECTOR_00C                      Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
                                   Referenced  ..\..\src\boot\common\startupl.asm
-__VECTOR_00E                      Defined     ..\..\LTX-RA~1\MAIN.C
+__VECTOR_00E                      Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
                                   Referenced  ..\..\src\boot\common\startupl.asm
-__VECTOR_010                      Defined     ..\..\LTX-RA~1\MAIN.C
+__VECTOR_010                      Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
                                   Referenced  ..\..\src\boot\common\startupl.asm
 __VECTOR_012                      Defined     common\vect12.asm
                                   Referenced  ..\..\src\boot\common\startupl.asm
@@ -630,16 +630,16 @@ __VECTOR_03A                      Defined     common\vect3a.asm
 __VECTOR_03C                      Defined     common\vect3c.asm
                                   Referenced  ..\..\src\boot\common\startupl.asm
 __VECTOR_reset                    Defined     ..\..\src\boot\common\startupl.asm
-__VECTOR_timer0                   Defined     ..\..\LTX-RA~1\MAIN.C
-__VECTOR_uart0_rx                 Defined     ..\..\LTX-RA~1\MAIN.C
-__VECTOR_uart0_tx                 Defined     ..\..\LTX-RA~1\MAIN.C
-_ArmSpecial                       Defined     ..\..\LTX-RA~1\MAIN.C
-_BarrelReply                      Defined     ..\..\LTX-RA~1\MAIN.C
-_btn_counter                      Defined     ..\..\LTX-RA~1\MAIN.C
-_btn_prelim                       Defined     ..\..\LTX-RA~1\MAIN.C
-_btn_pressed                      Defined     ..\..\LTX-RA~1\MAIN.C
+__VECTOR_timer0                   Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+__VECTOR_uart0_rx                 Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+__VECTOR_uart0_tx                 Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_ArmSpecial                       Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_BarrelReply                      Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_btn_counter                      Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_btn_prelim                       Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_btn_pressed                      Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
 _c_startup                        Defined     ..\..\src\boot\common\startupl.asm
-_captureBuffer                    Defined     ..\..\LTX-RA~1\MAIN.C
+_captureBuffer                    Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
 _close_periphdevice               Defined     zsldevinitdummy.asm
 _exit                             Defined     ..\..\src\boot\common\startupl.asm
 _far_heapbot                      Defined     LINKER
@@ -650,14 +650,14 @@ _flash_option1                    Defined     COMMON\FLASH1.C
                                   Referenced  ..\..\src\boot\common\startupl.asm
 _flash_option2                    Defined     COMMON\FLASH2.C
                                   Referenced  ..\..\src\boot\common\startupl.asm
-_init_cpu                         Defined     ..\..\LTX-RA~1\MAIN.C
-_ir_loaded_tags                   Defined     ..\..\LTX-RA~1\MAIN.C
-_ir_rx_counter                    Defined     ..\..\LTX-RA~1\MAIN.C
-_ir_rx_halfbits                   Defined     ..\..\LTX-RA~1\MAIN.C
-_isr_timer0                       Defined     ..\..\LTX-RA~1\MAIN.C
-_isr_uartrx                       Defined     ..\..\LTX-RA~1\MAIN.C
-_isr_uarttx                       Defined     ..\..\LTX-RA~1\MAIN.C
-_lastIO                           Defined     ..\..\LTX-RA~1\MAIN.C
+_init_cpu                         Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_ir_loaded_tags                   Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_ir_rx_counter                    Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_ir_rx_halfbits                   Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_isr_timer0                       Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_isr_uartrx                       Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_isr_uarttx                       Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_lastIO                           Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
 _len_farbss                       Defined     LINKER
                                   Referenced  ..\..\src\boot\common\startupl.asm
 _len_fardata                      Defined     LINKER
@@ -666,8 +666,8 @@ _len_nearbss                      Defined     LINKER
                                   Referenced  ..\..\src\boot\common\startupl.asm
 _len_neardata                     Defined     LINKER
                                   Referenced  ..\..\src\boot\common\startupl.asm
-_loadAmmo                         Defined     ..\..\LTX-RA~1\MAIN.C
-_LoadSpecial                      Defined     ..\..\LTX-RA~1\MAIN.C
+_loadAmmo                         Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_LoadSpecial                      Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
 _low_far_romdata                  Defined     LINKER
                                   Referenced  ..\..\src\boot\common\startupl.asm
 _low_farbss                       Defined     LINKER
@@ -680,38 +680,38 @@ _low_nearbss                      Defined     LINKER
                                   Referenced  ..\..\src\boot\common\startupl.asm
 _low_neardata                     Defined     LINKER
                                   Referenced  ..\..\src\boot\common\startupl.asm
-_main                             Defined     ..\..\LTX-RA~1\MAIN.C
+_main                             Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
                                   Referenced  ..\..\src\boot\common\startupl.asm
 _near_heapbot                     Defined     LINKER
 _near_heaptop                     Defined     LINKER
 _near_stack                       Defined     LINKER
 _open_periphdevice                Defined     zsldevinitdummy.asm
-_queueByte                        Defined     ..\..\LTX-RA~1\MAIN.C
-_queueChecksum                    Defined     ..\..\LTX-RA~1\MAIN.C
+_queueByte                        Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_queueChecksum                    Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
 _READ_NVDS                        Defined     LINKER
                                   Referenced  ..\..\src\boot\common\startupl.asm
 _READ_NVDS_GET_STATUS             Defined     LINKER
-_receiveSomething                 Defined     ..\..\LTX-RA~1\MAIN.C
-_reloadCooldown                   Defined     ..\..\LTX-RA~1\MAIN.C
-_rxedBarrelAck                    Defined     ..\..\LTX-RA~1\MAIN.C
-_rxedBarrelSeen                   Defined     ..\..\LTX-RA~1\MAIN.C
-_rxedResetBarrel                  Defined     ..\..\LTX-RA~1\MAIN.C
-_rxedRollCall                     Defined     ..\..\LTX-RA~1\MAIN.C
-_sendArmSpecial                   Defined     ..\..\LTX-RA~1\MAIN.C
-_sendBarrelReply                  Defined     ..\..\LTX-RA~1\MAIN.C
-_sendLoadSpecial                  Defined     ..\..\LTX-RA~1\MAIN.C
-_sendQueue                        Defined     ..\..\LTX-RA~1\MAIN.C
-_sendSomething                    Defined     ..\..\LTX-RA~1\MAIN.C
-_ser_rx_eob_counter               Defined     ..\..\LTX-RA~1\MAIN.C
-_ser_tx_buffer                    Defined     ..\..\LTX-RA~1\MAIN.C
-_ser_tx_cooldown                  Defined     ..\..\LTX-RA~1\MAIN.C
-_ser_tx_currentbyte               Defined     ..\..\LTX-RA~1\MAIN.C
-_ser_tx_size                      Defined     ..\..\LTX-RA~1\MAIN.C
-_temp_tx_buffer                   Defined     ..\..\LTX-RA~1\MAIN.C
-_temp_tx_size                     Defined     ..\..\LTX-RA~1\MAIN.C
-_tempIO                           Defined     ..\..\LTX-RA~1\MAIN.C
-_weAreRegistered                  Defined     ..\..\LTX-RA~1\MAIN.C
-_weAreReloading                   Defined     ..\..\LTX-RA~1\MAIN.C
+_receiveSomething                 Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_reloadCooldown                   Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_rxedBarrelAck                    Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_rxedBarrelSeen                   Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_rxedResetBarrel                  Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_rxedRollCall                     Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_sendArmSpecial                   Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_sendBarrelReply                  Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_sendLoadSpecial                  Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_sendQueue                        Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_sendSomething                    Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_ser_rx_eob_counter               Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_ser_tx_buffer                    Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_ser_tx_cooldown                  Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_ser_tx_currentbyte               Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_ser_tx_size                      Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_temp_tx_buffer                   Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_temp_tx_size                     Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_tempIO                           Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_weAreRegistered                  Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
+_weAreReloading                   Defined     ..\..\..\..\DOCUME~1\GITHUB\LTX-RA~1\MAIN.C
 _WRITE_NVDS                       Defined     LINKER
                                   Referenced  ..\..\src\boot\common\startupl.asm
 _WRITE_NVDS_GET_STATUS            Defined     LINKER

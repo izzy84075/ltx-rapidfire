@@ -65,7 +65,7 @@ define _WRITE_NVDS_GET_STATUS=$10B3
 /* Set frequency to 5529600 Hz */
 define __user_frequency = 5529600
 
-"C:\Users\Izzy\Desktop\git\ltx-rapidfire\Debug\ltx-rapidfire"= \
+"C:\Users\Izzy\Documents\GitHub\ltx-rapidfire\Debug\ltx-rapidfire"= \
  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\zilog\startupf04al.obj, \
  .\main.obj, \
  C:\PROGRA~2\ZiLOG\ZDSII_~1.0\lib\std\chelpd.lib, \

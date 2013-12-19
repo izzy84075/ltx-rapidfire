@@ -4,6 +4,8 @@
 <!-- file information -->
 <files>
 <file filter-key="">.\main.c</file>
+<file filter-key="">.\main.h</file>
+<file filter-key="">.\config.h</file>
 </files>
 
 <!-- configuration information -->

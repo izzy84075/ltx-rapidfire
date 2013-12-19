@@ -15,7 +15,7 @@ BIN = $(ZDS)\bin
 # ZDS include base directory
 INCLUDE = C:\PROGRA~2\ZiLOG\ZDSII_~1.0\include
 # intermediate files directory
-WORKDIR = C:\Users\Izzy\Desktop\git\ltx-rapidfire\Debug
+WORKDIR = C:\Users\Izzy\Documents\GitHub\ltx-rapidfire\Debug
 
 CC = @$(BIN)\eZ8cc
 AS = @$(BIN)\eZ8asm
@@ -42,7 +42,7 @@ ASFLAGS =  \
 -warn -debug -NOigcase -NOrevaa -cpu:Z8F0423XB
 
 LDFLAGS = @.\ltx-rapidfire_Debug.linkcmd
-OUTDIR = C:\Users\Izzy\Desktop\git\ltx-rapidfire\Debug
+OUTDIR = C:\Users\Izzy\Documents\GitHub\ltx-rapidfire\Debug
 
 build: ltx-rapidfire
 
@@ -80,12 +80,14 @@ ltx-rapidfire: $(OBJS)
 	 $(LD) $(LDFLAGS)
 
 $(WORKDIR)\main.obj :  \
-            C:\Users\Izzy\Desktop\git\LTX-RA~1\main.c  \
+            C:\Users\Izzy\DOCUME~1\GitHub\LTX-RA~1\main.c  \
             $(INCLUDE)\zilog\defines.h  \
             $(INCLUDE)\zilog\dmadefs.h  \
             $(INCLUDE)\zilog\gpio.h  \
             $(INCLUDE)\zilog\uart.h  \
             $(INCLUDE)\zilog\uartdefs.h  \
-            $(INCLUDE)\zilog\ez8.h
-	 $(CC) $(CFLAGS) C:\Users\Izzy\Desktop\git\LTX-RA~1\main.c
+            $(INCLUDE)\zilog\ez8.h  \
+            C:\Users\Izzy\Documents\GitHub\ltx-rapidfire\config.h  \
+            C:\Users\Izzy\Documents\GitHub\ltx-rapidfire\main.h
+	 $(CC) $(CFLAGS) C:\Users\Izzy\DOCUME~1\GitHub\LTX-RA~1\main.c
 

@@ -1,0 +1,44 @@
+Getting the parts
+	These instructions are yet to come.
+Building a kit
+	These instructions are yet to come.
+
+Getting and setting up the software
+	Step 1:
+		If you're familiar with Git or Github, clone http://github.com/izzy84075/ltx-rapidfire/ , and then proceed to step 2.
+		If you're not familiar with Git or Github, don't worry. Open http://github.com/izzy84075/ltx-rapidfire/ in your web browser. Along the right edge should be a "Download ZIP" button.
+		Click that, wait for the file to download, then extract the files. Keep track of where you extract them. Proceed to Step 2.
+	Step 2:
+		Go to http://zilog.com/ , click "Zilog Store" in the "Quick Links" section on the left, click "Acknowledged!" on the yellow popup in the middle of the screen.
+		When the store page loads, expand the "Downloadable Software" section on the left, then click "Free Software".
+		Once the "Free Software" page loads, scroll down and find "ZDS II – Z8 Encore! version 5.0.0" or newer, and click it. Make sure it's the "Z8 Encore!" version!
+		Add this to your cart, and then click Checkout. Follow the checkout procedure through. Don't worry! It's free! I don't know why they make you go through this.
+		Eventually you'll receive an email with the link to download the software. Download it and install it. Proceed to Step 3.
+	Step 3:
+		Now we need to install the drivers for the USB SmartCable. There is a file that is provided by Zilog that will walk you through this.
+		It is located at C:\Program Files (x86)\ZiLOG\ZDSII_Z8Encore!_5.0.0\device drivers\USB\USB driver installation.txt or
+		C:\Program Files\ZiLOG\ZDSII_Z8Encore!_5.0.0\device drivers\USB\USB driver installation.txt
+		, depending on whether you have a 32-bit or 64-bit Windows.
+		Follow that file, then return to this and proceed to Step 4.
+	Step 4:
+		At this point, you should be able to open the folder of files that you extracted earlier, double-click the .zdsproj file(It should have a black icon with a white Z on it), and have it open in the ZDS IDE.
+		If so, you're done! Move on to configuring your weapons.
+	
+Configuring custom weapons
+	Open the .zdsproj file in the ZDS IDE. Over on the left should be a list of files. Double-click config.h.
+	This file has everything you need to add your own type of weapon! It has documentation in it, so read through it and get busy!
+	Once you think you have something good, go to "Uploading the Firmware" to actually get it onto the hardware.
+	
+Uploading the Firmware
+	Open the .zdsproj file in the ZDS IDE. In the Build menu, click "Rebuild All". You should see some text scroll in the bottom pane of the window, ending with "Build succeeded.".
+	If not, scroll up in that bottom pane and it should tell you what's wrong, though it might be somewhat cryptic. Double-click any error messages to jump to where it thinks the problem is.
+	If it built successfully, you're ready to upload the code to the processor in the DIY RapidFire.
+	Remove the screws from the RapidFire, and plug the USB SmartCable into the programming header on the PCB. It should be keyed, so it will only go in one way!
+	Put the RapidFire on a tagger with good batteries.
+	Now here comes the tricky part. You need to make sure that the button on the RapidFire does NOT get pressed while you're trying to program the chip. It won't hurt anything if it does, but it will fail to program.
+	In the ZDS IDE, in the Debug menu, there is a "Go" item. Have the mouse hovering on that item, but don't click it yet!
+	Have one hand on the mouse, and the other on the power switch of the tagger.
+	When you're ready, turn the tagger on and press the "Go" button at the same time. It will do some stuff for a little bit, then some new toolbars will pop up in the ZDS IDE. If this happens, you programmed it successfully.
+	If you see an error appear in the bottom pane of the IDE window, either the RapidFire's button got pressed while the programming was happening, or your timing was too far off for it to work properly.
+	If it worked, go back to the Debug menu and click "Stop Debugging". Turn off the tagger, then unplug the USB SmartCable from the RapidFire. Turn the tagger on and test your new weapon.
+	Congrats! Now go make more tweaks!

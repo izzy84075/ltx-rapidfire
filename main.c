@@ -251,13 +251,10 @@ void init_cpu(void) {
 void sendQueue(void) {
 	int i;
 	
-	//Copy the data from the temporary queue to the real one.
-	for(i = 0;i < temp_tx_size;i++) {
-		ser_tx_buffer[i] = temp_tx_buffer[i];
-	}
+	//Put the count of how many bytes are in this block in the real place.
 	ser_tx_size = temp_tx_size;
 	
-	//Clear the temporary queue.
+	//Clear the temporary counter.
 	temp_tx_size = 0;
 	
 	//Kickstart the UART.
@@ -265,8 +262,8 @@ void sendQueue(void) {
 }
 
 void queueByte(unsigned char input) {
-	//Add a byte to the temporary queue.
-	temp_tx_buffer[temp_tx_size] = input;
+	//Add a byte to the queue.
+	ser_tx_buffer[temp_tx_size] = input;
 	temp_tx_size += 1;
 }
 
@@ -274,9 +271,9 @@ void queueChecksum(void) {
 	int i;
 	unsigned char checksum = 0xFF;
 	
-	//Calculate a checksum for all the data that's currently in the temporary queue.
+	//Calculate a checksum for all the data that's currently in the queue.
 	for(i = 0; i < temp_tx_size;i++) {
-		checksum -= temp_tx_buffer[i];
+		checksum -= ser_tx_buffer[i];
 	}
 	
 	//Add the checksum to the queue.
@@ -508,27 +505,29 @@ void main(void) {
 	captureBuffer.checksum = 0xFF;
 	
 	while(1) {
+		/*
 		//Echo everything back to the tagger.
 		//Should put it in factory test mode.
-		/*if((ser_rx_size & 0x80) && !ser_tx_size) {
+		if(captureBuffer.size & 0x80 && !ser_tx_size && !ser_tx_cooldown) {
             //Block received.
             //Echo it back for testing.
-            unsigned char rx_size = (ser_rx_size & 0x7F);
+            unsigned char rx_size = (captureBuffer.size & 0x7F);
 			int i;
 			
             for(i = 0; i < rx_size;i++) {
-                ser_tx_buffer[i] = ser_rx_buffer[i];
+                queueByte(captureBuffer.buffer[i]);
             }
 			
-            ser_tx_size = rx_size;
-            ser_rx_size = 0;
-			IRQ0 |= 0x08;
+            sendQueue();
+            captureBuffer.size = 0;
         } else {
 			if(!(U0STAT0 ^ 0x06)) {
 				IRQ0 |= 0x08;
 			}
-		}*/
+		}
+		*/
 		
+		//The actual main loop if you want it to work like a weapon accessory.
 		receiveSomething(); //Go check if there's anything to process in the receive buffer
 		sendSomething(); //Go check if there's anything we need to transmit
 		if(btn_pressed) { //If the button has been pressed and debounced

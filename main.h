@@ -48,8 +48,7 @@ volatile unsigned char btn_pressed;			//Flag to say that the button has been pre
 volatile unsigned char tempIO;				//GPIO buffer. Current state as of the beginning of this timer ISR cycle.
 volatile unsigned char lastIO;				//GPIO buffer. State as of the beginning of the last ISR cycle.
 
-volatile unsigned char temp_tx_buffer[16];	//A temporary TX buffer that could probably be removed.
-volatile unsigned char temp_tx_size;		//How many bytes are in the temp TX buffer.
+volatile unsigned char temp_tx_size;		//How many bytes are in the queue to be transmitted, but haven't been marked as a complete block..
 
 volatile unsigned char sendBarrelReply;		//Flag saying we need to send a BARREL-REPLY packet.
 volatile unsigned char sendLoadSpecial;		//Flag saying we need to send a LOAD-SPECIAL packet.

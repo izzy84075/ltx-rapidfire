@@ -1,0 +1,12 @@
+Everything on this board is through-hole, so it should be nice and easy to assemble!
+
+Here are some general tips, though:
+	Start with the shortest components first.
+	Start with the resistors and diodes that lay flat.
+	Next, move on to the Zilog MCU.
+	Get the 2x3 programming header.
+	Next will probably be the resistors that sit vertically.
+	Fill in the capacitors.
+	Connect the LTX accessory port connector, the black wire goes to the PGND pin.
+
+Remember that the LED will be bent sideways to be facing forward, so make sure and line this up before soldering it in!

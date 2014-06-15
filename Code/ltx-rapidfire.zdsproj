@@ -1,4 +1,4 @@
-<project type="Executable" project-type="Standard" configuration="Debug" created-by="d:5.0:11011302" modified-by="d:5.0:11011302" ZDSII="ZDS - Z8 Encore! Family 5.0.0 (Build 11011703)">
+<project type="Executable" project-type="Standard" configuration="Release" created-by="d:5.0:11011302" modified-by="d:5.0:11011302" ZDSII="ZDS - Z8 Encore! Family 5.0.0 (Build 11011703)">
 <cpu>Z8F0423XB</cpu>
 
 <!-- file information -->

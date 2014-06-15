@@ -1,0 +1,61 @@
+Partlist
+
+Exported from LTX-Rapidfire.sch at 6/14/2014 6:56:12 PM
+
+EAGLE Version 6.5.0 Copyright (c) 1988-2013 CadSoft
+
+Assembly variant: 
+
+Part     Value              Device             Package        Library        Sheet
+
+C1       0.1uF              C-EU025-025X050    C025-025X050   rcl            1
+C2       10uF/10V           CPOL-USE2-4        E2-4           rcl            1
+C3       0.1uF              C-EU025-025X050    C025-025X050   rcl            1
+C4       470uF/10V/LOW-ESR  CPOL-USE3.5-8      E3,5-8         rcl            1
+C5       0.022uF            C-EU025-025X050    C025-025X050   rcl            1
+D1       1N4148DO35-7       1N4148DO35-7       DO35-7         diode          1
+D2                          LED5MM             LED5MM         led            1
+J1       F-1X08-SIP-100-40Y F-1X08-SIP-100-40Y SIP-100-08-40Y con-headers-jp 1
+J2                          MA03-2             MA03-2         izzy           1
+Q1       2N3904             2N3904             TO92           transistor     1
+Q2       2N3906             2N3906             TO92           transistor-pnp 1
+Q3       2N3904             2N3904             TO92           transistor     1
+Q4       2N3904             2N3904             TO92           transistor     1
+Q5       2N3904             2N3904             TO92           transistor     1
+Q6       2N3906             2N3906             TO92           transistor-pnp 1
+Q7       2N3906             2N3906             TO92           transistor-pnp 1
+Q8       2N3906             2N3906             TO92           transistor-pnp 1
+Q9       2N3904             2N3904             TO92           transistor     1
+Q10      SS8550D            2N3906             TO92           transistor-pnp 1
+Q11      2N3906             2N3906             TO92           transistor-pnp 1
+Q12      2N3906             2N3906             TO92           transistor-pnp 1
+Q13      2N3904             2N3904             TO92           transistor     1
+R1       51k                R-US_0204/7        0204/7         rcl            1
+R2       47k                R-US_0204/2V       0204V          rcl            1
+R3       47k                R-US_0204/2V       0204V          rcl            1
+R4       22k                R-US_0204/7        0204/7         rcl            1
+R5       22k                R-US_0204/7        0204/7         rcl            1
+R6       22k                R-US_0204/7        0204/7         rcl            1
+R7       2.2k               R-US_0204/7        0204/7         rcl            1
+R8       3.9k               R-US_0204/7        0204/7         rcl            1
+R9       51k                R-US_0204/7        0204/7         rcl            1
+R10      47k                R-US_0204/2V       0204V          rcl            1
+R11      1.0k               R-US_0204/7        0204/7         rcl            1
+R12      3.3k               R-US_0204/7        0204/7         rcl            1
+R13      1.3k               R-US_0204/2V       0204V          rcl            1
+R14      150                R-US_0204/7        0204/7         rcl            1
+R15      47                 R-US_0204/7        0204/7         rcl            1
+R16      0.62               R-US_0204/7        0204/7         rcl            1
+R17      100                R-US_0204/2V       0204V          rcl            1
+R18      1k                 R-US_0204/2V       0204V          rcl            1
+R19      3.9                R-US_0204/7        0204/7         rcl            1
+R20      16k                R-US_0204/2V       0204V          rcl            1
+R21      200k               R-US_0204/7        0204/7         rcl            1
+R22      100k               R-US_0204/2V       0204V          rcl            1
+R23      1k                 R-US_0204/7        0204/7         rcl            1
+R24      47k                R-US_0204/2V       0204V          rcl            1
+R25      220k               R-US_0204/2V       0204V          rcl            1
+R26      10k                R-US_0204/2V       0204V          rcl            1
+SW1      F-1X02-SIP-100-40  F-1X02-SIP-100-40  SIP-100-02-40  con-headers-jp 1
+U1                          78LXX              78LXX          v-reg          1
+U2       Z8F082ADIL-8       Z8F082ADIL-8       DIL8           izzy           1

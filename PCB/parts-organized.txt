@@ -1,0 +1,39 @@
+Type		Value		Package			Part						Quantity	Mouser #
+
+Cap			0.1uF						C1,C3						2			594-K104K15X7RF5UH5
+Cap			10uF/10V					C2							1			581-TAP106K010CCS
+Cap			470uF/10V/LOW-ESR			C4							1			140-RXK471M1ABK0815P
+Cap			0.022uF						C5							1			594-K223K15X7RF53L2
+
+Diode					DO-35			D1							1			583-1N4148-T
+
+LED			TSAL-6100					D2							1			782-TSAL6100
+
+Header		2x3 Male, Shrouded			J2							1			517-30306-6002HB
+
+Transistor	2N3904						Q1,Q3,Q4,Q5,Q9,Q13			6			610-2N3904
+Transistor	2N3906						Q2,Q6,Q7,Q8,Q11,Q12			6			610-2N3906
+Transistor	SS8550D						Q10							1			512-SS8550DTA
+
+Resistor	0.62						R16							1			660-MOX1CT52RR62J
+Resistor	3.9							R19							1			660-MOSX1CT52R3R9J
+Resistor	47							R15							1			660-MF1/4DCT52R47R0F
+Resistor	100							R17							1			660-MF1/4DC1000F
+Resistor	150							R14							1			660-MF1/4DCT52A1500F
+Resistor	1K							R11,R18,R23					3			660-MF1/4DC1001F
+Resistor	1.3K						R13							1			660-MF1/4DC1301F
+Resistor	2.2K						R7							1			660-MF1/4DCT52R2201F
+Resistor	3.3K						R12							1			660-MF1/4DCT52R3301F
+Resistor	3.9K						R8							1			660-MF1/4DCT52R3901F
+Resistor	10K							R26							1			660-MF1/4DCT52A1002F
+Resistor	16K							R20							1			660-MF1/4DCT52R1602F
+Resistor	22K							R4,R5,R6					3			660-MF1/4DCT52R2202F
+Resistor	47K							R2,R3,R10,R24				4			660-MF1/4DCT52R4702F
+Resistor	51K							R1,R9						2			660-MF1/4DCT52R5102F
+Resistor	100K						R22							1			660-MF1/4DCT52A1003F
+Resistor	200K						R21							1			660-MS1/4DCT52R2003
+Resistor	220K						R25							1			660-MF1/4DCT52R2203F
+
+VREG		3.3V		TO-92			U1							1			511-LE33CZ-TR
+
+MCU			Z8F082A		DIL8			U2							1			692-Z8F082APB020SG

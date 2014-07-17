@@ -1,1 +1,31 @@
-TODO: This file.
+If you're just getting started, we'll be using a prebuilt binary with a machinegun-like weapon profile loaded into it.
+
+1. Download the Zilog Smart Flash Programmer program from the Zilog Store ( http://store.zilog.com/index.php?option=com_ixxocart&Itemid=1&p=product&id=44&parent=5 is the current version as of 2014/07/16 ). You'll have to register for an account and then they'll send you an email with the download link. Check your spam folder, though, as they're notoriously unreliable about coming through properly...
+
+2. Install the file that doesn't include the word "patch" first, then install the patch on top of it.
+
+3. Connect your Zilog USB Smart Cable to your computer. You'll likely have to tell it where to find the drivers for it, if this is the first time using one of these cables on this computer. See "C:\Program Files (x86)\ZiLOG\SFP_2.2\device drivers\USB\USB driver installation.txt" or "C:\Program Files\ZiLOG\SFP_2.2\device drivers\USB\USB driver installation.txt", depending on your computer, for instructions on how to do that.
+
+4. Open the .zfpproj file in the ltx-rapidfire/Firmware folder. This should open the Zilog SFP software.
+
+5. Click the Setup Configuration button in the top-right corner of the Zilog SFP software.
+
+6. Click the Communication tab in the tree on the left side of the SFP software.
+
+7. Click the Refresh button in the Communications settings pane.
+
+8. Tick the checkbox next to the (probably) only serial number that shows up in the larger vertical box.
+
+9. At this point, you're ready to program the Rapidfire. Connect the USB Smart Cable to the programming header on the Rapidfire.
+
+10. Now, this part is slightly tricky. Due to hardware limitations of the processor used in the Rapidfire, you can only start programming within the first few seconds of the processor turning on, and you CANNOT be pressing the reload button while doing so or the programming will fail. You can always try again, though, thankfully. So here's the process.
+
+	10a. Position your mouse cursor over the Program/Verify button in the Zilog SFP software.
+	
+	10b. Using your non-mousing hand, lift up the front end of the LTX+Rapidfire so that the button can't be pressed by the weight of the tagger, and be able to turn the tagger on without dropping the tagger. Be sure the tagger is turned off, at this point.
+	
+	10c. Click the Program/Verify button and turn the tagger on at the same time. If you're lucky, it'll chug away for a little bit, and then show a "Flashing complete." message in the pane at the bottom of the SFP software's window. If you get any other message, try again!
+
+11. Congrats! You've successfully programmed your Rapidfire! Grab another tagger, and try it out! This firmware file should make a "whining" sound when you reload the attachment, and then fire 15 round at a very rapid pace when you hold down the trigger.
+
+12. If you want to tweak the settings, move on to the next file, "04 - Customizing Your Rapidfire.txt"!

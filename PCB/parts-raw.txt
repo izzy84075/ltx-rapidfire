@@ -56,6 +56,7 @@ R23      1k                 R-US_0204/7        0204/7         rcl            1
 R24      47k                R-US_0204/2V       0204V          rcl            1
 R25      220k               R-US_0204/2V       0204V          rcl            1
 R26      10k                R-US_0204/2V       0204V          rcl            1
+R27      10k                R-US_0204/2V       0204V          rcl            1
 SW1      F-1X02-SIP-100-40  F-1X02-SIP-100-40  SIP-100-02-40  con-headers-jp 1
 U1                          78LXX              78LXX          v-reg          1
 U2       Z8F082ADIL-8       Z8F082ADIL-8       DIL8           izzy           1

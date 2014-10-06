@@ -25,7 +25,7 @@ Resistor	1.3K						R13							1			660-MF1/4DC1301F
 Resistor	2.2K						R7							1			660-MF1/4DCT52R2201F
 Resistor	3.3K						R12							1			660-MF1/4DCT52R3301F
 Resistor	3.9K						R8							1			660-MF1/4DCT52R3901F
-Resistor	10K							R26							1			660-MF1/4DCT52A1002F
+Resistor	10K							R26,R27						2			660-MF1/4DCT52A1002F
 Resistor	16K							R20							1			660-MF1/4DCT52R1602F
 Resistor	22K							R4,R5,R6					3			660-MF1/4DCT52R2202F
 Resistor	47K							R2,R3,R10,R24				4			660-MF1/4DCT52R4702F

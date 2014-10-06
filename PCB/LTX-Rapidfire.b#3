@@ -1757,7 +1757,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="8.0264" y="24.7142" size="1.27" layer="25" ratio="10" rot="R180"/>
 </element>
 <element name="R18" library="rcl" package="0204V" value="1k" x="15.24" y="43.4848" smashed="yes" rot="R90">
-<attribute name="NAME" x="14.6558" y="41.2242" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="NAME" x="14.7828" y="41.2496" size="1.27" layer="25" ratio="10" rot="SR270"/>
 </element>
 <element name="D2" library="led" package="LED5MM" value="" x="12.065" y="43.4848" smashed="yes" rot="R90">
 <attribute name="NAME" x="11.5062" y="39.878" size="1.27" layer="25" ratio="10" rot="R270"/>

@@ -107,18 +107,18 @@
 <wire x1="62.22" y1="46.6598" x2="9.525" y2="46.6598" width="0" layer="20"/>
 <wire x1="9.525" y1="46.6598" x2="9.525" y2="34.5948" width="0" layer="20"/>
 <wire x1="9.525" y1="34.5948" x2="0" y2="34.5948" width="0" layer="20"/>
-<text x="54.8386" y="41.8846" size="0.762" layer="25" rot="SR270" align="bottom-right">PGND</text>
-<text x="52.4002" y="41.9608" size="0.762" layer="25" rot="SR270" align="bottom-right">SGND</text>
-<text x="49.9364" y="42.037" size="0.762" layer="25" rot="SR270" align="bottom-right">(NC)</text>
-<text x="47.2694" y="41.9608" size="0.762" layer="25" rot="SR270" align="bottom-right">TODI</text>
-<text x="44.7802" y="41.8846" size="0.762" layer="25" rot="SR270" align="bottom-right">TIDO</text>
-<text x="42.164" y="41.8846" size="0.762" layer="25" rot="SR270" align="bottom-right">!INH</text>
-<text x="39.4716" y="41.8846" size="0.762" layer="25" rot="SR270" align="bottom-right">LAZR</text>
-<text x="37.084" y="41.9608" size="0.762" layer="25" rot="SR270" align="bottom-right">SW9V</text>
+<text x="54.8386" y="41.91" size="1.27" layer="25" font="vector" rot="SR270" align="bottom-right">PGND</text>
+<text x="52.4002" y="41.91" size="1.27" layer="25" font="vector" rot="SR270" align="bottom-right">SGND</text>
+<text x="49.9364" y="41.91" size="1.27" layer="25" font="vector" rot="SR270" align="bottom-right">(NC)</text>
+<text x="47.2694" y="41.91" size="1.27" layer="25" font="vector" rot="SR270" align="bottom-right">TODI</text>
+<text x="44.7802" y="41.91" size="1.27" layer="25" font="vector" rot="SR270" align="bottom-right">TIDO</text>
+<text x="42.164" y="41.91" size="1.27" layer="25" font="vector" rot="SR270" align="bottom-right">!INH</text>
+<text x="39.4716" y="41.91" size="1.27" layer="25" font="vector" rot="SR270" align="bottom-right">LAZR</text>
+<text x="37.084" y="41.91" size="1.27" layer="25" font="vector" rot="SR270" align="bottom-right">SW9V</text>
 <text x="36.8046" y="5.8674" size="1.27" layer="25" rot="SR0" align="center">TagFerret
 Designs
 RapidBlast</text>
-<text x="1.9558" y="2.032" size="1.27" layer="25" rot="SR0">Version 1.0Z</text>
+<text x="1.9558" y="2.032" size="1.27" layer="25" rot="SR0">Version Z1.0</text>
 </plain>
 <libraries>
 <library name="con-headers-jp">
@@ -1742,7 +1742,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="12.192" y="32.2834" size="1.27" layer="25" ratio="10" rot="R90"/>
 </element>
 <element name="Q11" library="transistor-pnp" package="TO92" value="2N3906" x="19.685" y="30.7848" smashed="yes" rot="R270">
-<attribute name="NAME" x="17.8816" y="29.3116" size="1.27" layer="25" ratio="10" rot="R90"/>
+<attribute name="NAME" x="17.78" y="29.4386" size="1.27" layer="25" ratio="10" rot="R90"/>
 </element>
 <element name="R14" library="rcl" package="0204/7" value="150" x="18.415" y="23.7998" smashed="yes" rot="R90">
 <attribute name="NAME" x="20.6502" y="22.5552" size="0.9906" layer="25" ratio="10" rot="R90"/>
@@ -1800,7 +1800,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="39.624" y="16.637" size="0.9906" layer="25" ratio="10" rot="R270"/>
 </element>
 <element name="Q6" library="transistor-pnp" package="TO92" value="2N3906" x="30.48" y="16.8148" smashed="yes" rot="R270">
-<attribute name="NAME" x="28.575" y="17.3736" size="1.27" layer="25" ratio="10" rot="R90"/>
+<attribute name="NAME" x="28.4226" y="17.399" size="1.27" layer="25" ratio="10" rot="R90"/>
 </element>
 <element name="C5" library="rcl" package="C025-025X050" value="0.022uF" x="29.845" y="12.3698" smashed="yes" rot="R180">
 <attribute name="NAME" x="27.305" y="12.1412" size="1.27" layer="25" ratio="10" rot="R180"/>
@@ -1818,7 +1818,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="47.5996" y="6.4008" size="1.27" layer="25" ratio="10" rot="R90"/>
 </element>
 <element name="R10" library="rcl" package="0204V" value="47k" x="55.245" y="5.3848" smashed="yes">
-<attribute name="NAME" x="57.15" y="4.7752" size="1.27" layer="25" ratio="10"/>
+<attribute name="NAME" x="57.3024" y="4.8006" size="1.27" layer="25" ratio="10"/>
 </element>
 <element name="R9" library="rcl" package="0204/7" value="51k" x="34.925" y="25.7048" smashed="yes" rot="R90">
 <attribute name="NAME" x="34.4932" y="21.0312" size="0.9906" layer="25" ratio="10" rot="R270"/>

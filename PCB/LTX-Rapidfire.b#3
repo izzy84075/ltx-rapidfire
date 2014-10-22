@@ -118,7 +118,8 @@
 <text x="36.8046" y="5.8674" size="1.27" layer="25" rot="SR0" align="center">TagFerret
 Designs
 RapidBlast</text>
-<text x="1.9558" y="2.032" size="1.27" layer="25" rot="SR0">Version Z1.0</text>
+<text x="1.6002" y="2.032" size="1.27" layer="25" font="vector" rot="SR0">Version Z1.0</text>
+<text x="1.6002" y="0.508" size="1.27" layer="25" font="vector">Modified by izzy84075</text>
 </plain>
 <libraries>
 <library name="con-headers-jp">

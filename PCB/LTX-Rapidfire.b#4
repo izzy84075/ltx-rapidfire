@@ -1730,7 +1730,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="28.9052" y="40.9448" size="1.27" layer="25" ratio="10"/>
 </element>
 <element name="C4" library="rcl" package="E3,5-8" value="470uF/10V/LOW-ESR" x="20.32" y="39.0398" smashed="yes" rot="R90">
-<attribute name="NAME" x="16.6624" y="35.7124" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="NAME" x="23.7744" y="36.3728" size="1.27" layer="25" ratio="10" rot="R270"/>
 </element>
 <element name="R20" library="rcl" package="0204V" value="16k" x="23.495" y="30.7848" smashed="yes" rot="R90">
 <attribute name="NAME" x="25.908" y="29.083" size="1.27" layer="25" ratio="10" rot="R90"/>
@@ -1757,7 +1757,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="8.0264" y="24.7142" size="1.27" layer="25" ratio="10" rot="R180"/>
 </element>
 <element name="R18" library="rcl" package="0204V" value="1k" x="15.24" y="43.4848" smashed="yes" rot="R90">
-<attribute name="NAME" x="14.6558" y="41.2242" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="NAME" x="14.7828" y="41.2496" size="1.27" layer="25" ratio="10" rot="SR270"/>
 </element>
 <element name="D2" library="led" package="LED5MM" value="" x="12.065" y="43.4848" smashed="yes" rot="R90">
 <attribute name="NAME" x="11.5062" y="39.878" size="1.27" layer="25" ratio="10" rot="R270"/>
@@ -1791,7 +1791,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="36.3728" y="14.5034" size="0.9906" layer="25" ratio="10" rot="R270"/>
 </element>
 <element name="R5" library="rcl" package="0204/7" value="22k" x="32.385" y="25.7048" smashed="yes" rot="R270">
-<attribute name="NAME" x="32.004" y="20.9042" size="0.9906" layer="25" ratio="10" rot="R270"/>
+<attribute name="NAME" x="32.004" y="21.0312" size="0.9906" layer="25" ratio="10" rot="R270"/>
 </element>
 <element name="Q3" library="transistor" package="TO92" value="2N3904" x="32.385" y="33.9598" smashed="yes" rot="R90">
 <attribute name="NAME" x="29.3624" y="32.7914" size="1.27" layer="25" ratio="10" rot="R90"/>
@@ -1833,13 +1833,13 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="45.6946" y="31.623" size="1.27" layer="25" ratio="10" rot="R90"/>
 </element>
 <element name="R3" library="rcl" package="0204V" value="47k" x="43.18" y="33.3248" smashed="yes" rot="R90">
-<attribute name="NAME" x="43.8404" y="35.179" size="1.27" layer="25" ratio="10" rot="R90"/>
+<attribute name="NAME" x="42.3418" y="34.544" size="1.27" layer="25" ratio="10" rot="R90"/>
 </element>
 <element name="Q2" library="transistor-pnp" package="TO92" value="2N3906" x="37.465" y="33.9598" smashed="yes" rot="R180">
 <attribute name="NAME" x="36.2712" y="35.814" size="1.27" layer="25" ratio="10"/>
 </element>
 <element name="R4" library="rcl" package="0204/7" value="22k" x="37.465" y="25.7048" smashed="yes" rot="R90">
-<attribute name="NAME" x="37.1094" y="21.1074" size="0.9906" layer="25" ratio="10" rot="R270"/>
+<attribute name="NAME" x="37.1094" y="21.0312" size="0.9906" layer="25" ratio="10" rot="R270"/>
 </element>
 <element name="SW1" library="con-headers-jp" package="SIP-100-02-40" value="F-1X02-SIP-100-40" x="50.165" y="30.7848" smashed="yes" rot="R90">
 <attribute name="NAME" x="50.6222" y="33.8328" size="1.016" layer="25" ratio="18" rot="R90"/>

@@ -14890,6 +14890,7 @@ package type P</description>
 <part name="R22" library="rcl" deviceset="R-US_" device="0204/2V" value="100k"/>
 <part name="R23" library="rcl" deviceset="R-US_" device="0204/7" value="1k"/>
 <part name="Q12" library="transistor-pnp" deviceset="2N3906" device=""/>
+<part name="R27" library="rcl" deviceset="R-US_" device="0204/2V" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -14952,6 +14953,7 @@ AND IZZY84075</text>
 <instance part="R22" gate="G$1" x="88.9" y="35.56" rot="R90"/>
 <instance part="R23" gate="G$1" x="106.68" y="30.48" rot="R270"/>
 <instance part="Q12" gate="G$1" x="104.14" y="43.18"/>
+<instance part="R27" gate="G$1" x="58.42" y="35.56" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -15213,6 +15215,11 @@ AND IZZY84075</text>
 <pinref part="Q12" gate="G$1" pin="E"/>
 <wire x1="106.68" y1="48.26" x2="106.68" y2="58.42" width="0.1524" layer="91"/>
 <label x="106.68" y="58.42" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="R27" gate="G$1" pin="2"/>
+<wire x1="58.42" y1="30.48" x2="58.42" y2="27.94" width="0.1524" layer="91"/>
+<label x="58.42" y="27.94" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -15505,8 +15512,11 @@ AND IZZY84075</text>
 <net name="PA0" class="0">
 <segment>
 <pinref part="SW1" gate="G$1" pin="1"/>
-<wire x1="55.88" y1="40.64" x2="60.96" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="40.64" x2="58.42" y2="40.64" width="0.1524" layer="91"/>
 <label x="60.96" y="40.64" size="1.778" layer="95"/>
+<pinref part="R27" gate="G$1" pin="1"/>
+<wire x1="58.42" y1="40.64" x2="60.96" y2="40.64" width="0.1524" layer="91"/>
+<junction x="58.42" y="40.64"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="PA0/T0IN/!T0OUT!/XIN/DBG"/>

@@ -9,6 +9,20 @@
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
@@ -14855,7 +14869,7 @@ package type P</description>
 <part name="Q9" library="transistor" deviceset="2N3904" device=""/>
 <part name="R18" library="rcl" deviceset="R-US_" device="0204/2V" value="1k"/>
 <part name="D2" library="led" deviceset="LED" device="5MM"/>
-<part name="R19" library="rcl" deviceset="R-US_" device="0204/7" value="3.9"/>
+<part name="R19" library="rcl" deviceset="R-US_" device="0207/10" value="3.9"/>
 <part name="R13" library="rcl" deviceset="R-US_" device="0204/2V" value="1.3k"/>
 <part name="R12" library="rcl" deviceset="R-US_" device="0204/7" value="3.3k"/>
 <part name="Q8" library="transistor-pnp" deviceset="2N3906" device=""/>

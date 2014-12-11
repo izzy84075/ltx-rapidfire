@@ -1,7 +1,7 @@
 Type		Value		Package			Part						Quantity	Mouser #
 
 Cap			0.1uF						C1,C3						2			594-K104K15X7RF5UH5
-Cap			10uF/10V					C2							1			581-TAP106K010CCS
+Cap			10uF/10V					C2							1			581-TAP106K010SCS
 Cap			470uF/10V/LOW-ESR			C4							1			667-EEU-FM1A471
 Cap			0.022uF						C5							1			594-K223K15X7RF53L2
 

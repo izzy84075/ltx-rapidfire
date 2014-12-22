@@ -1,3 +1,3 @@
-Current PCBs can be ordered at https://oshpark.com/shared_projects/5OAWma1Q .
+Current PCBs can be ordered at https://oshpark.com/shared_projects/G452UN7Q .
 The current set of parts you'll need to populate the PCBs can be ordered from Mouser by importing the Bill-of-materials from https://raw.githubusercontent.com/izzy84075/ltx-rapidfire/master/PCB/parts-mouser.txt .
 In addition to these, if you do not already have one, you will need a Zilog USB Smart Cable, which can be ordered from Mouser as item number 692-ZUSBC00100ZACG .

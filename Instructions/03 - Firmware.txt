@@ -1,6 +1,6 @@
 If you're just getting started, we'll be using a prebuilt binary with a machinegun-like weapon profile loaded into it.
 
-1. Download the Zilog Smart Flash Programmer program from the Zilog Store ( http://store.zilog.com/index.php?option=com_ixxocart&Itemid=1&p=product&id=44&parent=5 is the current version as of 2014/07/16 ). You'll have to register for an account and then they'll send you an email with the download link. Check your spam folder, though, as they're notoriously unreliable about coming through properly...
+1. Download the Zilog Smart Flash Programmer program from the Zilog Store ( http://store.zilog.com/index.php?option=com_ixxocart&Itemid=1&p=product&id=44&parent=5 is the current version as of 2014/12/22 ). You'll have to register for an account and then they'll send you an email with the download link. Check your spam folder, though, as they're notoriously unreliable about coming through properly...
 
 2. Install the file that doesn't include the word "patch" first, then install the patch on top of it.
 
@@ -26,6 +26,6 @@ If you're just getting started, we'll be using a prebuilt binary with a machineg
 	
 	10c. Click the Program/Verify button and turn the tagger on at the same time. If you're lucky, it'll chug away for a little bit, and then show a "Flashing complete." message in the pane at the bottom of the SFP software's window. If you get any other message, try again!
 
-11. Congrats! You've successfully programmed your Rapidfire! Grab another tagger, and try it out! This firmware file should make a "whining" sound when you reload the attachment, and then fire 15 round at a very rapid pace when you hold down the trigger.
+11. Congrats! You've successfully programmed your Rapidfire! Grab another tagger, and try it out! This firmware file should make a "whining" sound when you reload the attachment, and then fire 15 rounds at a very rapid pace when you hold down the trigger.
 
 12. If you want to tweak the settings, move on to the next file, "04 - Customizing Your Rapidfire.txt"!

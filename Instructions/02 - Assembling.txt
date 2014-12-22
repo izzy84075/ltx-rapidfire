@@ -1,4 +1,4 @@
-Everything on this board is through-hole, so it should be nice and easy to assemble!
+To match up the parts to the correct spots, look in the ltx-rapidfire/PCB/parts-organized.txt file. Everything on this board is through-hole, so it should be nice and easy to assemble!
 
 Here are some general tips, though:
 	Start with the shortest components first.

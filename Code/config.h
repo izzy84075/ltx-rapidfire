@@ -37,10 +37,15 @@
 								// Ranges from 1-10 officially, but other values seem to work, as seen here.
 	#define AMMO 15				//Ammo is the amount of ready ammo to indicate in the Ammo Power Bar.
 								// Should normally be in the range 1-10, but accepted values range from 1-15.
-	#define DOUBLETAPS 0		//DoubleTaps is complicated, and should most likely be left at 0.
-					// This /does/ do things, but I don't fully understand it myself.
-					// It's similar to MegaTags, but does things differently.
-					// This code does NOT fully support DoubleTaps.
+	#define DOUBLETAPS 0x00		//DoubleTaps is complicated. It's a data structure specifically set up to take advantage of the processor in the LTX.
+								//When expanded, it looks something like ABB0CDD0, in binary.
+								//A and DD are paired, and affect the first shot that the tagger fires after loading/arming.
+								//A is a flag saying that there is data in DD.
+								//DD is the megatag value for the first shot.
+								//B and CC are also a pair.
+								//If B is set, you'll get a "free" shot immediately after the first.
+								//CC is the megatag value for this free shot.
+
 	#define BURSTSIZE 15		//BurstSize is how many shots will be fired if the trigger is held down.
 								// Ranges from 1 to 15, with 15 meaning "until we run out of ammo".
 	#define TRIGRATE 16			//TrigRate is the number of milliseconds between shots in increments of 10msec.
@@ -72,6 +77,8 @@
 								// 0x80: Show nothing (Ammo display will be blank.)
 								// Using other values is not recommended.
 	#define RELOADMIDCLIP 1		//Whether or not you can reload the attachment while it still has ammo loaded.
+	#define USEACCESSORYFORTAGS 1		//Do we use the accessory's barrel for the normal tags that the accessory fires?
+	#define USEACCESSORYFORDOUBLETAP 0	//Do we use the accessory's barrel for the DoubleTap "Free" shot?
 #endif	
 
 //And this is a profile without all the comments. This is probably what most of them will end up looking like.
@@ -81,11 +88,15 @@
 	#define BARRELTYPE 3
 	#define AMMONEEDED 4
 	#define AMMO 1
-	#define DOUBLETAPS 3
+	#define DOUBLETAPS 0
 	#define BURSTSIZE 1
 	#define TRIGRATE 200
 	#define LOADSFX 14
 	#define FIRESFX 13
 	#define DISPLAYMODE 0
 	#define RELOADMIDCLIP 0
+	#define USEACCESSORYFORTAGS 0
+	#define USEACCESSORYFORDOUBLETAP 0
+#endif
+
 #endif

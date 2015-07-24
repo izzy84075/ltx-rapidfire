@@ -40,6 +40,7 @@ volatile unsigned char ser_tx_currentbyte;	//Used to keep track of where in the 
 volatile unsigned char ir_rx_counter;		//Used to count how many cycles the IR RX pin has been in a particular state
 volatile unsigned char ir_rx_halfbits;		//Used to count how many high/low pulses have been captured.
 volatile unsigned char ir_loaded_tags;		//How much ammo is loaded in the attachment.
+volatile unsigned char ir_doubletap_state;	//Used for handling when to switch over to the doubletap INHIBIT state.
 
 volatile unsigned char btn_counter;			//Used to count how many cycles the button pin has been in a particular state
 volatile unsigned char btn_prelim;			//What state the button is in

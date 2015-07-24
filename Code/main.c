@@ -166,6 +166,22 @@ void interrupt isr_timer0(void) {
 				if(ir_loaded_tags) { //If we have ammo loaded in the attachment
 					ir_loaded_tags--; //Take one away!
 				}
+				if(ir_doubletap_state) {
+					ir_doubletap_state--;
+					if(ir_doubletap_state == 1) {
+						if(USEACCESSORYFORDOUBLETAP) {
+							PAOUT |= 0x02;			//Enable INHIBIT line, accessory barrel is responsible for IR
+						} else {
+							PAOUT &= ~(0x02);		//Disable INHIBIT line, tagger barrel will generate IR
+						}
+					} else if(ir_doubletap_state == 0) {
+						if(USEACCESSORYFORTAGS) {
+							PAOUT |= 0x02;			//Enable INHIBIT line, accessory barrel is responsible for IR
+						} else {
+							PAOUT &= ~(0x02);		//Disable INHIBIT line, tagger barrel will generate IR
+						}
+					}
+				}
 				if(!ir_loaded_tags) { //If we are now out of ammo
 					//Turn off the INHIBIT line
 					PAOUT &= 0xFD; //Disable the attachment barrel and go back to the main tagger barrel.
@@ -282,8 +298,13 @@ void queueChecksum(void) {
 
 void loadAmmo(unsigned char howMuch) {
 	ir_loaded_tags = howMuch;
-	//INHIBIT should be high to generate IR.
-	PAOUT |= 0x02;
+	//INHIBIT should be high to generate IR with the accessory barrel
+	
+	if(USEACCESSORYFORTAGS) {
+		PAOUT |= 0x02;
+	} else {
+		PAOUT &= ~(0x02);
+	}
 }
 
 void rxedResetBarrel(void) {
@@ -335,6 +356,11 @@ void rxedBarrelAck(void) {
 		weAreReloading = 0;
 		//We're now in control of sending IR. Set everything up for that.
 		loadAmmo(AMMO);
+		if(DOUBLETAPS & 0x08) {
+			//The "free" doubletap shot is loaded
+			ir_doubletap_state = 2;
+			ir_loaded_tags++;
+		}
 		//Slow down reloading a bit...
 		reloadCooldown = 800;
 	}

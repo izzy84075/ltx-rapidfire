@@ -74,7 +74,7 @@
 								// 0x00: Normal (Shows how much ammo remains. Anything above 10 will just show as 10.)
 								// 0x20: All flash (If any ammo is left, all ammo display segments will flash.)
 								// 0x40: All solid (If any ammo is left, all ammo display segments will be lit solid.)
-								// 0x80: Show nothing (Ammo display will be blank.)
+								// 0x80: Show nothing (Ammo display will be blank.), weapon cannot fire in this mode
 								// Using other values is not recommended.
 	#define RELOADMIDCLIP 1		//Whether or not you can reload the attachment while it still has ammo loaded.
 	#define USEACCESSORYFORTAGS 1		//Do we use the accessory's barrel for the normal tags that the accessory fires?

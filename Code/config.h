@@ -42,9 +42,9 @@
 								//A and DD are paired, and affect the first shot that the tagger fires after loading/arming.
 								//A is a flag saying that there is data in DD.
 								//DD is the megatag value for the first shot.
-								//B and CC are also a pair.
-								//If B is set, you'll get a "free" shot immediately after the first.
-								//CC is the megatag value for this free shot.
+								//BB and C are also a pair.
+								//If C is set, you'll get a "free" shot immediately after the first.
+								//BB is the megatag value for this free shot.
 
 	#define BURSTSIZE 15		//BurstSize is how many shots will be fired if the trigger is held down.
 								// Ranges from 1 to 15, with 15 meaning "until we run out of ammo".
@@ -97,6 +97,4 @@
 	#define RELOADMIDCLIP 0
 	#define USEACCESSORYFORTAGS 0
 	#define USEACCESSORYFORDOUBLETAP 0
-#endif
-
 #endif
